@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/acount"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="حسابي" />
+        <item
+            android:id="@+id/hakiba"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="الحقيبه" />
+        <item
+            android:id="@+id/mazad"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="مزاداتى" />
+        <item
+            android:id="@+id/mazad_fawry"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="اضافه مزاد فوري" />
+        <item
+            android:id="@+id/mazad_maftoh"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="اضافه مزاد مفتوح" />
+        <item
+            android:id="@+id/mazad_mosar"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="اضافه مزاد مسعر" />
+        <item
+            android:id="@+id/mahfza"
+            android:icon="@drawable/ic_style_black_24dp"
+            android:title="المحفظه" />
+        <item
+            android:id="@+id/sign_out"
+            android:icon="@drawable/ic_arrow_back_black_24dp"
+            android:title="تسجيل الخروج" />
+    </group>
+
+
+
+</menu>

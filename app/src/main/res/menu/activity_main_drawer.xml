@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single"
+        android:background="@color/colorPrimary"
+
+        >
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_search_blue_24dp"
+            android:title="Ads Search" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_add_blue_24dp"
+            android:title="Add Product" />
+        <item
+            android:id="@+id/my_favorite"
+            android:icon="@drawable/ic_star_off_24dp"
+            android:title="My Favorite" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_mode_edit_blue_24dp"
+            android:title="Setting " />
+    </group>
+
+    <item android:title="Communicate"
+        android:background="@color/colorPrimary"
+
+        >
+        <menu
+
+            >
+            <item
+                android:id="@+id/Contact_Us"
+                android:icon="@drawable/ic_contact_mail_black_24dp"
+                android:title="Contact Us" />
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_help_outline_black_24dp"
+                android:title="About App" />
+            <item
+                android:id="@+id/nav_LogOut"
+                android:icon="@drawable/baseline_reply_black_48"
+                android:title="Log Out" />
+        </menu>
+    </item>
+
+</menu>
