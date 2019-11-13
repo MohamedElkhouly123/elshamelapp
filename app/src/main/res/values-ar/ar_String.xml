@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" >ايزى تك</string>
+    <string name="easyTic">ايزى تك</string>
+    <string name="home">الرئيسية</string>
+    <string name="AdsSearch">ابحث عن اعلان</string>
+    <string name="AddProduct">اضافه اعلان</string>
+    <string name="MyFavorite">المفضلة</string>
+    <string name="Setting">الاعدادات</string>
+    <string name="Communicate">التواصل</string>
+    <string name="ContactUs">اتصل بنا</string>
+    <string name="AboutApp">عن التطبيق</string>
+    <string name="LogOut">تسجيل الخروج</string>
+    <string name="notify">الواردات</string>
+    <string name="category">الاقسام</string>
+    <string name="importantAds">اعلانات مهمة</string>
+    <string name="brands">مركات</string>
+    <string name="offers">عروض وتخفيضات</string>
+
+    <string name="search">ابحث هنا</string>
+    <string name="text_ham_button_text_normal">Ham </string>
+
+    <string name="later">لاحقا      >>></string>
+    <string name="register">تسجيل</string>
+    <string name="registerFace">تسجيل باستخدام الفيسبوك</string>
+    <string name="registerGoogle">تسجيل باستخدام جوجل</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="signUp">تسجيل</string>
+    <string name="orUse"> او باستخدام حسابك الجديد </string>
+
+    <string name="signUp2">انشاء حساب</string>
+    <string name="fullName"> الاسم كامل</string>
+    <string name="Email"> البريد الالكتروني</string>
+    <string name="Password"> كلمه المرور</string>
+    <string name="confirm_Password"> تاكيد كلمه المرور</string>
+    <string name="Phone"> رقم الموبيل</string>
+    <string name="Enter_address"> العنوان</string>
+    <string name="shop_"> صاحب محل ؟</string>
+    <string name="request"> مطلوب</string>
+    <string name="login3">تسجيل الدخول ؟</string>
+
+    <string name="login2">تسجيل الدخول</string>
+    <string name="forgetpass">نسيت كلمه المرور ؟</string>
+    <string name="signUp3">انشاء حساب جديد ؟</string>
+
+    <string name="contactUs">تواصل معنا</string>
+    <string name="message"> الرساله</string>
+    <string name="sendmessage">ارسال</string>
+    <string name="helpText">عميلنا العزيز تقدر تتواصل معنا خدمه العملاء متاحه فى اى وقت 24/7</string>
+
+    <string name="uoloadProduct">اضافه اعلان</string>
+    <string name="productName">اسم الاعلان</string>
+    <string name="Product_case">حاله الاعلان</string>
+    <string name="Cost">السعر(ج.م)</string>
+    <string name="Product_descripe">وصف الاعلان</string>
+    <string name="Owner_Name">اسم صاحب الاعلان</string>
+    <string name="quantity">الكميه</string>
+    <string name="I_agree_to">اوافق على</string>
+    <string name="the_publish_terms">شروط النشر</string>
+    <string name="Submit">تاكيد</string>
+</resources>

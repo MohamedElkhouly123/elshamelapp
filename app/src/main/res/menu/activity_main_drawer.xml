@@ -8,29 +8,53 @@
 
         >
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home"
+            android:title="@string/home"
             />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_search_blue_24dp"
-            android:title="Ads Search" />
+            android:id="@+id/importantAds"
+            android:icon="@drawable/ic_priority_high_black_24dp"
+            android:title="@string/importantAds" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_add_blue_24dp"
-            android:title="Add Product" />
+            android:id="@+id/AdsSearch"
+            android:icon="@drawable/ic_search_blue_24dp"
+            android:title="@string/AdsSearch" />
+        <item
+            android:id="@+id/addProduct"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="@string/AddProduct" />
+        <item
+            android:id="@+id/category"
+            android:icon="@drawable/category2"
+            android:title="@string/category" />
+        <item
+            android:id="@+id/brands"
+            android:icon="@drawable/iconfinder_brands_104857"
+            android:title="@string/brands" />
+        <item
+            android:id="@+id/offers"
+            android:icon="@drawable/iconfinder_discounts_3018522"
+            android:title="@string/offers" />
+        <item
+            android:id="@+id/navigation_notifications"
+            android:icon="@drawable/ic_notifications_blue_24dp"
+            android:title="@string/notify" />
         <item
             android:id="@+id/my_favorite"
             android:icon="@drawable/ic_star_off_24dp"
-            android:title="My Favorite" />
+            android:title="@string/MyFavorite" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_mode_edit_blue_24dp"
-            android:title="Setting " />
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/Setting" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_help_outline_black_24dp"
+            android:title="@string/AboutApp" />
     </group>
 
-    <item android:title="Communicate"
+    <item android:title="@string/Communicate"
         android:background="@color/colorPrimary"
 
         >
@@ -40,15 +64,12 @@
             <item
                 android:id="@+id/Contact_Us"
                 android:icon="@drawable/ic_contact_mail_black_24dp"
-                android:title="Contact Us" />
-            <item
-                android:id="@+id/about"
-                android:icon="@drawable/ic_help_outline_black_24dp"
-                android:title="About App" />
+                android:title="@string/ContactUs" />
+
             <item
                 android:id="@+id/nav_LogOut"
                 android:icon="@drawable/baseline_reply_black_48"
-                android:title="Log Out" />
+                android:title="@string/LogOut" />
         </menu>
     </item>
 

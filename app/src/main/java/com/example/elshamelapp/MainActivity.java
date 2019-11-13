@@ -1,9 +1,11 @@
 package com.example.elshamelapp;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +14,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.ButtonEnum;
+import com.nightonke.boommenu.Util;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private BoomMenuButton bmb;
 
     GridLayout gridLayout;
 
@@ -38,6 +46,87 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //
 //        setSingleEvent(gridLayout);
 
+
+
+        bmb = (BoomMenuButton) findViewById(R.id.bmb);
+
+
+        bmb.setButtonEnum(ButtonEnum.Ham);
+
+//        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_blue_24dp));
+
+        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
+//            new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_blue_24dp);
+            HamButton.Builder builder = new HamButton.Builder()
+
+//                    .normalImageRes(getImageResource())
+//                    .normalText("moh")
+//                    .subNormalTextRes(R.string.text_outside_circle_button_text_normal)
+                    .normalTextColorRes(R.color.white)
+                    .normalColorRes(R.color.blue)
+                    .highlightedColorRes(R.color.blueLight)
+
+//                    .textGravity(Gravity.CENTER_HORIZONTAL)
+                    .textGravity(Gravity.CENTER_VERTICAL)
+                    .textSize(20)
+                    .rotateImage(true)
+                    .buttonCornerRadius(Util.dp2px(5))
+//                    .textPadding(new Rect(10, 0, 10, 0))
+//                    .unableImageRes(R.drawable.markafhjbaharea)
+//                    .imageRect(new Rect(0, 0, Util.dp2px(60), Util.dp2px(60)))
+//                    .imagePadding(new Rect(5, 0, 5, 0))
+//                    .textRect(new Rect(Util.dp2px(70), Util.dp2px(10), Util.dp2px(280), Util.dp2px(40)))
+                    ;
+
+//                    .pieceColor(Color.WHITE)
+//                    .shadowEffect(true)
+//                    .shadowRadius(Util.dp2px(100))
+            if(i==0){builder.normalText("mohamed")
+
+            ; }
+            if(i==1){builder.normalText("ahmed"); }
+            if(i==2){builder.normalTextRes(R.string.text_ham_button_text_normal) ;}
+            if(i==3){builder.normalText("mohamed"); }
+
+            builder .listener(new OnBMClickListener() {
+                @Override
+                public void onBoomButtonClick(int index) {
+                    // When the boom-button corresponding this builder is clicked.
+                    Toast.makeText(MainActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+//                            if(index==0){// do this}
+//                            if(index==1){ }
+//                            if(index==2){ }
+//                            if(index==3){}
+
+                }
+//                       @Override
+//                       public void onBackgroundClick() {
+//                           textViewForAnimation.setText("Click background!!!");
+//                       }
+//                       @Override
+//                       public void onBoomWillHide() {
+//                           Log.d("BMB", "onBoomWillHide: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Will RE-BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomDidHide() {
+//                           Log.d("BMB", "onBoomDidHide: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Did RE-BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomWillShow() {
+//                           Log.d("BMB", "onBoomWillShow: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Will BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomDidShow() {
+//                           Log.d("BMB", "onBoomDidShow: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Did BOOM!!!");
+//                       }
+            });
+            bmb.addBuilder(builder);
+
+        }
     }
 
     // we are setting onClickListener for each element
@@ -56,6 +145,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //
 //
 //    }
+
+
 
     @Override
     public void onBackPressed() {

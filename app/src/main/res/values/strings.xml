@@ -1,5 +1,66 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Elshamel</string>
-    <string name="navigation_drawer_open" tools:ignore="ExtraTranslation">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_name">Easy Tic</string>
+    <string name="navigation_drawer_open" translatable="false" tools:ignore="ExtraTranslation">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="easyTic">Easy Tic</string>
+    <string name="home">Home</string>
+    <string name="AdsSearch">Ads Search</string>
+    <string name="AddProduct">Add Product</string>
+    <string name="MyFavorite">My Favorite</string>
+    <string name="Setting">Setting</string>
+    <string name="Communicate">Communicate</string>
+    <string name="ContactUs">Contact Us</string>
+    <string name="AboutApp">About App</string>
+    <string name="LogOut">Log Out</string>
+    <string name="notify">Notification</string>
+    <string name="category">Categories</string>
+    <string name="importantAds">Important Ads</string>
+    <string name="brands">Brands</string>
+    <string name="offers">Offers and discounts</string>
+
+    <string name="search">Search</string>
+    <string name="text_ham_button_text_normal">Ham </string>
+
+
+    <string name="later">Later      >>></string>
+    <string name="register">Register</string>
+    <string name="registerFace">Continue with Facebook</string>
+    <string name="registerGoogle">Continue with Google</string>
+    <string name="login">LOGIN</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="orUse"> OR USE YOUR EMAIL </string>
+
+    <string name="fullName">Full Name</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="confirm_Password">Confirm Password</string>
+    <string name="Phone">Phone</string>
+    <string name="Enter_address">Enter Address</string>
+    <string name="shop_">Shop ?</string>
+    <string name="request">request</string>
+    <string name="signUp2">Sign Up</string>
+    <string name="login3">Sign In ?</string>
+
+
+    <string name="login2">Sign In</string>
+    <string name="forgetpass">Forgot Password ?</string>
+    <string name="signUp3">Sign Up ?</string>
+
+    <string name="contactUs">Contact Us</string>
+    <string name="message">Message</string>
+    <string name="sendmessage">Send Message</string>
+    <string name="helpText">you can contact us 24/7 customer services available at any time</string>
+
+    <string name="uoloadProduct">Upload Product</string>
+    <string name="productName">Product Name</string>
+    <string name="Product_case">Product Case</string>
+    <string name="Cost">Cost (L.E)</string>
+    <string name="Product_descripe">Product descripe</string>
+    <string name="Owner_Name">Owner Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="I_agree_to">I agree to</string>
+    <string name="the_publish_terms">the publish terms</string>
+    <string name="Submit">Submit</string>
+
+
 </resources>

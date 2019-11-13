@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#51B0FD</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#0057FF</color>
+    <color name="blue">#0057FF</color>
+    <color name="blueLight">#3E7EFA</color>
+    <color name="white">#fff</color>
     <color name="photo_placeholder">#B3CCCCCC</color>
+    <array name="dot_colors">
+        <item>#0057FF</item>
+
+    </array>
 </resources>
