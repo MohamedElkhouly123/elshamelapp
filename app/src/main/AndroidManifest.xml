@@ -9,17 +9,20 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SellerProduct"></activity>
-        <activity android:name=".MyProduct" />
-        <activity android:name=".SellerProfile" />
-        <activity android:name=".MyProfile" />
-        <activity android:name=".UploodProduct">
+        <activity android:name=".SellersProfile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SellerProduct"></activity>
+        <activity android:name=".MyProduct" />
+        <activity android:name=".SellerProfile">
+
+        </activity>
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".UploodProduct"></activity>
         <activity android:name=".ContactUs" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />

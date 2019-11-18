@@ -18,6 +18,8 @@ android {
         }
     }
 }
+def recycler_version = '1.0.0'
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -32,11 +34,13 @@ dependencies {
 
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
+//Circle image view
     implementation 'de.hdodenhof:circleimageview:3.0.1'
-    implementation 'com.pkmmte.view:circularimageview:1.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.bhargavms:DotLoader:1.1.1'
     implementation 'com.nightonke:boommenu:2.1.1'
 
+//RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$recycler_version"
 
 }

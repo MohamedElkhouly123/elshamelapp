@@ -49,13 +49,38 @@
     <string name="helpText">عميلنا العزيز تقدر تتواصل معنا خدمه العملاء متاحه فى اى وقت 24/7</string>
 
     <string name="uoloadProduct">اضافه اعلان</string>
-    <string name="productName">اسم الاعلان</string>
-    <string name="Product_case">حاله الاعلان</string>
-    <string name="Cost">السعر(ج.م)</string>
-    <string name="Product_descripe">وصف الاعلان</string>
-    <string name="Owner_Name">اسم صاحب الاعلان</string>
-    <string name="quantity">الكميه</string>
-    <string name="I_agree_to">اوافق على</string>
+    <string name="productName"> اسم الاعلان</string>
+    <string name="Product_case"> حاله الاعلان</string>
+    <string name="Cost"> السعر ( ج.م )</string>
+    <string name="Product_descripe"> وصف الاعلان</string>
+    <string name="Owner_Name"> اسم صاحب الاعلان</string>
+    <string name="quantity"> الكميه</string>
+    <string name="I_agree_to"> اوافق على</string>
     <string name="the_publish_terms">شروط النشر</string>
     <string name="Submit">تاكيد</string>
+
+    <string name="myInfo">معلوماتى</string>
+    <string name="userInfo">معلومات المستخدم</string>
+    <string name="ownerShop">صاحب محل</string>
+    <string name="products">الاعلانات</string>
+    <string name="myproducts">اعلاناتى</string>
+    <string name="Followers">المتابعين</string>
+    <string name="Rate">التقييم</string>
+    <string name="More">المزيد</string>
+    <string name="Edit_Site">تعديل الموقع</string>
+    <string name="Notifies">التنبيهات</string>
+    <string name="Addads">اضافه اعلان</string>
+    <string name="report">اشتكى</string>
+    <string name="Location">الموقع</string>
+    <string name="Chat">محادثه</string>
+    <string name="Follow_me">متابعه</string>
+    <string name="View_More">عرض المزيد</string>
+
+    <string name="AdsDetails">تفاصيل الاعلان</string>
+    <string name="DeleteAds">حذف الاعلان</string>
+    <string name="Addphoto">اضافه صوره</string>
+    <string name="EditAds">تعديل الاعلان</string>
+    <string name="Date">التاريخ</string>
+    <string name="Like">اعجبنى</string>
+
 </resources>

@@ -18,7 +18,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         >
-        <com.pkmmte.view.CircularImageView
+        <de.hdodenhof.circleimageview.CircleImageView
 
             android:id="@+id/imageView_account"
 
@@ -27,9 +27,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/placeperson"
-            app:border="true"
-            app:border_color="#0057FF"
-            app:border_width="1.7dp"
+
             android:scaleType="centerCrop"
 
 

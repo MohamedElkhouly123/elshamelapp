@@ -5,7 +5,7 @@
     <string name="easyTic">Easy Tic</string>
     <string name="home">Home</string>
     <string name="AdsSearch">Ads Search</string>
-    <string name="AddProduct">Add Product</string>
+    <string name="AddProduct">Add Ads</string>
     <string name="MyFavorite">My Favorite</string>
     <string name="Setting">Setting</string>
     <string name="Communicate">Communicate</string>
@@ -52,15 +52,39 @@
     <string name="helpText">you can contact us 24/7 customer services available at any time</string>
 
     <string name="uoloadProduct">Upload Product</string>
-    <string name="productName">Product Name</string>
-    <string name="Product_case">Product Case</string>
+    <string name="productName">Ads Name</string>
+    <string name="Product_case">Ads Case</string>
     <string name="Cost">Cost (L.E)</string>
-    <string name="Product_descripe">Product descripe</string>
+    <string name="Product_descripe">Ads descripe</string>
     <string name="Owner_Name">Owner Name</string>
     <string name="quantity">Quantity</string>
     <string name="I_agree_to">I agree to</string>
     <string name="the_publish_terms">the publish terms</string>
     <string name="Submit">Submit</string>
+
+    <string name="myInfo">My Information</string>
+    <string name="userInfo">User Information</string>
+    <string name="ownerShop">I am Owner shop</string>
+    <string name="products">User Ads</string>
+    <string name="myproducts">My Ads</string>
+    <string name="Followers">Followers</string>
+    <string name="Rate">Rate</string>
+    <string name="More">More</string>
+    <string name="Edit_Site">Edit Site</string>
+    <string name="Notifies">Notifies</string>
+    <string name="Addads">Add ads</string>
+    <string name="report">report</string>
+    <string name="Location">Location</string>
+    <string name="Chat">Chat</string>
+    <string name="Follow_me">Follow me</string>
+    <string name="View_More">View More</string>
+
+    <string name="AdsDetails">Ads Details</string>
+    <string name="DeleteAds">Delete Ads</string>
+    <string name="Addphoto">Add photo</string>
+    <string name="EditAds">Edit Ads</string>
+    <string name="Date">Date:</string>
+    <string name="Like">Like</string>
 
 
 </resources>
