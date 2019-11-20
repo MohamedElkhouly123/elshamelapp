@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main2">
+    android:paddingBottom="@dimen/_20sdp"
+   >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,55 +19,6 @@
     >
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
-        android:layout_gravity="top"
-        android:elevation="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        app:cardCornerRadius="12dp"
-      >
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="@dimen/_10sdp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/search"
-                    android:textSize="@dimen/_13ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-
-                    android:id="@+id/profilePhoto"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_6sdp"
-                    android:layout_marginEnd="@dimen/_6sdp"
-                    android:src="@drawable/placeperson"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-
-    </androidx.cardview.widget.CardView>
 
 
     <androidx.cardview.widget.CardView
@@ -92,7 +44,7 @@
             android:text="الاقسام"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:fontFamily="@font/lemon"
             android:textColor="#B3000000"
             android:textSize="@dimen/_11sdp"
@@ -389,7 +341,7 @@
             android:text="الاقسام"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:fontFamily="@font/lemon"
             android:textColor="#B3000000"
             android:textSize="@dimen/_11sdp"

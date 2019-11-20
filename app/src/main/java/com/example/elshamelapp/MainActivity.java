@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
@@ -12,7 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.elshamelapp.view.categories.CategoryFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -21,7 +26,8 @@ import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Util;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener ,
+        BottomNavigationView.OnNavigationItemSelectedListener{
     private BoomMenuButton bmb;
 
     GridLayout gridLayout;
@@ -32,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        NavigationView navigationView2;
+
+        BottomNavigationView navigation =  findViewById(R.id.nav_viewb);
+        navigation.setOnNavigationItemSelectedListener(this);
+
+        navigationView2 = (NavigationView) findViewById(R.id.nav_view);
+        View headerLayout = navigationView2.getHeaderView(0);
+        loadFragment(new HomeFragment());
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -185,17 +200,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-//        if (id == R.id.nav_home) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
+        Fragment fragment;
+        if (id == R.id.navigation_home) {
+            // Handle the camera action
+            fragment = new HomeFragment();
+            loadFragment(fragment);
+        } else if (id == R.id.navigation_notifications) {
+            fragment = new NotificationsFragment();
+            loadFragment(fragment);
+        } else if (id == R.id.navigation_category) {
+            fragment = new CategoryFragment();
+            loadFragment(fragment);
+        } else if (id == R.id.importantAds) {
+            fragment = new ImportantAddsFragment();
+            loadFragment(fragment);
+        }
+//        else if (id == R.id.nav_share) {
 //
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_tools) {
-
-//        }  else if (id == R.id.nav_share) {
-
 //        } else if (id == R.id.nav_send) {
 //
 //        }
@@ -203,5 +224,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

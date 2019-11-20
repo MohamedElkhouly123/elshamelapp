@@ -13,13 +13,13 @@ import com.tmall.ultraviewpager.UltraViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyProduct extends AppCompatActivity {
+public class SellersProduct extends AppCompatActivity {
     @BindView(R.id.ultra_viewpager)
     UltraViewPager ultraViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_product);
+        setContentView(R.layout.activity_sellers_product);
         ButterKnife.bind(this);
 
         // init all widgets in this activity

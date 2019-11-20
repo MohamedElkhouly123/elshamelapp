@@ -76,11 +76,11 @@
     <string name="Follow_me">متابعه</string>
     <string name="View_More">عرض المزيد</string>
 
-    <string name="AdsDetails">تفاصيل الاعلان</string>
+    <string name="AdsDetails">الاعلان</string>
     <string name="DeleteAds">حذف الاعلان</string>
     <string name="Addphoto">اضافه صوره</string>
     <string name="EditAds">تعديل الاعلان</string>
-    <string name="Date">التاريخ</string>
     <string name="Like">اعجبنى</string>
+    <string name="publishdate">تاريخ النشر :</string>
 
 </resources>

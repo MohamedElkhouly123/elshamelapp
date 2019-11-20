@@ -89,7 +89,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#CC01B1FD"
+                            android:background="#0057FF"
                             android:elevation="1dp"
                             android:padding="5dp"/>
 
@@ -331,7 +331,7 @@
                                 android:text="@string/Follow_me"
                                 android:gravity="bottom"
                                 android:textColor="#0057FF"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -362,7 +362,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/Chat"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -390,7 +390,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/Location"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -418,7 +418,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/report"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
                                 />
 

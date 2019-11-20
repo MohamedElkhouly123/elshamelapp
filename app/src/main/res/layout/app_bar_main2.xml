@@ -4,35 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B3FFFFFF"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity">
-    <LinearLayout
+    tools:context=".MainActivity"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/_2sdp"
-       >
-        <com.nightonke.boommenu.BoomMenuButton
-            android:id="@+id/bmb"
-            android:layout_width="wrap_content"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_gravity="top"
+        android:elevation="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/_150sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:cardCornerRadius="12dp"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_10sdp"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/search"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:id="@+id/profilePhoto"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:src="@drawable/placeperson"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="6dp"
-            app:bmb_normalColor="#EDEAFD"
-            app:bmb_shareLine1Color="#0057FF"
-            app:bmb_buttonEnum="ham"
-            app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
-            app:bmb_piecePlaceEnum="piecePlace_ham_4"
-            />
-    </LinearLayout>
-    <include layout="@layout/content_main2" />
+            android:layout_gravity="bottom"
+            android:elevation="@dimen/_1sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.nightonke.boommenu.BoomMenuButton
+                    android:id="@+id/bmb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:elevation="@dimen/_1sdp"
+                    app:bmb_buttonEnum="ham"
+                    app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
+                    app:bmb_normalColor="#EDEAFD"
+                    app:bmb_piecePlaceEnum="piecePlace_ham_4"
+                    app:bmb_shareLine1Color="#fff" />
+            </LinearLayout>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nav_viewb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:elevation="@dimen/_5sdp"
+                android:background="#FCFFFFFF"
+
+                app:theme="@style/ThemeOverlay.AppCompat.navTheme2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:menu="@menu/bottom_nav_menu" />
+        </LinearLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginTop="@dimen/_35sdp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+           >
+
+
+        </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

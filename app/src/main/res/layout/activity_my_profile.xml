@@ -332,7 +332,7 @@
                                 android:text="@string/Addads"
                                 android:gravity="bottom"
                                 android:textColor="#0057FF"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -363,7 +363,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/Notifies"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -391,7 +391,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/Edit_Site"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
 
                                 />
@@ -419,7 +419,7 @@
                                 android:layout_height="@dimen/_25sdp"
                                 android:text="@string/More"
                                 android:gravity="bottom"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
                                 />
 
@@ -738,13 +738,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="left"
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/_2sdp"
+        android:elevation="1dp"
        >
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -753,14 +753,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:backgroundTint="#EDEAFD"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:backgroundTint="#F201B1FD"
+        android:elevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_mode_edit_black_24dp"
+        app:srcCompat="@drawable/ic_mode_edit_blue_24dp"
         tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>

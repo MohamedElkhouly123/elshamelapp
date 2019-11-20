@@ -79,12 +79,12 @@
     <string name="Follow_me">Follow me</string>
     <string name="View_More">View More</string>
 
-    <string name="AdsDetails">Ads Details</string>
+    <string name="AdsDetails">The Ads</string>
     <string name="DeleteAds">Delete Ads</string>
     <string name="Addphoto">Add photo</string>
     <string name="EditAds">Edit Ads</string>
-    <string name="Date">Date:</string>
     <string name="Like">Like</string>
+    <string name="publishdate">Publish date :</string>
 
 
 </resources>

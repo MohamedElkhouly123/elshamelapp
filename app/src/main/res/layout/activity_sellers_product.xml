@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyProduct"
     android:background="#B3FFFFFF"
-    >
-
+    tools:context=".SellersProduct">
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -194,6 +192,54 @@
 
                 app:layout_constraintTop_toTopOf="parent">
 
+              <androidx.constraintlayout.widget.ConstraintLayout
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="0"
+
+                      android:textColor="#F201B1FD"
+                      android:elevation="@dimen/_8sdp"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      />
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:orientation="vertical"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent">
+
+                      <com.google.android.material.floatingactionbutton.FloatingActionButton
+                          android:id="@+id/edit_floating_action_button"
+                          style="@style/Widget.Design.FloatingActionButton"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+
+                          android:backgroundTint="#EDEAFD"
+
+                          app:srcCompat="@drawable/like3"
+                          tools:ignore="VectorDrawableCompat" />
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="@dimen/_25sdp"
+                          android:fontFamily="@font/lemon2"
+                          android:gravity="bottom"
+                          android:text="@string/Like"
+                          android:textColor="#0057FF"
+                          android:textSize="@dimen/_13ssp" />
+
+                  </LinearLayout>
+              </androidx.constraintlayout.widget.ConstraintLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -202,14 +248,14 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/edit_floating_action_button"
+                        android:id="@+id/delete_product"
                         style="@style/Widget.Design.FloatingActionButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:backgroundTint="#EDEAFD"
 
-                        app:srcCompat="@drawable/ic_mode_edit_black_24dp"
+                        app:srcCompat="@drawable/ic_my_location_black_24dp"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
@@ -217,13 +263,11 @@
                         android:layout_height="@dimen/_25sdp"
                         android:textSize="@dimen/_13ssp"
                         android:fontFamily="@font/lemon2"
-                        android:text="@string/EditAds"
+                        android:text="@string/Location"
                         android:gravity="bottom"
-                        android:textColor="#0057FF"
                         />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -239,7 +283,7 @@
 
                         android:backgroundTint="#EDEAFD"
 
-                        app:srcCompat="@drawable/ic_add_to_photos_black_24dp"
+                        app:srcCompat="@drawable/ic_chat_blue_24dp"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
@@ -247,7 +291,7 @@
                         android:layout_height="@dimen/_25sdp"
                         android:textSize="@dimen/_13ssp"
                         android:fontFamily="@font/lemon2"
-                        android:text="@string/Addphoto"
+                        android:text="@string/Chat"
                         android:gravity="bottom"
 
                         />
@@ -270,7 +314,7 @@
 
                         android:backgroundTint="#EDEAFD"
 
-                        app:srcCompat="@drawable/ic_edit_location_black_24dp"
+                        app:srcCompat="@drawable/ic_report_black_24dp"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
@@ -278,40 +322,12 @@
                         android:layout_height="@dimen/_25sdp"
                         android:textSize="@dimen/_13ssp"
                         android:fontFamily="@font/lemon2"
-                        android:text="@string/Edit_Site"
+                        android:text="@string/report"
                         android:gravity="bottom"
 
                         />
 
 
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/delete_product"
-                        style="@style/Widget.Design.FloatingActionButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:backgroundTint="#EDEAFD"
-
-                        app:srcCompat="@drawable/ic_delete_black_24dp"
-                        tools:ignore="VectorDrawableCompat" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_25sdp"
-                        android:textSize="@dimen/_13ssp"
-                        android:fontFamily="@font/lemon2"
-                        android:text="@string/DeleteAds"
-                        android:gravity="bottom"
-                        />
 
                 </LinearLayout>
             </LinearLayout>

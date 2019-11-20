@@ -9,26 +9,31 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".SellersProduct">
+
+        </activity>
         <activity android:name=".SellersProfile">
+
+        </activity>
+        <activity android:name=".MyProduct">
+
+        </activity>
+        <activity android:name=".MyProfile">
+
+        </activity>
+        <activity android:name=".UploodProduct" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".Login" />
+        <activity android:name=".Regester" />
+        <activity android:name=".Splash" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SellerProduct"></activity>
-        <activity android:name=".MyProduct" />
-        <activity android:name=".SellerProfile">
-
-        </activity>
-        <activity android:name=".MyProfile"></activity>
-        <activity android:name=".UploodProduct"></activity>
-        <activity android:name=".ContactUs" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".Login" />
-        <activity android:name=".Regester" />
-        <activity android:name=".Splash" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
