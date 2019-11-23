@@ -85,4 +85,13 @@
 
     <string name="next">التالى</string>
     <string name="start">انهاء</string>
+    <string name="welcome">اهلا بك فى ايزى تك</string>
+    <string name="welcome2">ايزى تك هو تطبيق دليل للتسوق للجميع بالاضافه لعده خدمات اخرى اضافيه</string>
+    <string name="OoopsHowcanfind">اوبس ازاى اقدر اجد اى منتج ؟</string>
+    <string name="OoopsHowcanfind2">متقلقش عندنا هتقدر تبحث عن اى منتج بالاضافه الى انك تقدر تعرف مكانه وكل التفاصيل اللى تخصه كمان</string>
+    <string name="Howknowthebest">طب ازاى احدد الافضل بقى ؟</string>
+    <string name="Howknowthebest2">مع ايزى تك هتقدر تشوف كل المحلات وتقارن كمان بينها مش بس كده دا كمان كل المنتجات المعروضه من اشخاص لا تملك محل وتقرر الانسب ليك</string>
+    <string name="Myshopuknownunseen">محلك مش معروف مش متشاف ؟</string>
+    <string name="Myshopuknownunseen2">متقلقش عندنا هتقدر تقول للجميع انا هنا انا موجود واملك المنتجات الافضل وافضل الاسعار والعروض</string>
+
 </resources>

@@ -88,5 +88,13 @@
 
     <string name="next">NEXT</string>
     <string name="start">FINISH</string>
+    <string name="welcome">Welcome in Easy Tic</string>
+    <string name="welcome2">Easy Tic is online shopping guide app In addition to several other services for anyone</string>
+    <string name="OoopsHowcanfind">Ooops How can find this Product ?</string>
+    <string name="OoopsHowcanfind2">Don`t worry can her search about any product and know her location or cost and other details</string>
+    <string name="Howknowthebest">How know the best ?</string>
+    <string name="Howknowthebest2">With Easy Tic can see lot of shops and compare between shops and products to choose the best for you</string>
+    <string name="Myshopuknownunseen">My shop uknown unseen ?</string>
+    <string name="Myshopuknownunseen2">Donn`t worry her can tell for all I`m her I have best products and best over or costs</string>
 
 </resources>
