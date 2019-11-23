@@ -1,4 +1,4 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Main;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -16,6 +16,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.elshamelapp.view.Notifications.NotificationsFragment;
+import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.Home.HomeFragment;
+import com.example.elshamelapp.view.ImportantAda.ImportantAddsFragment;
 import com.example.elshamelapp.view.categories.CategoryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;

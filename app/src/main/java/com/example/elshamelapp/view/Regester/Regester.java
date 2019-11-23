@@ -1,14 +1,16 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Regester;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ContactUs extends AppCompatActivity {
+import com.example.elshamelapp.R;
+
+public class Regester extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_us);
+        setContentView(R.layout.activity_regester);
     }
 }

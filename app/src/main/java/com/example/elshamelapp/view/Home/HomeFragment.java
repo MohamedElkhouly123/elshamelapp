@@ -1,4 +1,4 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+
+import com.example.elshamelapp.R;
 
 public class HomeFragment extends Fragment {
 

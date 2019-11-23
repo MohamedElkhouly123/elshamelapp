@@ -24,7 +24,7 @@
  *
  */
 
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Product_details;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -34,6 +34,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.elshamelapp.R;
 
 /**
  * Created by mikeafc on 15/11/26.

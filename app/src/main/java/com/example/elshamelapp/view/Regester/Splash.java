@@ -1,4 +1,4 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Regester;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
 import com.bhargavms.dotloader.DotLoader;
+import com.example.elshamelapp.R;
 
 public class Splash extends AppCompatActivity {
     DotLoader dotLoader;

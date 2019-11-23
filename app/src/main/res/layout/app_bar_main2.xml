@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#B3FFFFFF"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context=".view.Main.MainActivity"
     >
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

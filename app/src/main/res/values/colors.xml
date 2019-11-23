@@ -11,4 +11,12 @@
         <item>#0057FF</item>
 
     </array>
+    <array name="array_dot_active">
+        <item>#0057FF</item>
+
+    </array>
+    <array name="array_dot_inactive">
+        <item>#1A0057FF</item>
+
+    </array>
 </resources>

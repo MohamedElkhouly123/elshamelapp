@@ -1,13 +1,14 @@
-package com.example.elshamelapp;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
+package com.example.elshamelapp.view.Product_details;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.elshamelapp.R;
 import com.tmall.ultraviewpager.UltraViewPager;
 
 import butterknife.BindView;

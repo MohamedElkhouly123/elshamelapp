@@ -1,14 +1,16 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.Upload_Product;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SignUp extends AppCompatActivity {
+import com.example.elshamelapp.R;
+
+public class UploodProduct extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_uplood_product);
     }
 }

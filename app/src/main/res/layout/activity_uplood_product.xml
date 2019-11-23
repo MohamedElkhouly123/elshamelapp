@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".UploodProduct">
+    tools:context=".view.Upload_Product.UploodProduct">
 
     <androidx.constraintlayout.widget.ConstraintLayout
 

@@ -9,31 +9,24 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SellersProduct">
-
-        </activity>
-        <activity android:name=".SellersProfile">
-
-        </activity>
-        <activity android:name=".MyProduct">
-
-        </activity>
-        <activity android:name=".MyProfile">
-
-        </activity>
-        <activity android:name=".UploodProduct" />
-        <activity android:name=".ContactUs" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".Login" />
-        <activity android:name=".Regester" />
-        <activity android:name=".Splash" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.About_App.AboutApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.Product_details.MyProduct" />
+        <activity android:name=".view.Product_details.SellersProduct" />
+        <activity android:name=".view.Profile.SellersProfile" />
+        <activity android:name=".view.Profile.MyProfile" />
+        <activity android:name=".view.Upload_Product.UploodProduct" />
+        <activity android:name=".view.contactUs.ContactUs" />
+        <activity android:name=".view.Sign_up.SignUp" />
+        <activity android:name=".view.Login.Login" />
+        <activity android:name=".view.Regester.Regester" />
+        <activity android:name=".view.Regester.Splash" />
+        <activity android:name=".view.Main.MainActivity"></activity>
     </application>
 
 </manifest>

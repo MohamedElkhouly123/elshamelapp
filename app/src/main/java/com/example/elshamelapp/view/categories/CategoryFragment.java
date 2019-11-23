@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.elshamelapp.view.categories.CategoriesAdapter;
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.categories.ItemObjectModel;
 
 import java.util.ArrayList;
 import java.util.List;

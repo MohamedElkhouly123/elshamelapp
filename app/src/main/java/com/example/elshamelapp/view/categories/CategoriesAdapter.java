@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.elshamelapp.view.categories.CategoryRecyclerViewHolders;
-import com.example.elshamelapp.view.categories.ItemObjectModel;
 import com.example.elshamelapp.R;
 
 import java.util.List;

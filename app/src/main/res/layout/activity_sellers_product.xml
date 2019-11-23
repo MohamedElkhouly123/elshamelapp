@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3FFFFFF"
-    tools:context=".SellersProduct">
+    tools:context=".view.Product_details.SellersProduct">
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -87,7 +87,6 @@
             android:id="@+id/ultra_viewpager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
-            android:layout_marginTop="0.1dp"
             android:background="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"
 

@@ -1,14 +1,16 @@
-package com.example.elshamelapp;
+package com.example.elshamelapp.view.contactUs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SellersProfile extends AppCompatActivity {
+import com.example.elshamelapp.R;
+
+public class ContactUs extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sellers_profile);
+        setContentView(R.layout.activity_contact_us);
     }
 }
