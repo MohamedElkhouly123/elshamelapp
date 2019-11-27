@@ -41,7 +41,7 @@
             >
         <TextView
             android:id="@+id/report"
-            android:background="@drawable/circle_style"
+            android:background="@drawable/circle_style_nav"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_23sdp"
             android:layout_gravity="center"

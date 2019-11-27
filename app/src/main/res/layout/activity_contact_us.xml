@@ -75,9 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp"
 
@@ -121,9 +121,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp">
 
@@ -165,9 +165,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp">
 
@@ -214,7 +214,7 @@
             android:textColor="#0057FF"
             android:fontFamily="@font/janna"
             android:textStyle="bold"
-            android:textSize="@dimen/_12ssp"        />
+            android:textSize="@dimen/_13ssp"        />
 
         <ImageView
             android:id="@+id/imageView"
@@ -229,9 +229,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/helpText"
-            android:textSize="@dimen/_15ssp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/ber"
             android:textColor="#59070707"
             android:textAlignment="center"

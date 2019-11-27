@@ -20,7 +20,7 @@
     <string name="search">ابحث هنا</string>
     <string name="text_ham_button_text_normal">Ham </string>
 
-    <string name="later">لاحقا      >>></string>
+    <string name="later">فيما بعد      >>></string>
     <string name="register">تسجيل</string>
     <string name="registerFace">تسجيل باستخدام الفيسبوك</string>
     <string name="registerGoogle">تسجيل باستخدام جوجل</string>
@@ -41,7 +41,7 @@
 
     <string name="login2">تسجيل الدخول</string>
     <string name="forgetpass">نسيت كلمه المرور ؟</string>
-    <string name="signUp3">انشاء حساب جديد ؟</string>
+    <string name="signUp3">انشاء حساب ؟</string>
 
     <string name="contactUs">تواصل معنا</string>
     <string name="message"> الرساله</string>
@@ -93,5 +93,8 @@
     <string name="Howknowthebest2">مع ايزى تك هتقدر تشوف كل المحلات وتقارن كمان بينها مش بس كده دا كمان كل المنتجات المعروضه من اشخاص لا تملك محل وتقرر الانسب ليك</string>
     <string name="Myshopuknownunseen">محلك مش معروف مش متشاف ؟</string>
     <string name="Myshopuknownunseen2">متقلقش عندنا هتقدر تقول للجميع انا هنا انا موجود واملك المنتجات الافضل وافضل الاسعار والعروض</string>
+
+    <string name="facebook_app_id">483262328977596</string>
+    <string name="fb_login_protocol_scheme">fb483262328977596</string>
 
 </resources>

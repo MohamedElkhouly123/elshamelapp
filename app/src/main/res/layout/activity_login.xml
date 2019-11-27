@@ -91,8 +91,8 @@
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_30sdp"
-        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
         app:cardBackgroundColor="#ECECEC"
         app:cardCornerRadius="10dp"
     >
@@ -122,6 +122,7 @@
                     android:hint="@string/Email"
                     android:textSize="@dimen/_13ssp"
                     android:fontFamily="@font/janna"
+
                     android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -134,9 +135,9 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
 
         app:cardBackgroundColor="#ECECEC"
         app:cardCornerRadius="10dp"
@@ -203,11 +204,11 @@
         android:textColor="#0057FF"
         android:fontFamily="@font/janna"
         android:textStyle="bold"
-        android:textSize="@dimen/_12ssp"        />
+        android:textSize="@dimen/_13ssp"        />
 
 
         <TextView
-            android:id="@+id/later"
+            android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signUp3"
@@ -215,7 +216,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:textColor="#2F6EE4"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/ber"
 
 

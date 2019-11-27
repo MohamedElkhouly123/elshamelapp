@@ -11,7 +11,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_20sdp"
        >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -118,8 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="#ECECEC"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardCornerRadius="10dp"
   >
 
@@ -161,9 +161,9 @@
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
 
             app:cardCornerRadius="10dp"
@@ -212,9 +212,9 @@
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp"
      >
@@ -254,9 +254,9 @@
             android:id="@+id/cardView23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp"
          >
@@ -299,9 +299,9 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="#ECECEC"
             app:cardCornerRadius="10dp"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
         >
 
 
@@ -343,9 +343,9 @@
             android:id="@+id/cardView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
 
             app:cardCornerRadius="10dp"
@@ -389,9 +389,9 @@
             android:id="@+id/cardView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
 
             app:cardCornerRadius="10dp"
@@ -434,9 +434,9 @@
             android:id="@+id/cardView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:cardBackgroundColor="#ECECEC"
 
             app:cardCornerRadius="10dp"
@@ -481,8 +481,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linear2"
@@ -496,7 +496,7 @@
             android:text="@string/I_agree_to"
             android:fontFamily="@font/ber"
             android:textColor="#99070707"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_15ssp"
 
           />
 
@@ -509,7 +509,7 @@
             android:text="@string/the_publish_terms"
             android:textColor="#2F6EE4"
             android:textStyle="bold"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_15ssp"
             android:fontFamily="@font/ber"
          />
         </LinearLayout>
@@ -518,10 +518,9 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_30sdp"
 
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/_20sdp"
             android:background="#99070707"
             android:textSize="22dp"
             android:textStyle="bold"
@@ -538,7 +537,7 @@
             android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_40sdp"
             android:text="@string/Submit"
             android:textColor="#2F6EE4"
             android:textSize="@dimen/_19ssp"

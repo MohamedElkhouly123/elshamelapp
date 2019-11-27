@@ -15,6 +15,8 @@ import android.view.animation.Animation;
 
 import com.bhargavms.dotloader.DotLoader;
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.About_App.AboutApp;
+import com.example.elshamelapp.view.About_App.IntroSlider;
 
 public class Splash extends AppCompatActivity {
     DotLoader dotLoader;
@@ -23,15 +25,15 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
-        if(pref.getBoolean("activity_executed", false)){
-            Intent intent = new Intent(this, Regester.class);
-            startActivity(intent);
-            finish();
-        } else {
-            SharedPreferences.Editor ed = pref.edit();
-            ed.putBoolean("activity_executed", true);
-            ed.commit();
-        }
+//        if(pref.getBoolean("activity_executed", false)){
+//            Intent intent = new Intent(this, Regester.class);
+//            startActivity(intent);
+//            finish();
+//        } else {
+//            SharedPreferences.Editor ed = pref.edit();
+//            ed.putBoolean("activity_executed", true);
+//            ed.commit();
+//        }
         // SET no title , full-screen mode
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -70,7 +72,7 @@ public class Splash extends AppCompatActivity {
                         // redirect to the other screen, such as MainActivity
 
 
-                        Intent intent = new Intent(Splash.this,Regester.class);
+                        Intent intent = new Intent(Splash.this, AboutApp.class);
                         startActivity(intent);
 
                         // close SplashActivity

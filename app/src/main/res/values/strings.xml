@@ -97,4 +97,7 @@
     <string name="Myshopuknownunseen">My shop uknown unseen ?</string>
     <string name="Myshopuknownunseen2">Donn`t worry her can tell for all I`m her I have best products and best over or costs</string>
 
+    <string name="facebook_app_id">483262328977596</string>
+    <string name="fb_login_protocol_scheme">fb483262328977596</string>
+
 </resources>

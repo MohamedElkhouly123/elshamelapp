@@ -95,8 +95,8 @@
                 android:id="@+id/cardView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
 
                 app:cardCornerRadius="10dp"
@@ -139,9 +139,9 @@
                 android:id="@+id/cardView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
 
                 app:cardCornerRadius="10dp"
@@ -184,9 +184,9 @@
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
                 app:cardCornerRadius="10dp"
               >
@@ -228,9 +228,9 @@
                 android:id="@+id/cardView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
                 app:cardCornerRadius="10dp"
        >
@@ -271,9 +271,9 @@
                 android:id="@+id/cardView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
                 app:cardCornerRadius="10dp"
 
@@ -316,9 +316,9 @@
                 android:id="@+id/cardView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
                 app:cardBackgroundColor="#ECECEC"
                 app:cardCornerRadius="10dp"
         >
@@ -369,7 +369,7 @@
                 android:text="@string/shop_"
                 android:textColor="#99070707"
                 android:fontFamily="@font/ber"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_15ssp"
                 />
 
                 <Button
@@ -381,15 +381,15 @@
                     android:background="@drawable/searchlight"
                     android:text="@string/signUp2"
                     android:textColor="#0057FF"
-                    android:fontFamily="@font/janna"
+                    android:fontFamily="@font/lemon2"
                     android:textStyle="bold"
-                    android:textSize="@dimen/_12ssp"        />
+                    android:textSize="@dimen/_13ssp"        />
 
 
 
 
                 <TextView
-                    android:id="@+id/later"
+                    android:id="@+id/login2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/login3"
@@ -397,7 +397,7 @@
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:textColor="#2F6EE4"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:fontFamily="@font/ber"
 
 

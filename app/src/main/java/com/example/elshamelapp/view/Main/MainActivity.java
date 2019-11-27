@@ -1,5 +1,8 @@
 package com.example.elshamelapp.view.Main;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,11 +20,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.elshamelapp.view.About_App.AboutApp;
 import com.example.elshamelapp.view.Notifications.NotificationsFragment;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.Home.HomeFragment;
 import com.example.elshamelapp.view.ImportantAda.ImportantAddsFragment;
+import com.example.elshamelapp.view.Profile.MyProfile;
+import com.example.elshamelapp.view.Regester.Regester;
+import com.example.elshamelapp.view.Upload_Product.UploodProduct;
 import com.example.elshamelapp.view.categories.CategoryFragment;
+import com.example.elshamelapp.view.contactUs.ContactUs;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.nightonke.boommenu.BoomButtons.HamButton;
@@ -28,18 +47,38 @@ import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Util;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener ,
         BottomNavigationView.OnNavigationItemSelectedListener{
     private BoomMenuButton bmb;
-
+    private GoogleSignInClient googleSignInClient;
+    @BindView(R.id.profilePhoto)
+    CircleImageView profileImage;
     GridLayout gridLayout;
+    String check ="true";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+//        String data = getIntent().getExtras().getString("keyName");
+//        Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+        check = sharedPreferences.getString("value","");
+        Toast.makeText(this,check, Toast.LENGTH_SHORT).show();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         NavigationView navigationView2;
@@ -64,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        gridLayout=(GridLayout)findViewById(R.id.mainGrid);
 //
 //        setSingleEvent(gridLayout);
-
 
 
         bmb = (BoomMenuButton) findViewById(R.id.bmb);
@@ -146,8 +184,84 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bmb.addBuilder(builder);
 
         }
+        if(check=="false"){
+            // Configure sign-in to request the user's ID, email address, and basic
+// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+
+
+// Build a GoogleSignInClient with the options specified by gso.
+            googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+            setDataOnView();
+        }
+//        setDataOnView();
+
     }
 
+    @OnClick(R.id.profilePhoto)
+    void myProfile(){
+
+        startActivity(new Intent(MainActivity.this, MyProfile.class));
+
+    }
+
+    private void setDataOnView(){
+
+
+        GoogleSignInAccount googleSignInAccount = getIntent().getParcelableExtra("GOOGLE_ACCOUNT");
+//        Picasso.get().load(googleSignInAccount.getPhotoUrl()).centerInside().fit().into(profileImage);
+        String hh = String.valueOf(googleSignInAccount.getPhotoUrl());
+        Toast.makeText(this, "url"+googleSignInAccount.getPhotoUrl(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, googleSignInAccount.getEmail(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, googleSignInAccount.getPhoneNumber(), Toast.LENGTH_SHORT).show();
+
+
+        if (hh == "null") {
+            profileImage.setImageResource(R.drawable.placeperson);
+
+
+        } else {
+            Picasso.get()
+                    .load(hh)
+                    .resize(80, 80)
+                    .centerCrop()
+                    .into(profileImage);
+        }
+//        profileName.setText(googleSignInAccount.getDisplayName());
+//        profileEmail.setText(googleSignInAccount.getEmail());
+    }
+
+//    private void useLoginInformation(AccessToken accessToken) {
+//        /**
+//         Creating the GraphRequest to fetch user details
+//         1st Param - AccessToken
+//         2nd Param - Callback (which will be invoked once the request is successful)
+//         **/
+//        GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
+//            //OnCompleted is invoked once the GraphRequest is successful
+//            @Override
+//            public void onCompleted(JSONObject object, GraphResponse response) {
+//                try {
+//                    String name = object.getString("name");
+//                    String email = object.getString("email");
+//                    String image = object.getJSONObject("picture").getJSONObject("data").getString("url");
+////                    displayName.setText(name);
+////                    emailID.setText(email);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        // We set parameters to the GraphRequest using a Bundle.
+//        Bundle parameters = new Bundle();
+//        parameters.putString("fields", "id,name,email,picture.width(200)");
+//        request.setParameters(parameters);
+//        // Initiate the GraphRequest
+//        request.executeAsync();
+//    }
     // we are setting onClickListener for each element
 //    private void setSingleEvent(GridLayout gridLayout) {
 //        for(int i = 0; i<gridLayout.getChildCount();i++){
@@ -218,10 +332,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.importantAds) {
             fragment = new ImportantAddsFragment();
             loadFragment(fragment);
+        } else if (id == R.id.Contact_Us) {
+            startActivity(new Intent(MainActivity.this, ContactUs.class));
+        } else if (id == R.id.home) {
+
+            fragment = new HomeFragment();
+            loadFragment(fragment);
+        }else if (id == R.id.aboutApp) {
+
+            startActivity(new Intent(MainActivity.this, AboutApp.class));
+
+        }else if (id == R.id.addProduct) {
+
+            startActivity(new Intent(MainActivity.this, UploodProduct.class));
+
+        } else if (id == R.id.nav_LogOut) {
+
+
+            // Configure sign-in to request the user's ID, email address, and basic
+// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+
+
+// Build a GoogleSignInClient with the options specified by gso.
+            googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+ /*
+          Sign-out is initiated by simply calling the googleSignInClient.signOut API. We add a
+          listener which will be invoked once the sign out is the successful
+           */
+            LoginManager.getInstance().logOut();
+
+            googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                   @Override
+                                                                   public void onComplete(@NonNull Task<Void> task) {
+                                                                       //On Succesfull signout we navigate the user back to LoginActivity
+                                                                       Intent intent=new Intent(MainActivity.this, Regester.class);
+                                                                       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                                       startActivity(intent);
+                                                                   }
+                                                                   });
+
+
+
+
         }
-//        else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
+//        else if (id == R.id.nav_send) {
 //
 //        }
 

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_10sdp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -69,7 +69,7 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               app:layout_constraintBottom_toTopOf="@+id/button2"
+               app:layout_constraintBottom_toTopOf="@+id/facebookLogin"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintHorizontal_bias="0.498"
                app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
            </LinearLayout>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/facebookLogin"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center_horizontal"
@@ -97,7 +97,36 @@
                 android:text="@string/registerFace"
                 android:textColor="#FFF"
                 android:fontFamily="@font/lemon"
+                android:elevation="@dimen/_10sdp"
                 android:textSize="@dimen/_10ssp"
+                android:foreground="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/facebutton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_12sdp"
+                android:background="@drawable/buttonstyle"
+                android:drawableLeft="@drawable/iconfinder_facebook_1233013"
+                android:text="@string/registerFace"
+                android:textColor="#FFF"
+                android:fontFamily="@font/lemon"
+                android:elevation="@dimen/_10sdp"
+                android:textSize="@dimen/_13ssp"
+                android:foreground="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
@@ -105,7 +134,7 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/sign_in_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center_horizontal"
@@ -114,13 +143,17 @@
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_40sdp"
+                android:elevation="@dimen/_10sdp"
                 android:background="@drawable/google"
                 android:drawableLeft="@drawable/iconfinder_google_plus_313479"
                 android:text="@string/registerGoogle"
                 android:textColor="#C0352C"
+                android:foreground="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+                app:layout_constraintTop_toBottomOf="@+id/facebookLogin" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,7 +164,7 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button">
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_button">
 
 
 <LinearLayout
@@ -201,7 +234,7 @@
                     >
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/login"
                         android:layout_width="@dimen/_88sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginStart="@dimen/_20sdp"
@@ -215,10 +248,13 @@
                         android:fontFamily="@font/janna"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12ssp"
+                        android:foreground="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                        />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/signUp"
                         android:layout_width="@dimen/_88sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginStart="@dimen/_20sdp"
@@ -231,7 +267,9 @@
                         android:fontFamily="@font/janna"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"
-
+                        android:foreground="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
                         />
                 </LinearLayout>
 
@@ -257,7 +295,9 @@
                         android:textColor="#2F6EE4"
                         android:textSize="@dimen/_16ssp"
                         android:fontFamily="@font/ber"
-
+                        android:foreground="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
 
                         />
                 </LinearLayout>
