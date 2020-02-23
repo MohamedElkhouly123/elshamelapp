@@ -1,7 +1,8 @@
 # elshamelapp
 
-android app help users in Egypt to request donors by your bloode types to save lots of the lives or can donation also and  show some information to help users to save your healthy and blood
- applied / required notification-thread concept,mvc pattern,clean code,main 3 activity cycles with fragments
+android app show user list of products allow him to check ,show products or help client to choose best products 
+applied / Firebase-sqlite-chat-maps - required notification-thread concept
+
 
 video link
 
