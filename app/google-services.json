@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "26256441449",
+    "firebase_url": "https://easytic-1574908315429.firebaseio.com",
+    "project_id": "easytic-1574908315429",
+    "storage_bucket": "easytic-1574908315429.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26256441449:android:0a3669324a2ce0b34c62f8",
+        "android_client_info": {
+          "package_name": "com.example.elshamelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26256441449-j2orusb8mhqfgj1sgh1emjm4qkv33d9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.elshamelapp",
+            "certificate_hash": "0d4d509c74b5b618317e49b56268f1cb0fab8730"
+          }
+        },
+        {
+          "client_id": "26256441449-2e9nit621661fq8fe6tk5apd0pbkfcvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSSGVuJi3HUeT78_2S2lckPM5RK1-b7LY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26256441449-2e9nit621661fq8fe6tk5apd0pbkfcvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

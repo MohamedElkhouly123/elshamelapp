@@ -1,9 +1,5 @@
 package com.example.elshamelapp.view.About_App;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,10 +15,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.elshamelapp.R;
-import com.example.elshamelapp.view.Regester.Regester;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-public class IntroSlider extends AppCompatActivity {
+import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.activity.BaseActivity;
+import com.example.elshamelapp.view.activity.UserCycleActivity;
+
+
+public class IntroSlider extends BaseActivity {
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
@@ -120,7 +121,7 @@ public class IntroSlider extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(IntroSlider.this, Regester.class));
+        startActivity(new Intent(IntroSlider.this, UserCycleActivity.class));
         finish();
     }
 

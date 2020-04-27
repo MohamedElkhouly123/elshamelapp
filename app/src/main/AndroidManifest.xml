@@ -14,26 +14,13 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.Chat.Chat"></activity>
+        <activity android:name=".Chat.Chat"></activity>
         <activity android:name=".view.About_App.IntroSlider" />
-        <activity android:name=".view.About_App.AboutApp"></activity>
-        <activity android:name=".view.Product_details.MyProduct" />
-        <activity android:name=".view.Product_details.SellersProduct" />
-        <activity android:name=".view.Profile.SellersProfile" />
-        <activity android:name=".view.Profile.MyProfile" />
-        <activity android:name=".view.Upload_Product.UploodProduct" />
-        <activity android:name=".view.contactUs.ContactUs" />
-        <activity android:name=".view.Sign_up.SignUp" />
-        <activity android:name=".view.Login.Login" />
-        <activity android:name=".view.Regester.Regester"></activity>
-        <activity android:name=".view.Regester.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".view.Main.MainActivity"></activity>
+        <activity android:name=".view.activity.AboutApp"></activity>
+        <activity android:name=".Product_details.MyProduct" />
+        <activity android:name=".Product_details.SellersProduct" />
+        <activity android:name=".view.activity.UserCycleActivity" />
+        <activity android:name=".view.activity.HomeCycleActivity"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -55,6 +42,13 @@
                 <data
                     android:scheme="@string/fb_login_protocol_scheme"
                     tools:ignore="ManifestResource" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.activity.SplashCycleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

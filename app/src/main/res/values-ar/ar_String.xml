@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" >ايزى تك</string>
-    <string name="easyTic">ايزى تك</string>
+    <string name="app_name" >ون فور اول</string>
+    <string name="easyTic">ون فور اول</string>
     <string name="home">الرئيسية</string>
     <string name="AdsSearch">ابحث عن اعلان</string>
     <string name="AddProduct">اضافه اعلان</string>
@@ -97,4 +97,13 @@
     <string name="facebook_app_id">483262328977596</string>
     <string name="fb_login_protocol_scheme">fb483262328977596</string>
 
+    <string name="invalid_email">Email must be like this \"example@example.com\"</string>
+    <string name="invalid_phone1">Phone number must be \ </string>
+    <string name="invalid_phone2"> number</string>
+    <string name="invalid_confirm_password">Confirm password not match</string>
+    <string name="invalid_user_name">Username mast be more than 3 cher</string>
+    <string name="invalid_delevery_price">Please select your delevery price</string>
+    <string name="invalid_order_time">Please select your order time</string>
+    <string name="invalid_least_range_of_order">Please select your least range of order price</string>
+    <string name="invalid_password">Password mast be more than 6 of cher and number</string>
 </resources>

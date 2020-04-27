@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Easy Tic</string>
+    <string name="app_name">One For All</string>
     <string name="navigation_drawer_open" translatable="false" tools:ignore="ExtraTranslation">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="easyTic">Easy Tic</string>
+    <string name="easyTic">One For All</string>
     <string name="home">Home</string>
     <string name="AdsSearch">Ads Search</string>
     <string name="AddProduct">Add Ads</string>
@@ -100,4 +100,13 @@
     <string name="facebook_app_id">483262328977596</string>
     <string name="fb_login_protocol_scheme">fb483262328977596</string>
 
+    <string name="invalid_email">Email must be like this \"example@example.com\"</string>
+    <string name="invalid_phone1">Phone number must be \ </string>
+    <string name="invalid_phone2"> number</string>
+    <string name="invalid_confirm_password">Confirm password not match</string>
+    <string name="invalid_user_name">Username mast be more than 3 cher</string>
+    <string name="invalid_delevery_price">Please select your delevery price</string>
+    <string name="invalid_order_time">Please select your order time</string>
+    <string name="invalid_least_range_of_order">Please select your least range of order price</string>
+    <string name="invalid_password">Password mast be more than 6 of cher and number</string>
 </resources>

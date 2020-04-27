@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3FFFFFF"
-    tools:context=".view.Profile.SellersProfile">
+    tools:context=".Profile.SellersProfile">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -445,7 +445,7 @@
 
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardView"
+                        android:id="@+id/card_view_tool"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
