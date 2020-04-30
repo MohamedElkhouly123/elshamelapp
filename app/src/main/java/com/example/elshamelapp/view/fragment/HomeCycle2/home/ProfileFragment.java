@@ -51,7 +51,7 @@ public class ProfileFragment extends BaSeFragment {
     @Override
     public void onBack() {
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
-        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE, "t");
+//        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE, false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
 
 

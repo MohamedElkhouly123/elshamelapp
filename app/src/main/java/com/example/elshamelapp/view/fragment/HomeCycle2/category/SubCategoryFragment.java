@@ -55,28 +55,41 @@ public class SubCategoryFragment extends BaSeFragment {
     private List<ItemObjectModel> getAllItemList(){
 
         List<ItemObjectModel> allItems = new ArrayList<ItemObjectModel>();
-        allItems.add(new ItemObjectModel("محلات ومطاعم", R.drawable.chale));
-        allItems.add(new ItemObjectModel("عقارات", R.drawable.flat));
+        allItems.add(new ItemObjectModel("عقارات", R.drawable.chale)); //دليل محلاتى
+        // محلات <== بقاله وسوبرماركتات ومولات وحدايدوبوهيات ولوازم كهربه ولوازم سباكه وزجاج  ومستحضرات تجميل ومستلزمات طبيه وفاكهه وخضروات وبيع الات موسيقيه
+        // وملابس (اطفالى ونسائى ورجالى ورياضيه وشبابى كجول وبدل وفساتين زفاف وشنط وجزم وكوتشى) وكوافيرات وادوات منزليه واكسسورات وهدايا ومكتبات ومستلزمات خياطه وتطريز وتصليح كويتش
+        // واقمشه وسجاد وشراء خيم ومعارض سيارات ومركبات (تكاتك وتروسكلات وموتسكلات) ولوازم سيارات ومتوسكلات وبيع حيونات وبيع ورد وزهر وعطاره
+        //  ومستلزمات سبوع ونجف والمونتال وموبيليا ودهب ومجوهرات واسماك وفراخ وبيع طيور للاكل وبيع حيونات اليفه
+        //  وبيع طيور للزينه وبيع اكل حيوانات وطيور (علف)وحلويات وصيدليات وجزاره بيع اسمنت وحديد سيراميك وبلاط وطوب ومحجر رمل وزلط
+        //  وكمبيوترات والكترونيات ولوازم الحاسوب وتليفونات وسنترالات وتحف ولوحات وفول وزيت
+        allItems.add(new ItemObjectModel("دليل المطاعم", R.drawable.flat));
+//        مطاعم فول وطعميه وكوشرى وطواجن ومشويات واسماك ولحوم وكبده وكباب وشيشتاوك واكل سورى واكل صينى وكريبات وفطاير ومخابز
         allItems.add(new ItemObjectModel("مجوهرات", R.drawable.flat));
         allItems.add(new ItemObjectModel("الكترونيات", R.drawable.chale));
         allItems.add(new ItemObjectModel("مركبات", R.drawable.chale));
         allItems.add(new ItemObjectModel("مستلزمات منزليه", R.drawable.flat));
         allItems.add(new ItemObjectModel("ملابس واكسسورات", R.drawable.flat));
-        allItems.add(new ItemObjectModel("حيوانات", R.drawable.chale));
+        allItems.add(new ItemObjectModel("مستلزمات مطاعم", R.drawable.chale));
         allItems.add(new ItemObjectModel("مستلزمات رياضيه", R.drawable.chale));
         allItems.add(new ItemObjectModel("مستلزمات فنيه وثقافيه", R.drawable.flat));
         allItems.add(new ItemObjectModel("معدات طبيه", R.drawable.flat));
         allItems.add(new ItemObjectModel("معدات صناعه", R.drawable.chale));
-        allItems.add(new ItemObjectModel("مستلزمات مطاعم", R.drawable.chale));
+        allItems.add(new ItemObjectModel("لوازم ومعدات زراعيه", R.drawable.chale));
+        allItems.add(new ItemObjectModel("حيوانات", R.drawable.flat));
         allItems.add(new ItemObjectModel("اخرى", R.drawable.flat));
+//        allItems.add(new ItemObjectModel("اخرى", R.drawable.chale));
 
+//مهم حجز وايجار <== سينمات وتذاكر مسرح وفنادق وعربيات وكشف عيادات وشقق ومبانى ودكاكين وجراجات بدل وفساتين زفاف
+// للامان اجعله يبعت اللوكيشن فى الشات ووضع صوره البطاقه او وصل نور للحمايه
+//        الفرز على حسب الاحدث للوقت والاقرب للمكان والحاله(جديد او قديم)والارخص للسعر والاعلى تقييم والماركات
         return allItems;
     }
 
     @Override
     public void onBack() {
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
-        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,"t");
+//        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }
 }
+// الشات واللوكاشن وقائمه الاسعار وتعديل المعلومات الشخصيه واعلان فديوهات و3 صور والمزادات والمفقودات والمركات والتقييم

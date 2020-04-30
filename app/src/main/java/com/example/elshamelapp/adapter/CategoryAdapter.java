@@ -94,7 +94,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
                 if(position==0){
                 replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
-                homeCycleActivity.setNavigationAndToolBar(View.GONE,"t");
+                homeCycleActivity.setNavigationAndToolBar(View.GONE,true);
                 }
             }
         });

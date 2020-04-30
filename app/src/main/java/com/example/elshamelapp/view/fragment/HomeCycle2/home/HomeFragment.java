@@ -25,6 +25,7 @@ public class HomeFragment extends BaSeFragment {
         ButterKnife.bind(this, root);
         homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setFloatBottonAndToolBar(View.VISIBLE);
+        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
 
 //        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 //        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
