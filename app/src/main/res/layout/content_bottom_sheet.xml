@@ -50,6 +50,7 @@
     android:paddingBottom="8dp"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/profile_bottom_sheet_delete_account_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -80,6 +81,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/profile_bottom_sheet_costs_list_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

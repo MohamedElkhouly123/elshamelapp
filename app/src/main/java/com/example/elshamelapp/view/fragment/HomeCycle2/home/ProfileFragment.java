@@ -50,8 +50,6 @@ public class ProfileFragment extends BaSeFragment {
     }
 
 
-
-
     @Override
     public void onBack() {
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
@@ -61,7 +59,7 @@ public class ProfileFragment extends BaSeFragment {
 
     }
 
-    @OnClick({R.id.follow_me, R.id.chat, R.id.location, R.id.report, R.id.add, R.id.notification, R.id.my_profile_fragment_location_map_fbtn, R.id.more, R.id.edit_floating_action_button})
+    @OnClick({R.id.follow_me, R.id.chat, R.id.location, R.id.report, R.id.add, R.id.notification, R.id.my_profile_fragment_location_map_fbtn, R.id.more, R.id.edit_floating_action_button,R.id.profile_bottom_sheet_costs_list_btn,R.id.profile_bottom_sheet_delete_account_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.follow_me:
@@ -78,9 +76,9 @@ public class ProfileFragment extends BaSeFragment {
                 break;
             case R.id.my_profile_fragment_location_map_fbtn:
                 if (isConnected(getActivity())) {
-                Intent intent = new Intent(getActivity(), MapsActivity.class);
-                startActivity(intent);}
-                else {
+                    Intent intent = new Intent(getActivity(), MapsActivity.class);
+                    startActivity(intent);
+                } else {
                     try {
                         onCreateErrorToast(getActivity(), getString(R.string.error_inter_net));
                     } catch (Exception e) {
@@ -90,11 +88,19 @@ public class ProfileFragment extends BaSeFragment {
                 }
                 break;
             case R.id.more:
-               bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
                 break;
             case R.id.edit_floating_action_button:
                 break;
+            case R.id.profile_bottom_sheet_delete_account_btn:
+                break;
+            case R.id.profile_bottom_sheet_costs_list_btn:
+                replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new CostsListFragment());
+
+                break;
         }
     }
+
+
 }

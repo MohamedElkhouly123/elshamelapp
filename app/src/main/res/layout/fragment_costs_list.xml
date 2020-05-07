@@ -17,7 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_80sdp"
+            android:layout_height="@dimen/_81sdp"
             android:background="#80E9E9E9"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +135,12 @@
     <include
         layout="@layout/cardview_item_costs_list"
         />
+    <include
+        layout="@layout/cardview_item_costs_list"
+        />
+    <include
+        layout="@layout/cardview_item_costs_list"
+        />
 </LinearLayout>
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -143,7 +149,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/buttonstyle_costs_list"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_3sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -153,7 +159,7 @@
             android:orientation="horizontal"
             android:weightSum="2"
             android:gravity="center"
-            android:padding="@dimen/_5sdp"
+            android:padding="@dimen/_3sdp"
             android:layout_gravity="center"
             >
         <Button
