@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" >ون فور اول</string>
-    <string name="easyTic">ون فور اول</string>
+    <string name="app_name" >ون فور اooل</string>
+    <string name="easyTic">ون فور اooل</string>
     <string name="home">الرئيسية</string>
     <string name="AdsSearch">ابحث عن اعلان</string>
     <string name="AddProduct">اضافه اعلان</string>
@@ -52,6 +52,7 @@
     <string name="productName"> اسم الاعلان</string>
     <string name="Product_case"> حاله الاعلان</string>
     <string name="Cost"> السعر ( ج.م )</string>
+    <string name="product2Name">اسم المنتج</string>
     <string name="Product_descripe"> وصف الاعلان</string>
     <string name="Owner_Name"> اسم صاحب الاعلان</string>
     <string name="quantity"> الكميه</string>
@@ -85,25 +86,39 @@
 
     <string name="next">التالى</string>
     <string name="start">انهاء</string>
-    <string name="welcome">اهلا بك فى ايزى تك</string>
-    <string name="welcome2">ايزى تك هو تطبيق دليل للتسوق للجميع بالاضافه لعده خدمات اخرى اضافيه</string>
+    <string name="welcome">اهلا بك فى ون فور اooل</string>
+    <string name="welcome2">ون فور اooل هو تطبيق دليل للتسوق للجميع بالاضافه لعده خدمات اخرى اضافيه</string>
     <string name="OoopsHowcanfind">اوبس ازاى اقدر اجد اى منتج ؟</string>
     <string name="OoopsHowcanfind2">متقلقش عندنا هتقدر تبحث عن اى منتج بالاضافه الى انك تقدر تعرف مكانه وكل التفاصيل اللى تخصه كمان</string>
     <string name="Howknowthebest">طب ازاى احدد الافضل بقى ؟</string>
-    <string name="Howknowthebest2">مع ايزى تك هتقدر تشوف كل المحلات وتقارن كمان بينها مش بس كده دا كمان كل المنتجات المعروضه من اشخاص لا تملك محل وتقرر الانسب ليك</string>
+    <string name="Howknowthebest2">مع ون فور اooل هتقدر تشوف كل المحلات وتقارن كمان بينها مش بس كده دا كمان كل المنتجات المعروضه من اشخاص لا تملك محل وتقرر الانسب ليك</string>
     <string name="Myshopuknownunseen">محلك مش معروف مش متشاف ؟</string>
     <string name="Myshopuknownunseen2">متقلقش عندنا هتقدر تقول للجميع انا هنا انا موجود واملك المنتجات الافضل وافضل الاسعار والعروض</string>
 
     <string name="facebook_app_id">483262328977596</string>
     <string name="fb_login_protocol_scheme">fb483262328977596</string>
 
-    <string name="invalid_email">Email must be like this \"example@example.com\"</string>
-    <string name="invalid_phone1">Phone number must be \ </string>
-    <string name="invalid_phone2"> number</string>
-    <string name="invalid_confirm_password">Confirm password not match</string>
-    <string name="invalid_user_name">Username mast be more than 3 cher</string>
+    <string name="invalid_email">الايميل يجب ان يكون مشابه لهذا المثال\"example@example.com\"</string>
+    <string name="invalid_phone1">رقم التليفون يجب ان يتكون من 11 رقم</string>
+    <string name="invalid_phone2">رقم</string>
+    <string name="invalid_confirm_password">تاكيد كلمه المرور خاطئ</string>
+    <string name="invalid_user_name">اسم المستخدم لابد ان يزيد عن 3 حروف</string>
     <string name="invalid_delevery_price">Please select your delevery price</string>
     <string name="invalid_order_time">Please select your order time</string>
     <string name="invalid_least_range_of_order">Please select your least range of order price</string>
-    <string name="invalid_password">Password mast be more than 6 of cher and number</string>
+    <string name="invalid_password">كلمه المرور يجب ان تحتوى على الاقل 6 من الحروف مع الارقام او يزيد</string>
+    <string name="error_inter_net">لا يوجد اتصال بالانترنت من فضلك قم بالاتصال وحاول من جديد</string>
+    <string name="title_activity_maps">الخريطه</string>
+    <string name="GPSAlertDialogTitle">GPSAlertDialogTitle</string>
+    <string name="action_settings">اعدادات التنفيذ</string>
+    <string name="GPSAlertDialogMessage">GPSAlertDialogMessage</string>
+    <string name="cancel">ألغاء</string>
+    <string name="more_setting">المزيد</string>
+    <string name="Delete_Account">أحذف الحساب</string>
+    <string name="Add_costs_list">قائمة الأسعار</string>
+    <string name="Edit_costs_list">تعديل قائمة الأسعار</string>
+    <string name="costs_list">قائمة الأسعار</string>
+    <string name="save_changes">حفظ</string>
+    <string name="AddItem">أضافه عنصر</string>
+
 </resources>

@@ -14,8 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_4sdp"
         android:layout_marginStart="@dimen/_4sdp"
+        android:textAlignment="center"
         android:textColor="@color/success"
-        android:textSize="@dimen/_16ssp" />
+        android:textSize="@dimen/_15ssp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/toast_iv_icon"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3FFFFFF"
-    tools:context=".Profile.MyProfile">
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -525,7 +525,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/location_map"
+                                android:id="@+id/my_profile_fragment_location_map_fbtn"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

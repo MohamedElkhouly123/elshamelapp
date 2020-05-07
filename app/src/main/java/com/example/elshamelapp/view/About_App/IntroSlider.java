@@ -48,7 +48,7 @@ public class IntroSlider extends BaseActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
-        setContentView(R.layout.activity_intro_slider);
+        setContentView(R.layout.activity_about_app);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);

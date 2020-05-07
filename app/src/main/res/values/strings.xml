@@ -55,6 +55,7 @@
     <string name="productName">Ads Name</string>
     <string name="Product_case">Ads Case</string>
     <string name="Cost">Cost (L.E)</string>
+    <string name="product2Name">Product Name</string>
     <string name="Product_descripe">Ads descripe</string>
     <string name="Owner_Name">Owner Name</string>
     <string name="quantity">Quantity</string>
@@ -88,12 +89,12 @@
 
     <string name="next">NEXT</string>
     <string name="start">FINISH</string>
-    <string name="welcome">Welcome in Easy Tic</string>
-    <string name="welcome2">Easy Tic is online shopping guide app In addition to several other services for anyone</string>
+    <string name="welcome">Welcome in One For All</string>
+    <string name="welcome2">One For All is online shopping guide app In addition to several other services for anyone</string>
     <string name="OoopsHowcanfind">Ooops How can find this Product ?</string>
     <string name="OoopsHowcanfind2">Don`t worry can her search about any product and know her location or cost and other details</string>
     <string name="Howknowthebest">How know the best ?</string>
-    <string name="Howknowthebest2">With Easy Tic can see lot of shops and compare between shops and products to choose the best for you</string>
+    <string name="Howknowthebest2">With One For All can see lot of shops and compare between shops and products to choose the best for you</string>
     <string name="Myshopuknownunseen">My shop uknown unseen ?</string>
     <string name="Myshopuknownunseen2">Donn`t worry her can tell for all I`m her I have best products and best over or costs</string>
 
@@ -109,4 +110,17 @@
     <string name="invalid_order_time">Please select your order time</string>
     <string name="invalid_least_range_of_order">Please select your least range of order price</string>
     <string name="invalid_password">Password mast be more than 6 of cher and number</string>
+    <string name="error_inter_net">No internet connection, Please check your internet connection try again later</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="GPSAlertDialogTitle">GPSAlertDialogTitle</string>
+    <string name="action_settings">action_settings</string>
+    <string name="GPSAlertDialogMessage">GPSAlertDialogMessage</string>
+    <string name="cancel">cancel</string>
+    <string name="more_setting">More Setting</string>
+    <string name="Delete_Account">Delete Account</string>
+    <string name="Add_costs_list">costs list</string>
+    <string name="Edit_costs_list">Edit costs list</string>
+    <string name="costs_list">Costs List</string>
+    <string name="save_changes">Save</string>
+    <string name="AddItem">Add Item</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.elshamelapp.view.fragment.HomeCycle2.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.activity.MapsActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -15,6 +17,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
+import static com.example.elshamelapp.utils.ToastCreator.onCreateErrorToast;
+import static com.example.elshamelapp.utils.network.InternetState.isConnected;
 
 
 public class ProfileFragment extends BaSeFragment {
@@ -57,7 +61,7 @@ public class ProfileFragment extends BaSeFragment {
 
     }
 
-    @OnClick({R.id.follow_me, R.id.chat, R.id.location, R.id.report, R.id.add, R.id.notification, R.id.location_map, R.id.more, R.id.edit_floating_action_button})
+    @OnClick({R.id.follow_me, R.id.chat, R.id.location, R.id.report, R.id.add, R.id.notification, R.id.my_profile_fragment_location_map_fbtn, R.id.more, R.id.edit_floating_action_button})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.follow_me:
@@ -72,7 +76,18 @@ public class ProfileFragment extends BaSeFragment {
                 break;
             case R.id.notification:
                 break;
-            case R.id.location_map:
+            case R.id.my_profile_fragment_location_map_fbtn:
+                if (isConnected(getActivity())) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);}
+                else {
+                    try {
+                        onCreateErrorToast(getActivity(), getString(R.string.error_inter_net));
+                    } catch (Exception e) {
+
+                    }
+
+                }
                 break;
             case R.id.more:
                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);

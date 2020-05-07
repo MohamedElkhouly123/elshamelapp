@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_3sdp"
+    android:layout_marginTop="@dimen/_2sdp"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginEnd="@dimen/_3sdp"
+    android:id="@+id/item_restaurant_category_swipe_layout"
+    app:dragEdge="right"
+    app:mode="normal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="left">
+
+        <ImageButton
+            android:id="@+id/donation_request_item_phone_floating_btn"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:layout_gravity="center|end"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/circle_style_blue"
+            android:elevation="7dp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_edit_black_24dp"
+             />
+        <ImageButton
+            android:id="@+id/donation_request_item_edit_floating_btn"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:layout_gravity="center|end"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/circle_style_delete"
+            android:elevation="7dp"
+            android:src="@drawable/ic_pink_basket" />
+    </LinearLayout>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/drag"-->
+<!--        android:layout_width="@dimen/_23sdp"-->
+<!--        android:layout_height="@dimen/_23sdp"-->
+<!--        android:layout_marginEnd="@dimen/_2sdp"-->
+<!--        android:background="@drawable/circle_style_drag"-->
+<!--        android:elevation="7dp"-->
+<!--        android:src="@drawable/ic_keyboard_arrow_left_black_24dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_15sdp"
+        android:weightSum="3"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/lemon2"
+            android:text="@string/product2Name"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/lemon2"
+            android:text="@string/Cost"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/lemon2"
+            android:text="@string/quantity"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>
