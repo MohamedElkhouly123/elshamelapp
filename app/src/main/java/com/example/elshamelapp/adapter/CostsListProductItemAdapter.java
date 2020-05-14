@@ -20,16 +20,19 @@ import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.data.model.CostsListModel;
 import com.example.elshamelapp.view.activity.BaseActivity;
-import com.yanzhenjie.album.AlbumFile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static com.example.elshamelapp.utils.CostsListIAddAndUpdateItemDialog.showDialog;
+import static com.example.elshamelapp.utils.HelperMethod.showToast;
 
 
-public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.ViewHolder> {
+public class CostsListProductItemAdapter extends RecyclerView.Adapter<CostsListProductItemAdapter.ViewHolder> {
 
 
     private Context context;
@@ -40,16 +43,23 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
     private String lang;
     private int lastPosition = -1;
     private static final String CLIENTPROFILEIMAGE ="CLIENTPROFILEIMAGE" ;
-    public static String dialogCategoryPath;
-    public static String dialogCategoryName;
-    private ArrayList<AlbumFile> alpom= new ArrayList<>();
-    public CostsListAdapter(Activity activity, List<CostsListModel> costsListDataList) {
+    private   String dialogCostsListName,dialogCostsListPrice,dialogCostsListQuantity;
+
+    public CostsListProductItemAdapter(Activity activity, List<CostsListModel> costsListDataList) {
         this.context = activity;
         this.activity = (BaseActivity) activity;
         this.costsListDataList.clear();
         this.costsListDataList = costsListDataList;
         viewBinderHelper.setOpenOnlyOne(true);
 //        clientData = LoadUserData(activity);
+        lang = "eg";
+    }
+
+    public CostsListProductItemAdapter(String dialogCostsListName,String dialogCostsListPrice,String dialogCostsListQuantity) {
+        this.dialogCostsListName = dialogCostsListName;
+        this.dialogCostsListPrice = dialogCostsListPrice;
+        this.dialogCostsListQuantity = dialogCostsListQuantity;
+        viewBinderHelper.setOpenOnlyOne(true);
         lang = "eg";
     }
 
@@ -63,6 +73,7 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        viewBinderHelper.setOpenOnlyOne(true);
         setData(holder, position);
         setSwipe(holder, position);
         setAction(holder, position);
@@ -76,9 +87,10 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
 
         try {
             holder.position = position;
-            holder.itemRestaurantCategoryTvName.setText(costsListDataList.get(position).getName());
+            holder.itemCostsListTvProductName.setText(costsListDataList.get(position).getName());
+            holder.itemCostsListTvProductPrice.setText(costsListDataList.get(position).getCost());
+            holder.itemCostsListTvProductQuantity.setText(costsListDataList.get(position).getQuantity());
 
-//            onLoadImageFromUrl(holder.itemRestaurantCategoryImgPhoto, costsListDataList.get(position).getPhotoUrl(), context);
 
 
         } catch (Exception e) {
@@ -89,18 +101,9 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
     }
 
     private void setAnimation(View viewToAnimate, int position, ViewHolder holder) {
-        Animation animation = null;
-//        if (position > lastPosition) {
+            Animation animation = null;
             animation = AnimationUtils.loadAnimation(activity, R.anim.rv_animation_down_to_up);
-//            lastPosition = position;
-//        }
-//        else if (position < lastPosition) {
-//
-//            animation = AnimationUtils.loadAnimation(activity,R.anim.rv_animation_up_to_down);
-//            lastPosition = -1;
-//
-//        }
-        viewToAnimate.startAnimation(animation);
+            viewToAnimate.startAnimation(animation);
 
     }
 
@@ -115,20 +118,20 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
     }
 
     private void setSwipe(final ViewHolder holder, final int position) {
-        holder.itemRestaurantCategorySwipeLayout.computeScroll();
+        holder.itemCostsListSwipeLayout.computeScroll();
         if (lang.equals("ar")) {
-            holder.itemRestaurantCategorySwipeLayout.setDragEdge(SwipeRevealLayout.DRAG_EDGE_LEFT);
+            holder.itemCostsListSwipeLayout.setDragEdge(SwipeRevealLayout.DRAG_EDGE_LEFT);
         } else {
-            holder.itemRestaurantCategorySwipeLayout.setDragEdge(SwipeRevealLayout.DRAG_EDGE_RIGHT);
+            holder.itemCostsListSwipeLayout.setDragEdge(SwipeRevealLayout.DRAG_EDGE_RIGHT);
         }
 
-        viewBinderHelper.bind(holder.itemRestaurantCategorySwipeLayout, String.valueOf(costsListDataList.get(position).getId()));
+        viewBinderHelper.bind(holder.itemCostsListSwipeLayout, String.valueOf(costsListDataList.get(position).getId()));
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 viewBinderHelper.openLayout(String.valueOf(costsListDataList.get(position).getId()));
-                holder.itemRestaurantCategorySwipeLayout.computeScroll();
+                holder.itemCostsListSwipeLayout.computeScroll();
             }
         });
 
@@ -142,10 +145,15 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView itemRestaurantCategoryTvName;
-        @BindView(R.id.item_restaurant_category_swipe_layout)
-        SwipeRevealLayout itemRestaurantCategorySwipeLayout;
 
+        @BindView(R.id.card_view_costs_list_item_product_name_tv)
+        TextView itemCostsListTvProductName;
+        @BindView(R.id.card_view_costs_list_item_product_price_tv)
+        TextView itemCostsListTvProductPrice;
+        @BindView(R.id.card_view_costs_list_item_product_quantity_tv)
+        TextView itemCostsListTvProductQuantity;
+        @BindView(R.id.card_view_costs_list_item__swipe_layout)
+        SwipeRevealLayout itemCostsListSwipeLayout;
         private View view;
         private int position;
 
@@ -156,27 +164,32 @@ public class CostsListAdapter extends RecyclerView.Adapter<CostsListAdapter.View
         }
 
 
-//        @OnClick({R.id.item_restaurant_category_img_edit, R.id.item_restaurant_category_img_remove})
-//        public void onViewClicked(View view) {
-//            switch (view.getId()) {
-//                case R.id.item_restaurant_category_img_edit:
-//                    isDialogDataAddSuccess = true;
-//                    RestaurantAddAndUpdateCategoryDialog restaurantAddAndUpdateCategoryDialog = new RestaurantAddAndUpdateCategoryDialog();
-//                    restaurantAddAndUpdateCategoryDialog.restaurantDataListOfPossision = restaurantDataList.get(position);
-//                    showDialog(activity, context, "update");
-//                    if (dialogCategoryName != null && isDialogDataAddSuccess) {
-//                        showToast(activity, dialogCategoryName + "\n" + dialogCategoryPath);
-//                        restaurantDataList.get(position).setName(dialogCategoryName);
-//                        restaurantDataList.get(position).setPhotoUrl(dialogCategoryPath);
-//                        notifyItemChanged(position);
-//                    }
-//                    break;
-//                case R.id.item_restaurant_category_img_remove:
-//                    showDeleteDialog();
-//
-//                    break;
-//    }
-//}
+        @OnClick({R.id.card_view_costs_list_item_edit_floating_btn, R.id.card_view_costs_list_item_item_delete_floating_btn,R.id.card_view_costs_list_item_drag_btn})
+        public void onViewClicked(View view) {
+            switch (view.getId()) {
+                case R.id.card_view_costs_list_item_edit_floating_btn:
+                  boolean  isDialogDataAddSuccess = true; // here not true
+//                    CostsListIAddAndUpdateItemDialog costsListIAddAndUpdateItemDialog = new CostsListIAddAndUpdateItemDialog();
+//                    costsListIAddAndUpdateItemDialog.costsListItemDataListOfPossision = costsListDataList.get(position);
+                    showDialog(activity, context, "update",costsListDataList.get(position));
+                    if (dialogCostsListName != null && dialogCostsListPrice != null && dialogCostsListQuantity != null && isDialogDataAddSuccess) {
+                        showToast(activity, dialogCostsListName + "\n" + dialogCostsListPrice);
+                        costsListDataList.get(position).setName(dialogCostsListName);
+                        costsListDataList.get(position).setCost(dialogCostsListPrice);
+                        costsListDataList.get(position).setQuantity(dialogCostsListQuantity);
+                        notifyItemChanged(position);
+                    }
+                    break;
+                case R.id.card_view_costs_list_item_item_delete_floating_btn:
+                    showDeleteDialog();
+
+                    break;
+                case R.id.card_view_costs_list_item_drag_btn:
+//                    viewBinderHelper.openLayout(String.valueOf(costsListDataList.get(position).getId()));
+//                    itemCostsListSwipeLayout.computeScroll();
+                    break;
+            }
+        }
 
 //                case R.id.restaurant_add_category_dialog_img_add_photo:
 ////                    openGallery(activity);

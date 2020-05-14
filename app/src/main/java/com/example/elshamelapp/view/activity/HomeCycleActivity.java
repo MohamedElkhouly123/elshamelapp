@@ -9,13 +9,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -24,7 +27,7 @@ import com.example.elshamelapp.Product_details.MyProduct;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.HomeCycle2.category.CategoryFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.ProfileFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ContactUSFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ImportantAddsFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.UploadAddFragment;
@@ -60,6 +63,12 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
     CardView cardViewTool;
     @BindView(R.id.bottom_lay)
     LinearLayout bottomLay;
+    @BindView(R.id.back_btn)
+    ImageButton backBtn;
+    @BindView(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @BindView(R.id.toolbar_sub_view)
+    ConstraintLayout toolbarSubView;
     private BoomMenuButton bmb;
     private GoogleSignInClient googleSignInClient;
     @BindView(R.id.profilePhoto)
@@ -70,7 +79,8 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
     private NavigationView navigationViewSide;
     public DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-//    private Menu nav_Menu;
+
+    //    private Menu nav_Menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +90,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
 //        String data = getIntent().getExtras().getString("keyName");
 //        Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
-         drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
         check = sharedPreferences.getString("value", "");
         Toast.makeText(this, check, Toast.LENGTH_SHORT).show();
@@ -101,7 +111,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
 //        DrawerLayout drawer = findViewById(R.id.drawer_layout);
 //        NavigationView navigationView = findViewById(R.id.nav_view_side);
-         toggle = new ActionBarDrawerToggle(
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -217,6 +227,16 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
     }
 
+    public void setToolBar(int visibility, String title, View.OnClickListener backActionBtn) {
+        toolbarSubView.setVisibility(visibility);
+
+        if (visibility == View.VISIBLE) {
+            toolbarTitle.setText(title);
+            backBtn.setOnClickListener(backActionBtn);
+        }
+
+    }
+
     public void setNavigationAndToolBar(int visibility, boolean hide) {
 
         cardViewTool.setVisibility(visibility);
@@ -226,42 +246,42 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //        toggle.setDrawerIndicatorEnabled(false);
 //        toggle.isDrawerSlideAnimationEnabled();
     }
+
     public void setFloatBottonAndToolBar(int visibility) {
 
         cardViewTool.setVisibility(visibility);
         bmb.setVisibility(visibility);
-        if(visibility==View.GONE){
-        toggleNav(true);}
-        else {
+        if (visibility == View.GONE) {
+            toggleNav(true);
+        } else {
             toggleNav(false);
         }
-
 
 
     }
 
     @SuppressLint("WrongConstant")
-    private void toggleNav(boolean side)
-    {
-        if (side){
+    private void toggleNav(boolean side) {
+        if (side) {
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             toggle.onDrawerStateChanged(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             toggle.setDrawerIndicatorEnabled(false);
             toggle.syncState();
 
 //        navigationViewSide.setVisibility(visibility);
-        }else {
+        } else {
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             toggle.onDrawerStateChanged(DrawerLayout.LOCK_MODE_UNLOCKED);
             toggle.setDrawerIndicatorEnabled(true);
             toggle.syncState();
         }
     }
+
     @OnClick(R.id.profilePhoto)
     void myProfile() {
 
         replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment(), "t");
-        setNavigationAndToolBar(View.GONE,true);
+        setNavigationAndToolBar(View.GONE, true);
     }
 
     private void setDataOnView() {
@@ -376,7 +396,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         Fragment fragment;
         if (id == R.id.navigation_home) {
             // Handle the camera action
-            setNavigationAndToolBar(View.VISIBLE,false);
+            setNavigationAndToolBar(View.VISIBLE, false);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
 
         } else if (id == R.id.navigation_notifications) {
@@ -390,7 +410,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
             setFloatBottonAndToolBar(View.GONE);
         } else if (id == R.id.Contact_Us) {
             replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ContactUSFragment(), "r");
-            setNavigationAndToolBar(View.GONE,true);
+            setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.brands) {
             startActivity(new Intent(HomeCycleActivity.this, MyProduct.class));
         } else if (id == R.id.home) {
@@ -403,7 +423,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         } else if (id == R.id.addProduct) {
 
             replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new UploadAddFragment(), "r");
-            setNavigationAndToolBar(View.GONE,true);
+            setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.nav_LogOut) {
 
 

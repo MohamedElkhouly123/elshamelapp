@@ -28,7 +28,7 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 public class SubCategoryFragment extends BaSeFragment {
 
     private LinearLayoutManager lLayout;
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.sub_category_fragment_recycler_view)
     RecyclerView rView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,7 +36,13 @@ public class SubCategoryFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_sub_categories, container, false);
         ButterKnife.bind(this, root);
-
+        homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onBack();
+                    }
+                });
         List<ItemObjectModel> rowListItem = getAllItemList();
 //        lLayout = new LinearLayoutManager(getActivity());
         rView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -86,7 +92,7 @@ public class SubCategoryFragment extends BaSeFragment {
         allItems.add(new ItemObjectModel("اخرى", R.drawable.flat));
 //        allItems.add(new ItemObjectModel("اخرى", R.drawable.chale));
 
-//مهم حجز وايجار <== سينمات وتذاكر مسرح وفنادق وسفر ورحلات وعربيات ومركبات ومعدات ثقيله وكشف عيادات وشقق ومبانى ودكاكين وجراجات بدل وفساتين زفاف
+//مهم حجز وايجار <== سينمات وتذاكر مسرح وفنادق وسفر ورحلات وعربيات ومركبات ومعدات ثقيله وكشف عيادات وشقق ومبانى ودكاكين وجراجات بدل وفساتين زفاف وقاعات افراح ومناسبات
 
 // للامان اجعله يبعت اللوكيشن فى الشات ووضع صوره البطاقه او وصل نور للحمايه
 

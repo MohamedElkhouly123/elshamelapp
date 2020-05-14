@@ -27,7 +27,7 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 public class CategoryFragment extends BaSeFragment {
 
     private LinearLayoutManager lLayout;
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.category_fragment_recycler_view)
     RecyclerView rView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,7 +35,13 @@ public class CategoryFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
         ButterKnife.bind(this, root);
-
+        homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_categories)
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onBack();
+                    }
+                });
         List<ItemObjectModel> rowListItem = getAllItemList();
         lLayout = new LinearLayoutManager(getActivity());
 

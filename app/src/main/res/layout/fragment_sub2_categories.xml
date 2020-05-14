@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/_3sdp"
-    tools:context=".view.Main.HomeCycleActivity"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/toolbar" />
+<!--    <include-->
+<!--        android:id="@+id/include2"-->
+<!--        layout="@layout/toolbar" />-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,12 +19,66 @@
         android:layout_marginTop="@dimen/_45sdp"
         app:layout_constraintTop_toBottomOf="@+id/include2">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scrollbars="vertical" />-->
+        <!--        android:paddingTop="@dimen/_5sdp"-->
+        <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/sub_category2_fragment_s_fl_shimmer_donations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-        <!--        android:paddingTop="@dimen/_5sdp"-->
+            android:visibility="gone"
+            app:shimmer_duration="1000"
+            >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/cardview_category_2th_item" />
+                <include layout="@layout/cardview_category_2th_item" />
+                <include layout="@layout/cardview_category_2th_item" />
+
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sub_category2_fragment_sr_refresh_donations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/sub_category2_fragment_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/load_more"
+                        android:paddingTop="@dimen/_15sdp"
+                        android:scrollbars="vertical" />
+
+                    <include
+                        layout="@layout/cardview_item_load_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <include layout="@layout/error" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

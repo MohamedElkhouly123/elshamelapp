@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#fff"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_47sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/janna"
+            android:textSize="@dimen/_13ssp"
+            android:hint="@string/search_here"
+            android:textColor="#fff"
+            android:textColorHint="#99070707"
+            android:padding="@dimen/_4sdp"
+            android:completionHint="@string/search_here"
+            android:completionThreshold="1"
+            android:popupBackground="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--        android:dropDownAnchor="@id/text_view_countries"-->
+        <!--        <AutoCompleteTextView-->
+<!--            android:id="@+id/actv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:completionHint="Select a country"-->
+<!--            android:completionThreshold="1"-->
+<!--            android:dropDownAnchor="@id/text_view_countries"-->
+<!--            android:hint="Select a country"-->
+<!--            android:popupBackground="@color/colorAccent" />-->
+
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_marginStart="@dimen/_13sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/toolbar_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/lemon"-->
+<!--            android:text=""-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <TextView-->
+<!--        android:id="@+id/text_view_countries"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="16dp"-->
+<!--        android:padding="@dimen/_4sdp"-->
+<!--        android:layout_marginStart="@dimen/_47sdp"-->
+<!--        android:layout_marginEnd="@dimen/_20sdp"-->
+<!--        android:text="your search"-->
+<!--        android:fontFamily="@font/janna"-->
+<!--        android:textSize="@dimen/_13ssp"/>-->
+</LinearLayout>

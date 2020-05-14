@@ -26,7 +26,7 @@ public class SignUpFragment extends BaSeFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View root = inflater.inflate(R.layout.fragment_sign_up_and_edit_profile, container, false);
 
         ButterKnife.bind(this, root);
 

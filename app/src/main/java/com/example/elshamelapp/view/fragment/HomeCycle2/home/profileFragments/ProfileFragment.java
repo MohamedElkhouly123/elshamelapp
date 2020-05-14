@@ -1,4 +1,4 @@
-package com.example.elshamelapp.view.fragment.HomeCycle2.home;
+package com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.activity.MapsActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import butterknife.ButterKnife;

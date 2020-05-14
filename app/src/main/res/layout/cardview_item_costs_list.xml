@@ -8,7 +8,7 @@
     android:layout_marginTop="@dimen/_2sdp"
     android:layout_marginBottom="@dimen/_2sdp"
     android:layout_marginEnd="@dimen/_3sdp"
-    android:id="@+id/item_restaurant_category_swipe_layout"
+    android:id="@+id/card_view_costs_list_item__swipe_layout"
     app:dragEdge="right"
     app:mode="normal">
 
@@ -18,7 +18,7 @@
         android:gravity="left">
 
         <ImageButton
-            android:id="@+id/donation_request_item_phone_floating_btn"
+            android:id="@+id/card_view_costs_list_item_edit_floating_btn"
             android:layout_width="@dimen/_26sdp"
             android:layout_height="@dimen/_26sdp"
             android:layout_gravity="center|end"
@@ -30,7 +30,7 @@
             android:src="@drawable/ic_edit_black_24dp"
              />
         <ImageButton
-            android:id="@+id/donation_request_item_edit_floating_btn"
+            android:id="@+id/card_view_costs_list_item_item_delete_floating_btn"
             android:layout_width="@dimen/_26sdp"
             android:layout_height="@dimen/_26sdp"
             android:layout_gravity="center|end"
@@ -49,7 +49,7 @@
     >
 
     <ImageButton
-        android:id="@+id/drag"
+        android:id="@+id/card_view_costs_list_item_drag_btn"
         android:layout_width="@dimen/_23sdp"
         android:layout_height="@dimen/_23sdp"
         android:layout_marginEnd="@dimen/_2sdp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/card_view_costs_list_item_linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -73,9 +73,10 @@
 
 
         <TextView
+            android:id="@+id/card_view_costs_list_item_product_name_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_13sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
@@ -84,6 +85,7 @@
             android:textAlignment="center" />
 
         <TextView
+            android:id="@+id/card_view_costs_list_item_product_price_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -95,10 +97,11 @@
             android:textAlignment="center" />
 
         <TextView
+            android:id="@+id/card_view_costs_list_item_product_quantity_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:fontFamily="@font/lemon2"

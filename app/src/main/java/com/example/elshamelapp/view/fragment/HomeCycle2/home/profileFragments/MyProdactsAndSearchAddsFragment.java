@@ -1,4 +1,4 @@
-package com.example.elshamelapp.view.fragment.HomeCycle2.more;
+package com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,29 +16,29 @@ import butterknife.ButterKnife;
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 
-public class ImportantAddsFragment extends BaSeFragment {
+public class MyProdactsAndSearchAddsFragment extends BaSeFragment {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_important_ads, container, false);
+        View root = inflater.inflate(R.layout.fragment_my_prodacts_and_search_adds, container, false);
+
         ButterKnife.bind(this, root);
-        homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.importantAds)
+        homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
                 , new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         onBack();
                     }
                 });
-
-
         return root;
     }
 
     @Override
     public void onBack() {
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+//        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }
 }

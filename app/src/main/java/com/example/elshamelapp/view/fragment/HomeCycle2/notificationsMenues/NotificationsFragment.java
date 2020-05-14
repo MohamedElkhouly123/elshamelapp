@@ -23,7 +23,13 @@ public class NotificationsFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         ButterKnife.bind(this, root);
-
+        homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.notify)
+                , new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onBack();
+                    }
+                });
 
 
         return root;

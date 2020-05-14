@@ -120,5 +120,14 @@
     <string name="costs_list">قائمة الأسعار</string>
     <string name="save_changes">حفظ</string>
     <string name="AddItem">أضافه عنصر</string>
+    <string name="please_enter_item_data">من فضلك ادخل بيانات المنتج</string>
+    <string name="load_more">تحميل المزيد</string>
+    <string name="search_here">أبحث هنا</string>
+    <string name="ignore_update">تراجع</string>
+    <string name="profile_edit">تعديل الملف الشخصى</string>
+    <string name="the_categories">الأقسام</string>
+    <string name="the_sub_categories">الأقسام الجزئية</string>
+
+
 
 </resources>

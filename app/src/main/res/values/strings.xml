@@ -123,4 +123,19 @@
     <string name="costs_list">Costs List</string>
     <string name="save_changes">Save</string>
     <string name="AddItem">Add Item</string>
+    <string name="please_enter_item_data">Please Enter your Product Data</string>
+    <string name="load_more">Load More</string>
+    <string name="search_here">Select Search here</string>
+    <string name="ignore_update">Ignore</string>
+    <string name="profile_edit">Profile Edit</string>
+    <string name="the_categories">The Categories</string>
+    <string name="the_sub_categories">Sub Categories</string>
+
+    <string-array name="countries">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+    </string-array>
 </resources>
