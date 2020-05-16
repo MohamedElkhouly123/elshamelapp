@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
 
 import butterknife.ButterKnife;
 
@@ -18,6 +19,11 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class UploadAddFragment extends BaSeFragment {
 
+    public UploadAddFragment(String addFromHomeOrProfile) {
+        this.addFromHomeOrProfile = addFromHomeOrProfile;
+    }
+
+    private String addFromHomeOrProfile="";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,8 +37,13 @@ public class UploadAddFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        if (addFromHomeOrProfile.equalsIgnoreCase("home")) {
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
-        homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
+            homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
+        }else
+        {            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
+        }
+
     }
 }

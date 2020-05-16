@@ -33,20 +33,21 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_47sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:fontFamily="@font/janna"
+            android:hint="@string/search"
             android:textSize="@dimen/_13ssp"
-            android:hint="@string/search_here"
-            android:textColor="#fff"
+            android:textColor="#99070707"
             android:textColorHint="#99070707"
             android:padding="@dimen/_4sdp"
-            android:completionHint="@string/search_here"
+            android:paddingStart="@dimen/_7sdp"
             android:completionThreshold="1"
-            android:popupBackground="@color/colorAccent"
+            android:popupBackground="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_btn"
             app:layout_constraintTop_toTopOf="parent" />
-<!--        android:dropDownAnchor="@id/text_view_countries"-->
+
+<!--        android:completionHint="@string/search_here"-->
+        <!--        android:dropDownAnchor="@id/text_view_countries"-->
         <!--        <AutoCompleteTextView-->
 <!--            android:id="@+id/actv"-->
 <!--            android:layout_width="match_parent"-->

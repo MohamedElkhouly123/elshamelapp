@@ -23,10 +23,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import com.example.elshamelapp.Product_details.MyProduct;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.HomeCycle2.category.CategoryFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.ProductsAndAddsDetailsFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.SearchFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ContactUSFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ImportantAddsFragment;
@@ -69,12 +70,13 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
     TextView toolbarTitle;
     @BindView(R.id.toolbar_sub_view)
     ConstraintLayout toolbarSubView;
+    @BindView(R.id.app_bar_layout_crimg_profilePhoto)
+    CircleImageView appBarLayoutCrimgProfilePhoto;
     private BoomMenuButton bmb;
     private GoogleSignInClient googleSignInClient;
-    @BindView(R.id.profilePhoto)
-    CircleImageView profileImage;
     GridLayout gridLayout;
     String check = "true";
+    public ConstraintLayout toolBarLay;
     public BottomNavigationView buttonNavigation;
     private NavigationView navigationViewSide;
     public DrawerLayout drawer;
@@ -95,9 +97,11 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         check = sharedPreferences.getString("value", "");
         Toast.makeText(this, check, Toast.LENGTH_SHORT).show();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.app_bar_main2_toolbar);
         setSupportActionBar(toolbar);
-
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+        toolBarLay = (ConstraintLayout) findViewById(R.id.toolbar_sub_view);
 
         buttonNavigation = findViewById(R.id.nav_viewb);
         buttonNavigation.setOnNavigationItemSelectedListener(this);
@@ -277,12 +281,6 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         }
     }
 
-    @OnClick(R.id.profilePhoto)
-    void myProfile() {
-
-        replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment(), "t");
-        setNavigationAndToolBar(View.GONE, true);
-    }
 
     private void setDataOnView() {
 
@@ -296,7 +294,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
 
         if (hh == "null") {
-            profileImage.setImageResource(R.drawable.placeperson);
+            appBarLayoutCrimgProfilePhoto.setImageResource(R.drawable.placeperson);
 
 
         } else {
@@ -304,7 +302,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
                     .load(hh)
                     .resize(80, 80)
                     .centerCrop()
-                    .into(profileImage);
+                    .into(appBarLayoutCrimgProfilePhoto);
         }
 //        profileName.setText(googleSignInAccount.getDisplayName());
 //        profileEmail.setText(googleSignInAccount.getEmail());
@@ -396,33 +394,42 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         Fragment fragment;
         if (id == R.id.navigation_home) {
             // Handle the camera action
+            toolbarSubView.setVisibility(View.GONE);
             setNavigationAndToolBar(View.VISIBLE, false);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
 
         } else if (id == R.id.navigation_notifications) {
+            backBtn.setVisibility(View.GONE);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new NotificationsFragment());
             setFloatBottonAndToolBar(View.GONE);
         } else if (id == R.id.navigation_category) {
+            backBtn.setVisibility(View.GONE);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new CategoryFragment());
             setFloatBottonAndToolBar(View.GONE);
         } else if (id == R.id.importantAds) {
+            backBtn.setVisibility(View.GONE);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new ImportantAddsFragment());
             setFloatBottonAndToolBar(View.GONE);
         } else if (id == R.id.Contact_Us) {
+            toolbarSubView.setVisibility(View.GONE);
             replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ContactUSFragment(), "r");
             setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.brands) {
-            startActivity(new Intent(HomeCycleActivity.this, MyProduct.class));
+            toolbarSubView.setVisibility(View.GONE);
+            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProductsAndAddsDetailsFragment(""), "r");
+            setNavigationAndToolBar(View.GONE, true);
+//            toolbarSubView.setVisibility(View.GONE);
+//            startActivity(new Intent(HomeCycleActivity.this, MyProduct.class));
         } else if (id == R.id.home) {
-
+            toolbarSubView.setVisibility(View.GONE);
             replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
         } else if (id == R.id.aboutApp) {
-
+            toolbarSubView.setVisibility(View.GONE);
             startActivity(new Intent(HomeCycleActivity.this, AboutApp.class));
 
         } else if (id == R.id.addProduct) {
-
-            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new UploadAddFragment(), "r");
+            toolbarSubView.setVisibility(View.GONE);
+            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new UploadAddFragment("home"), "r");
             setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.nav_LogOut) {
 
@@ -462,6 +469,22 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @OnClick({R.id.app_bar_layout_search_tv, R.id.app_bar_layout_crimg_profilePhoto})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.app_bar_layout_search_tv:
+                toolbarSubView.setVisibility(View.GONE);
+                replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new SearchFragment());
+                setNavigationAndToolBar(View.GONE, true);
+                break;
+            case R.id.app_bar_layout_crimg_profilePhoto:
+                toolbarSubView.setVisibility(View.GONE);
+                replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"), "t");
+                setNavigationAndToolBar(View.GONE, true);
+                break;
+        }
     }
 //    private void loadFragment(Fragment fragment) {
 //        // load fragment

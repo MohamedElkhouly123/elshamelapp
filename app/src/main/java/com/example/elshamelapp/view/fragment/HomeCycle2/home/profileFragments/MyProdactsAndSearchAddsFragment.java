@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 
@@ -18,6 +19,11 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class MyProdactsAndSearchAddsFragment extends BaSeFragment {
 
+    public MyProdactsAndSearchAddsFragment(String myProductsAndFavauriteOrOther) {
+        this.myProductsAndFavauriteOrOther = myProductsAndFavauriteOrOther;
+    }
+
+    private String myProductsAndFavauriteOrOther = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -25,6 +31,7 @@ public class MyProdactsAndSearchAddsFragment extends BaSeFragment {
         View root = inflater.inflate(R.layout.fragment_my_prodacts_and_search_adds, container, false);
 
         ButterKnife.bind(this, root);
+        homeCycleActivity= (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
                 , new View.OnClickListener() {
                     @Override

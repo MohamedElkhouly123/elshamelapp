@@ -64,7 +64,7 @@
     <string name="userInfo">معلومات المستخدم</string>
     <string name="ownerShop">صاحب محل</string>
     <string name="products">الاعلانات</string>
-    <string name="myproducts">اعلاناتى</string>
+<!--    <string name="myproducts">ال</string>-->
     <string name="Followers">المتابعين</string>
     <string name="Rate">التقييم</string>
     <string name="More">المزيد</string>

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +24,12 @@ public class SignUpFragment extends BaSeFragment {
 
     @BindView(R.id.login2)
     TextView login2;
+
+    public SignUpFragment(String signUpOrEditProfile) {
+        this.signUpOrEditProfile = signUpOrEditProfile;
+    }
+
+    private String signUpOrEditProfile="";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -40,7 +47,11 @@ public class SignUpFragment extends BaSeFragment {
     }
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new RegisterFragment());
+        if(signUpOrEditProfile.equalsIgnoreCase("signUp")){
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new RegisterFragment());}
+        else {
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
+    }
 
     }
 }

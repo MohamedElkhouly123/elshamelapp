@@ -109,7 +109,7 @@
                         >
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/circularImageView"
+                            android:id="@+id/fragment_my_profile_photo_circularImageView"
                             android:layout_width="@dimen/_85sdp"
                             android:layout_height="@dimen/_85sdp"
                             android:layout_marginStart="8dp"
@@ -137,9 +137,9 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/circularImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_photo_circularImageView"
                             app:cardBackgroundColor="@android:color/white"
-                            app:layout_constraintTop_toTopOf="@+id/circularImageView"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_my_profile_photo_circularImageView"
                             >
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,7 +148,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/textView11"
+                                    android:id="@+id/fragment_my_profile_name_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
@@ -163,7 +163,7 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <TextView
-                                    android:id="@+id/textView12"
+                                    android:id="@+id/fragment_my_profile_is_shop_owner_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_2sdp"
@@ -173,9 +173,9 @@
                                     android:textAlignment="center"
                                     android:textSize="@dimen/_11ssp"
                                     app:layout_constraintBottom_toTopOf="@+id/fol"
-                                    app:layout_constraintEnd_toEndOf="@+id/textView11"
-                                    app:layout_constraintStart_toStartOf="@+id/textView11"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                                    app:layout_constraintEnd_toEndOf="@+id/fragment_my_profile_name_tv"
+                                    app:layout_constraintStart_toStartOf="@+id/fragment_my_profile_name_tv"
+                                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_name_tv"
                                     app:layout_constraintVertical_bias="0.092" />
 
 
@@ -191,7 +191,7 @@
                                     android:weightSum="3"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView12">
+                                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_is_shop_owner_tv">
 
                                     <LinearLayout
                                         android:layout_width="0dp"
@@ -283,7 +283,7 @@
                 </FrameLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:id="@+id/setting"
+                    android:id="@+id/fragment_my_profile_setting_in_other_profile_ly_par"
                     android:layout_height="@dimen/_110sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -440,7 +440,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/setting"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_setting_in_other_profile_ly_par"
                     >
 
 
@@ -474,7 +474,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/tv_email"
+                                android:id="@+id/fragment_my_profile_tv_email"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -512,7 +512,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/address"
+                                android:id="@+id/fragment_my_profile_tv_address"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -551,7 +551,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/phonn"
+                                android:id="@+id/fragment_my_profile_tv_phone"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -634,7 +634,7 @@
 
 
                         <TextView
-                            android:id="@+id/viewmore1"
+                            android:id="@+id/fragment_my_profile_my_products_viewmore1_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_7sdp"

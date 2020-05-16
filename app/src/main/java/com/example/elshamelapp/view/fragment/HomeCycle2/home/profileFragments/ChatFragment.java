@@ -15,6 +15,7 @@ import com.example.elshamelapp.R;
 import com.example.elshamelapp.adapter.ChatAdpater;
 import com.example.elshamelapp.data.model.ChatModel;
 import com.example.elshamelapp.data.model.ClientData;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -64,6 +65,7 @@ public class ChatFragment extends BaSeFragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_chat, container, false);
+        homeCycleActivity= (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.Chat)
                 , new View.OnClickListener() {
                     @Override

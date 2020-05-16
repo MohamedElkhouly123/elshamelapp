@@ -8,6 +8,10 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools">
 <!--<include layout="@layout/toolbar"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tool_text_hide"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"/>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,7 +59,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_above="@+id/load_more"
-                        android:paddingTop="@dimen/_15sdp"
                         android:scrollbars="vertical" />
 
                     <include

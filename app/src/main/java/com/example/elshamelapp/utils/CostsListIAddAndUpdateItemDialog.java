@@ -85,7 +85,7 @@ public class CostsListIAddAndUpdateItemDialog {
 //                            updateAndAddItemCal= getApiClient().restaurantNewCategory( updatedCaegoryName,updatedCategoryPhoto,updatedCategoryApiToken);
 //                            new HomeFragment().restaurantDataListOfPossision.setName(restaurantAddCategoryDialogTilCategoryName.getEditText().getText().toString());
 
-                            CostsListFragment costsListFragment=new CostsListFragment();
+                            CostsListFragment costsListFragment=new CostsListFragment("myCostsList");
                             Bundle bundle=new Bundle();
                             bundle.putString("NAME",costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString());
                             bundle.putString("COST",costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString());

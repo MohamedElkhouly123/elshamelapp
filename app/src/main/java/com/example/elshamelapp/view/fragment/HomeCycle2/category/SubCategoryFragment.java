@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.adapter.CategoriesAdapter;
 import com.example.elshamelapp.data.model.ItemObjectModel;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 
@@ -36,6 +37,7 @@ public class SubCategoryFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_sub_categories, container, false);
         ButterKnife.bind(this, root);
+        homeCycleActivity= (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
                 , new View.OnClickListener() {
                     @Override
@@ -54,7 +56,7 @@ public class SubCategoryFragment extends BaSeFragment {
 
         // 5. set item animator to DefaultAnimator
         rView.setItemAnimator(new DefaultItemAnimator());
-
+        toolHidden();
 
         return root;
     }
@@ -99,6 +101,31 @@ public class SubCategoryFragment extends BaSeFragment {
 //        الفرز على حسب الاحدث للوقت والاقرب للمكان والحاله(جديد او قديم)والارخص للسعر والاعلى تقييم والماركات
         return allItems;
     }
+
+    private void toolHidden() {
+        rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && homeCycleActivity.toolBarLay.getVisibility() == View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+                } else if (dy < 0 && homeCycleActivity.toolBarLay.getVisibility() != View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
+        homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
+    }
+
 
     @Override
     public void onBack() {

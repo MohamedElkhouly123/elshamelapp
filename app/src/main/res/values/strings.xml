@@ -67,7 +67,7 @@
     <string name="userInfo">User Information</string>
     <string name="ownerShop">I am Owner shop</string>
     <string name="products">User Ads</string>
-    <string name="myproducts">My Ads</string>
+<!--    <string name="myproducts">The Ads</string>-->
     <string name="Followers">Followers</string>
     <string name="Rate">Rate</string>
     <string name="More">More</string>

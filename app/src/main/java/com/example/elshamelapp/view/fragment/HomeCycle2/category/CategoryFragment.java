@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.adapter.CategoryAdapter;
 import com.example.elshamelapp.data.model.ItemObjectModel;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 
@@ -26,6 +27,8 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class CategoryFragment extends BaSeFragment {
 
+//    @BindView(R.id.tool_text_hide)
+//    TextView toolTextHide;
     private LinearLayoutManager lLayout;
     @BindView(R.id.category_fragment_recycler_view)
     RecyclerView rView;
@@ -35,6 +38,7 @@ public class CategoryFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
         ButterKnife.bind(this, root);
+        homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_categories)
                 , new View.OnClickListener() {
                     @Override
@@ -47,16 +51,18 @@ public class CategoryFragment extends BaSeFragment {
 
         rView.setLayoutManager(lLayout);
 
-        CategoryAdapter rcAdapter = new CategoryAdapter(getContext(),getActivity(), rowListItem);
+        CategoryAdapter rcAdapter = new CategoryAdapter(getContext(), getActivity(), rowListItem);
         rView.setAdapter(rcAdapter);
 
         // 5. set item animator to DefaultAnimator
         rView.setItemAnimator(new DefaultItemAnimator());
 
+        toolHidden();
 
         return root;
     }
-    private List<ItemObjectModel> getAllItemList(){
+
+    private List<ItemObjectModel> getAllItemList() {
 
         List<ItemObjectModel> allItems = new ArrayList<ItemObjectModel>();
         allItems.add(new ItemObjectModel("مفقوداتى", R.drawable.cars));
@@ -70,6 +76,30 @@ public class CategoryFragment extends BaSeFragment {
 
 
         return allItems;
+    }
+
+    private void toolHidden() {
+        rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && homeCycleActivity.toolBarLay.getVisibility() == View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+                } else if (dy < 0 && homeCycleActivity.toolBarLay.getVisibility() != View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
+        homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
     }
 
     @Override

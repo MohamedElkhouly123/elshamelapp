@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.adapter.Category2ThAdapter;
 import com.example.elshamelapp.data.model.ItemObjectModel;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_sub2_categories, container, false);
         ButterKnife.bind(this, root);
+        homeCycleActivity= (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
                 , new View.OnClickListener() {
                     @Override
@@ -53,7 +55,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
 
         // 5. set item animator to DefaultAnimator
         rView.setItemAnimator(new DefaultItemAnimator());
-
+        toolHidden();
 
         return root;
     }
@@ -76,6 +78,30 @@ public class SubCategory2ThFragment extends BaSeFragment {
         allItems.add(new ItemObjectModel("اخرى"));
 
         return allItems;
+    }
+
+    private void toolHidden() {
+        rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && homeCycleActivity.toolBarLay.getVisibility() == View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+                } else if (dy < 0 && homeCycleActivity.toolBarLay.getVisibility() != View.VISIBLE) {
+                    homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
+        homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+
     }
 
     @Override

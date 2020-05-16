@@ -22,10 +22,17 @@ import butterknife.ButterKnife;
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 
-public class ProductsAndAddsFragment extends BaSeFragment {
+public class ProductsAndAddsDetailsFragment extends BaSeFragment {
 
     @BindView(R.id.ultra_viewpager)
     UltraViewPager ultraViewPager;
+
+    public ProductsAndAddsDetailsFragment(String myProductDetailsOrOther) {
+        this.myProductDetailsOrOther = myProductDetailsOrOther;
+    }
+
+    private String myProductDetailsOrOther = "";
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 

@@ -34,7 +34,7 @@ public class LoginFragment extends BaSeFragment {
     }
     @OnClick(R.id.signUp)
     void signUp(){
-        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new SignUpFragment(), "b");
+        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new SignUpFragment("signUp"), "b");
 
 
     }

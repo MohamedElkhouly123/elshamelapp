@@ -57,7 +57,9 @@
         <activity android:name=".Product_details.MyProduct" />
         <activity android:name=".Product_details.SellersProduct" />
         <activity android:name=".view.activity.UserCycleActivity" />
-        <activity android:name=".view.activity.HomeCycleActivity" />
+        <activity android:name=".view.activity.HomeCycleActivity"
+            android:label=""
+            />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

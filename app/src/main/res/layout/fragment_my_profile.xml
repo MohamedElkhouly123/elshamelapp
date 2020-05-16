@@ -5,14 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3FFFFFF"
+
     >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp"
+
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +114,7 @@
                         >
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/circularImageView"
+                            android:id="@+id/fragment_my_profile_photo_circularImageView"
                             android:layout_width="@dimen/_85sdp"
                             android:layout_height="@dimen/_85sdp"
                             android:layout_marginStart="8dp"
@@ -138,9 +142,9 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/circularImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_photo_circularImageView"
                             app:cardBackgroundColor="@android:color/white"
-                            app:layout_constraintTop_toTopOf="@+id/circularImageView"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_my_profile_photo_circularImageView"
                          >
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -149,7 +153,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/textView11"
+                                    android:id="@+id/fragment_my_profile_name_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
@@ -164,7 +168,7 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <TextView
-                                    android:id="@+id/textView12"
+                                    android:id="@+id/fragment_my_profile_is_shop_owner_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_2sdp"
@@ -174,9 +178,9 @@
                                     android:textAlignment="center"
                                     android:textSize="@dimen/_11ssp"
                                     app:layout_constraintBottom_toTopOf="@+id/fol"
-                                    app:layout_constraintEnd_toEndOf="@+id/textView11"
-                                    app:layout_constraintStart_toStartOf="@+id/textView11"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                                    app:layout_constraintEnd_toEndOf="@+id/fragment_my_profile_name_tv"
+                                    app:layout_constraintStart_toStartOf="@+id/fragment_my_profile_name_tv"
+                                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_name_tv"
                                     app:layout_constraintVertical_bias="0.092" />
 
 
@@ -192,7 +196,7 @@
                                     android:weightSum="3"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView12">
+                                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_is_shop_owner_tv">
 
                                     <LinearLayout
                                         android:layout_width="0dp"
@@ -212,7 +216,7 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:id="@+id/noproducts"
+                                            android:id="@+id/fragment_my_profile_num_products_tv"
                                             android:paddingTop="10dp"
                                             android:text="0"
                                             android:textColor="#0057FF"
@@ -237,7 +241,7 @@
                                             />
 
                                         <TextView
-                                            android:id="@+id/follower_number"
+                                            android:id="@+id/fragment_my_profile_follower_number_tv"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:paddingTop="10dp"
@@ -265,6 +269,7 @@
                                             />
 
                                         <TextView
+                                            android:id="@+id/fragment_my_profile_rate_tv"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:paddingTop="10dp"
@@ -284,7 +289,7 @@
                 </FrameLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:id="@+id/setting"
+                    android:id="@+id/fragment_my_profile_setting_in_other_profile_ly_par"
                     android:layout_height="@dimen/_110sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -296,20 +301,22 @@
                     >
 
                     <LinearLayout
+                        android:id="@+id/fragment_my_profile_setting_in_other_profile_ly"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
-                        android:visibility="gone"
                         android:layout_marginBottom="8dp"
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         android:weightSum="4"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_follow_me_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -317,7 +324,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/follow_me"
+                                android:id="@+id/fragment_my_profile_follow_me_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -342,6 +349,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_chat_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -349,7 +357,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/chat"
+                                android:id="@+id/fragment_my_profile_chat_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -370,6 +378,7 @@
                                 />
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_location_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -377,7 +386,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/location"
+                                android:id="@+id/fragment_my_profile_location_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -398,8 +407,8 @@
                                 />
 
                         </LinearLayout>
-
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_in_other_more_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -407,18 +416,18 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/report"
+                                android:id="@+id/fragment_my_profile_in_other_more_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="#EDEAFD"
-                                app:srcCompat="@drawable/ic_report_black_24dp"
+                                app:srcCompat="@drawable/ic_more_horiz_black_24dp"
                                 tools:ignore="VectorDrawableCompat" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/_25sdp"
-                                android:text="@string/report"
+                                android:text="@string/More"
                                 android:gravity="bottom"
                                 android:textSize="@dimen/_13ssp"
                                 android:fontFamily="@font/lemon2"
@@ -427,24 +436,40 @@
 
 
                         </LinearLayout>
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/fragment_my_profile_report_flbtn_ly"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                                android:id="@+id/report"-->
+<!--                                style="@style/Widget.Design.FloatingActionButton"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:backgroundTint="#EDEAFD"-->
+<!--                                app:srcCompat="@drawable/ic_report_black_24dp"-->
+<!--                                tools:ignore="VectorDrawableCompat" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="@dimen/_25sdp"-->
+<!--                                android:text="@string/report"-->
+<!--                                android:gravity="bottom"-->
+<!--                                android:textSize="@dimen/_13ssp"-->
+<!--                                android:fontFamily="@font/lemon2"-->
+<!--                                />-->
+
+
+
+<!--                        </LinearLayout>-->
 
                     </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:id="@+id/my_setting"
-                    android:visibility="visible"
-                    android:layout_height="@dimen/_110sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-                   >
-
                     <LinearLayout
+                        android:id="@+id/fragment_my_profile_setting_in_my_profile_ly"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="8dp"
@@ -458,6 +483,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_add_ads_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -465,7 +491,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/add"
+                                android:id="@+id/fragment_my_profile_add_ads_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -490,6 +516,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_notifies_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -497,7 +524,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/notification"
+                                android:id="@+id/fragment_my_profile_notifies_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -518,6 +545,7 @@
                                 />
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_edit_site_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -525,7 +553,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/my_profile_fragment_location_map_fbtn"
+                                android:id="@+id/fragment_my_profile_edit_site_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -548,6 +576,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/fragment_my_profile_more_flbtn_liny"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -555,7 +584,7 @@
                             android:orientation="vertical">
 
                             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                android:id="@+id/more"
+                                android:id="@+id/fragment_my_profile_more_flbtn_ly"
                                 style="@style/Widget.Design.FloatingActionButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -578,6 +607,21 @@
 
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    -->
+<!--                    android:layout_height="@dimen/_110sdp"-->
+<!--                    android:layout_marginStart="@dimen/_5sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_5sdp"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/frameLayout"-->
+<!--                   >-->
+
+<!--                   -->
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -590,7 +634,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/setting"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_my_profile_setting_in_other_profile_ly_par"
                  >
 
 
@@ -624,7 +668,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/tv_email"
+                                android:id="@+id/fragment_my_profile_tv_email"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -662,7 +706,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/address"
+                                android:id="@+id/fragment_my_profile_tv_address"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -701,7 +745,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/phonn"
+                                android:id="@+id/fragment_my_profile_tv_phone"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
@@ -720,7 +764,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/contr"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_230sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -734,7 +778,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_190sdp"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
@@ -753,7 +797,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginTop="8dp"
-                            android:text="@string/myproducts"
+                            android:text="@string/products"
                             android:textSize="@dimen/_14ssp"
                             android:fontFamily="@font/lemon2"
                             app:layout_constraintStart_toStartOf="parent"
@@ -771,7 +815,7 @@
                             >
 
                             <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/prodRec"
+                                android:id="@+id/fragment_my_profile_my_products_hz_rv"
                                 android:layout_width="match_parent"
 
                                 android:layout_height="wrap_content"
@@ -783,7 +827,7 @@
 
 
                         <TextView
-                            android:id="@+id/viewmore1"
+                            android:id="@+id/fragment_my_profile_my_products_viewmore1_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_7sdp"
@@ -800,13 +844,14 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/fragment_my_profile_my_fav_lay"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_230sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:elevation="@dimen/_1sdp"
                     app:cardBackgroundColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -816,7 +861,7 @@
                          >
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="290dp"
+                        android:layout_height="@dimen/_190sdp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
@@ -851,7 +896,7 @@
                             >
 
                             <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/favRec"
+                                android:id="@+id/fragment_my_profile_my_fav_hz_rv"
                                 android:layout_width="match_parent"
 
                                 android:layout_height="wrap_content"
@@ -864,7 +909,7 @@
 
 
                         <TextView
-                            android:id="@+id/viewmore2"
+                            android:id="@+id/fragment_my_profile_my_fav_viewmore2_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_7sdp"
@@ -898,7 +943,7 @@
        >
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/edit_floating_action_button"
+        android:id="@+id/fragment_my_profile_edit_flt_btn"
         style="@style/Widget.Design.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -907,6 +952,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_15sdp"
+        android:visibility="gone"
         android:backgroundTint="#F201B1FD"
         android:elevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"

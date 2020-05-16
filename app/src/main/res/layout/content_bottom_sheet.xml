@@ -42,8 +42,10 @@
         android:background="#070707"
       />
 <LinearLayout
+    android:id="@+id/profile_bottom_sheet_my_profile_lay"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:visibility="gone"
     android:layout_marginStart="@dimen/_20sdp"
     android:layout_marginTop="@dimen/_70sdp"
     android:layout_marginEnd="@dimen/_20sdp"
@@ -143,4 +145,108 @@
             />
     </LinearLayout>
 </LinearLayout>
+    <LinearLayout
+        android:id="@+id/profile_bottom_sheet_other_profile_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:paddingBottom="8dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/profile_bottom_sheet_report_flbtn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_23sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/report_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/report"
+                android:layout_weight="3"
+                android:fontFamily="@font/lemon2"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="#6F4A02"
+                />
+
+            />
+
+            <ImageView
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:layout_gravity="right|center"
+                android:src="@drawable/ic_report_black_24dp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/profile_bottom_sheet_other_profile_costs_list_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_23sdp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/Add_costs_list"
+                android:layout_weight="3"
+                android:fontFamily="@font/lemon2"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="#6F4A02"
+
+                />
+
+            />
+
+            <ImageView
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:layout_gravity="right|center"
+
+                android:src="@drawable/ic_format_list_bulleted_black_24dp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_17sdp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:text="@string/Edit_costs_list"
+                android:fontFamily="@font/lemon2"
+                android:textSize="@dimen/_14ssp"
+                android:layout_weight="3"
+                android:textColor="#6F4A02"
+
+                />
+
+            />
+
+            <ImageView
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:layout_gravity="end|center"
+                android:src="@drawable/ic_mode_edit_black_24dp"
+                android:layout_weight="1"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

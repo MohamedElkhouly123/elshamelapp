@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 
@@ -25,6 +26,7 @@ public class MyFavoriteFragment extends BaSeFragment {
         View root = inflater.inflate(R.layout.fragment_my_favorite, container, false);
 
         ButterKnife.bind(this, root);
+        homeCycleActivity= (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.MyFavorite)
                 , new View.OnClickListener() {
                     @Override

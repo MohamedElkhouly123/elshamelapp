@@ -41,6 +41,13 @@ public class CostsListFragment extends BaSeFragment {
     public static boolean isDialogDataAddSuccess = true;
     private List<CostsListModel> costsListItemDataList;
     private CostsListProductItemAdapter costsListProductItemAdapter;
+
+    public CostsListFragment(String myCostsListOrOther) {
+        this.myCostsListOrOther = myCostsListOrOther;
+    }
+
+    private String myCostsListOrOther = "";
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -83,7 +90,7 @@ public class CostsListFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
 //        homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

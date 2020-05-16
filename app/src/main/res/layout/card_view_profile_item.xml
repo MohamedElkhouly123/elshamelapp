@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/_3sdp"
+    android:padding="@dimen/_1sdp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -27,9 +27,9 @@
                 android:layout_height="@dimen/_86sdp"
                 android:src="@drawable/apple"
                 android:scaleType="centerCrop"
-                android:id="@+id/iv" />
+                android:id="@+id/card_view_profile_item_photo" />
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/card_view_profile_item_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
@@ -44,12 +44,13 @@
                 android:maxLines="4" />
 
             <TextView
-                android:id="@+id/article_subtitle"
+                android:id="@+id/card_view_profile_item_cost_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/_3sdp"
                 android:paddingRight="@dimen/_3sdp"
                 android:paddingBottom="@dimen/_9sdp"
+                android:layout_gravity="top|left"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="40$"

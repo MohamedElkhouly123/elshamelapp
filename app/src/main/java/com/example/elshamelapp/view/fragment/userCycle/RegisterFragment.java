@@ -240,7 +240,7 @@ public class RegisterFragment extends BaSeFragment {
     @OnClick(R.id.signUp)
     void signUpButton(){
 
-        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new SignUpFragment(), "l");
+        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new SignUpFragment("signUp"), "l");
 
 
     }
