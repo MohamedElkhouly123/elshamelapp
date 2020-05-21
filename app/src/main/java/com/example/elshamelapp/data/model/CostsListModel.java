@@ -1,18 +1,31 @@
 package com.example.elshamelapp.data.model;
 
+import androidx.room.PrimaryKey;
+
 public class CostsListModel {
 
     private String name;
     private String cost;
     private String quantity;
 
+    public CostsListModel(String name, String cost, String quantity, Integer id) {
+        this.name = name;
+        this.cost = cost;
+        this.quantity = quantity;
+        this.id = id;
+    }
 
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
 
     public CostsListModel(String name, String cost, String quantity) {
         this.name = name;
         this.cost = cost;
         this.quantity = quantity;
+    }
+
+    public CostsListModel() {
+
     }
 
     public String getName() {

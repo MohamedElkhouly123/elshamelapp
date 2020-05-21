@@ -4,7 +4,11 @@
 
 
         <solid android:color="#fff" />
-
+    <gradient
+        android:angle="270"
+        android:centerColor="#D9ECE5E5"
+        android:endColor="#E6D8D7D7"
+        android:startColor="#F2ECECEC" />
         <padding
             android:left="1dp"
             android:right="1dp"

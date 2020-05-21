@@ -27,15 +27,19 @@ public class ProductsAndAddsDetailsFragment extends BaSeFragment {
     @BindView(R.id.ultra_viewpager)
     UltraViewPager ultraViewPager;
 
-    public ProductsAndAddsDetailsFragment(String myProductDetailsOrOther) {
-        this.myProductDetailsOrOther = myProductDetailsOrOther;
-    }
+//    public ProductsAndAddsDetailsFragment(String myProductDetailsOrOther) {
+//        this.myProductDetailsOrOther = myProductDetailsOrOther;
+//    }
 
     private String myProductDetailsOrOther = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if(this.getArguments()!=null)
+        {
+            myProductDetailsOrOther = this.getArguments().getString("ISMYPRODUCTDETAILS");
 
+        }
         View root = inflater.inflate(R.layout.fragment_my_product, container, false);
 
         ButterKnife.bind(this, root);

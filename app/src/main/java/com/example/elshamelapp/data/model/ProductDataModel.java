@@ -23,6 +23,8 @@ public class ProductDataModel {
     public ProductDataModel(String name) {
         this.name = name;
     }
+    public ProductDataModel() {
+    }
 
     public String getName() {
         return name;

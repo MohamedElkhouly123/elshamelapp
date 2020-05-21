@@ -30,9 +30,7 @@ import butterknife.OnClick;
 
 import static com.example.elshamelapp.utils.CostsListIAddAndUpdateItemDialog.showDialog;
 
-
-public class CostsListProductItemAdapter extends RecyclerView.Adapter<CostsListProductItemAdapter.ViewHolder> {
-
+public class CostsListItemAdapter extends RecyclerView.Adapter<CostsListItemAdapter.ViewHolder> {
 
     private Context context;
     private BaseActivity activity;
@@ -40,31 +38,15 @@ public class CostsListProductItemAdapter extends RecyclerView.Adapter<CostsListP
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 //    private ClientData clientData;
     private String lang;
-    private int lastPosition = -1;
-    private static final String CLIENTPROFILEIMAGE ="CLIENTPROFILEIMAGE" ;
-    private   String dialogCostsListName,dialogCostsListPrice,dialogCostsListQuantity;
-    public CostsListModel costsListAdapterDataListOfPossision = new CostsListModel();
 
-    private ViewHolder holder;
-    public CostsListProductItemAdapter(Activity activity, List<CostsListModel> costsListDataList) {
+    public CostsListItemAdapter(Activity activity, List<CostsListModel> costsListDataList) {
         this.context = activity;
         this.activity = (BaseActivity) activity;
-        this.costsListDataList.clear();
         this.costsListDataList = costsListDataList;
         viewBinderHelper.setOpenOnlyOne(true);
-//        clientData = LoadUserData(activity);
+//        clientData = loadUserData(activity);
         lang = "eg";
     }
-public CostsListProductItemAdapter(){
-
-}
-//    public CostsListProductItemAdapter(String dialogCostsListName,String dialogCostsListPrice,String dialogCostsListQuantity) {
-//        this.dialogCostsListName = dialogCostsListName;
-//        this.dialogCostsListPrice = dialogCostsListPrice;
-//        this.dialogCostsListQuantity = dialogCostsListQuantity;
-//        viewBinderHelper.setOpenOnlyOne(true);
-//        lang = "eg";
-//    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -76,49 +58,32 @@ public CostsListProductItemAdapter(){
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        viewBinderHelper.setOpenOnlyOne(true);
         setData(holder, position);
         setSwipe(holder, position);
-        setAction(holder, position);
         setAnimation(holder.itemView, position, holder);
-        this.holder=holder;
+
     }
 
     @SuppressLint("SetTextI18n")
     private void setData(ViewHolder holder, int position) {
 
 
-        try {
-            holder.position = position;
-            holder.itemCostsListTvProductName.setText(costsListDataList.get(position).getName());
-            holder.itemCostsListTvProductPrice.setText(costsListDataList.get(position).getCost());
-            holder.itemCostsListTvProductQuantity.setText(costsListDataList.get(position).getQuantity());
+        holder.position = position;
+        holder.itemCostsListTvProductName.setText(costsListDataList.get(position).getName());
+        holder.itemCostsListTvProductPrice.setText(costsListDataList.get(position).getCost());
+        holder.itemCostsListTvProductQuantity.setText(costsListDataList.get(position).getQuantity());
 
-
-
-        } catch (Exception e) {
-
-        }
 
 
     }
 
-    private void setAnimation(View viewToAnimate, int position, ViewHolder holder) {
-            Animation animation = null;
-            animation = AnimationUtils.loadAnimation(activity, R.anim.rv_animation_down_to_up);
-            viewToAnimate.startAnimation(animation);
+    private void setAnimation(View viewToAnimate, int position, CostsListItemAdapter.ViewHolder holder) {
+        Animation animation = null;
+        animation = AnimationUtils.loadAnimation(activity, R.anim.rv_animation_down_to_up);
+        viewToAnimate.startAnimation(animation);
 
     }
 
-    private void setAction(ViewHolder holder, int position) {
-
-        holder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
 
     private void setSwipe(final ViewHolder holder, final int position) {
         holder.itemCostsListSwipeLayout.computeScroll();
@@ -145,9 +110,7 @@ public CostsListProductItemAdapter(){
         return costsListDataList.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-
 
         @BindView(R.id.card_view_costs_list_item_product_name_tv)
         TextView itemCostsListTvProductName;
@@ -157,6 +120,7 @@ public CostsListProductItemAdapter(){
         TextView itemCostsListTvProductQuantity;
         @BindView(R.id.card_view_costs_list_item__swipe_layout)
         SwipeRevealLayout itemCostsListSwipeLayout;
+
         private View view;
         private int position;
 
@@ -166,35 +130,29 @@ public CostsListProductItemAdapter(){
             ButterKnife.bind(this, view);
         }
 
-
         @OnClick({R.id.card_view_costs_list_item_edit_floating_btn, R.id.card_view_costs_list_item_item_delete_floating_btn,R.id.card_view_costs_list_item_drag_btn})
         public void onViewClicked(View view) {
             switch (view.getId()) {
                 case R.id.card_view_costs_list_item_edit_floating_btn:
-                  boolean  isDialogDataAddSuccess = true; // here not true
+                    boolean  isDialogDataAddSuccess = true; // here not true
 //                    CostsListIAddAndUpdateItemDialog costsListIAddAndUpdateItemDialog = new CostsListIAddAndUpdateItemDialog();
 //                    costsListIAddAndUpdateItemDialog.costsListItemDataListOfPossision = costsListDataList.get(position);
                     showDialog(activity, context, "update",costsListDataList.get(position));
 //                    if (dialogCostsListName != null && dialogCostsListPrice != null && dialogCostsListQuantity != null && isDialogDataAddSuccess) {
 //                        showToast(activity, dialogCostsListName + "\n" + dialogCostsListPrice);
-                        costsListDataList.get(position).setName(costsListAdapterDataListOfPossision.getName());
-                        costsListDataList.get(position).setCost(costsListAdapterDataListOfPossision.getCost());
-                        costsListDataList.get(position).setQuantity(costsListAdapterDataListOfPossision.getQuantity());
-                        notifyItemChanged(position);
+//                        costsListDataList.get(position).setName(dialogCostsListName);
+//                        costsListDataList.get(position).setCost(dialogCostsListPrice);
+//                        costsListDataList.get(position).setQuantity(dialogCostsListQuantity);
+//                        notifyItemChanged(position);
 //                    }
                     break;
                 case R.id.card_view_costs_list_item_item_delete_floating_btn:
                     showDeleteDialog();
-//                    Bundle args = new Bundle();
-//                    args.putSerializable("ARG_PARAM1", yourObject);
-// recieve
-//                    yourObj = (Match) getArguments().getSerializable(ARG_PARAM1);
 
                     break;
                 case R.id.card_view_costs_list_item_drag_btn:
-//                    viewBinderHelper.bind(holder.itemCostsListSwipeLayout, String.valueOf(costsListDataList.get(position).getId()));
 //                    viewBinderHelper.openLayout(String.valueOf(costsListDataList.get(position).getId()));
-//                    itemCostsListSwipeLayout.onS();
+//                    itemCostsListSwipeLayout.computeScroll();
                     break;
             }
         }
@@ -228,7 +186,7 @@ public CostsListProductItemAdapter(){
 //                final View view = activity.getLayoutInflater().inflate(R.layout.dialog_restaurant_add_category, null);
 //            alertDialog = new AlertDialog.Builder(HomeFragment.this).create();
                 AlertDialog alertDialog;
-                 alertDialog = new AlertDialog.Builder(activity).create();
+                alertDialog = new AlertDialog.Builder(activity).create();
                 alertDialog.setTitle("Delete");
                 alertDialog.setMessage("هل انت متاكد من الحذف ؟");
                 alertDialog.setCancelable(false);
@@ -264,7 +222,7 @@ public CostsListProductItemAdapter(){
                     }
                 });
 
-                                alertDialog.show();
+                alertDialog.show();
 
             } catch (Exception e) {
 
@@ -287,4 +245,3 @@ public CostsListProductItemAdapter(){
 //        mData.add(position, landscape);
 //        notifyItemInserted(position);
 //        notifyItemRangeChanged(position, mData.size());
-//        }

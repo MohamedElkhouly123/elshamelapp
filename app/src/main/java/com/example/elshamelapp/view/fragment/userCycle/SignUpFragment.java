@@ -25,14 +25,18 @@ public class SignUpFragment extends BaSeFragment {
     @BindView(R.id.login2)
     TextView login2;
 
-    public SignUpFragment(String signUpOrEditProfile) {
-        this.signUpOrEditProfile = signUpOrEditProfile;
-    }
+//    public SignUpFragment(String signUpOrEditProfile) {
+//        this.signUpOrEditProfile = signUpOrEditProfile;
+//    }
 
     private String signUpOrEditProfile="";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if(this.getArguments()!=null)
+        {
+            signUpOrEditProfile = this.getArguments().getString("ISSIGNUP");
 
+        }
         View root = inflater.inflate(R.layout.fragment_sign_up_and_edit_profile, container, false);
 
         ButterKnife.bind(this, root);
@@ -50,8 +54,12 @@ public class SignUpFragment extends BaSeFragment {
         if(signUpOrEditProfile.equalsIgnoreCase("signUp")){
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new RegisterFragment());}
         else {
-            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
-    }
+            Bundle bundle=new Bundle();
+            bundle.putString("ISMYPROFILE","myProfile");
+            ProfileFragment profileFragment=new ProfileFragment();
+            profileFragment.setArguments(bundle);
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, profileFragment);
+            }
 
     }
 }

@@ -2,7 +2,6 @@ package com.example.elshamelapp.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -50,12 +49,12 @@ public class CostsListIAddAndUpdateItemDialog {
             alertDialogBuilder.setView(view);
             alertDialogBuilder.setCancelable(true);
             final AlertDialog dialog = alertDialogBuilder.create();
-            addOrUpdate2=addOrUpdate;
+//            addOrUpdate2=addOrUpdate;
              costsListAddOrUpdateItemDialogProductNameTInLy = (TextInputLayout) view.findViewById(R.id.costs_list_dialog_product_name_tily);
             costsListAddOrUpdateItemDialogProductPriceTInLy = (TextInputLayout) view.findViewById(R.id.costs_list_dialog_product_cost_tily);
             costsListAddOrUpdateItemDialogProductQuantityTInLy = (TextInputLayout) view.findViewById(R.id.costs_list_dialog_product_quality_tily);
             costsListAddOrUpdateItemDialogAddBtn = (Button) view.findViewById(R.id.costs_list_dialog_add_and_update_btn);
-            if (addOrUpdate2.equals("update")) {
+            if (addOrUpdate.equalsIgnoreCase("update")) {
 //                restaurantAddCategoryDialogAddBtn.setText(R.string.update_dialog);
                 costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().setText(costsListItemDataListOfPossision.getName());
                 costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().setText(costsListItemDataListOfPossision.getCost());
@@ -73,27 +72,38 @@ public class CostsListIAddAndUpdateItemDialog {
                 public void onClick(View v) {
 //                    if (restaurantAddCategoryDialogTilCategoryName.getEditText().getText().toString()==null||mPath==null){}
                     if(costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString()!=""&&costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString()!=""&&costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString()!=""){
-                        //                        showToast(activity, String.valueOf(updatedCategoryPhoto));
+                                                showToast(activity, String.valueOf(addOrUpdate));
 //                        Call<RestaurantCategoryResponse> updateAndAddItemCal=null;
-                        if (addOrUpdate2.equals("update")) {
+                        String  dialogItemProductName =costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString();
+                        String  dialogItemProductPrice =costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString();
+                        String dialogItemProductQuantity =costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString();
+                        if (addOrUpdate.equalsIgnoreCase("update")) {
 //                            updateAndAddItemCal= getApiClient().restaurantUpdateCategory( updatedCaegoryName,updatedCategoryPhoto,updatedCategoryApiToken,updatedCategoryId);
-                          String  dialogItemProductName =costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString();
-                          String  dialogItemProductPrice =costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString();
-                          String dialogItemProductQuantity =costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString();
-                          new CostsListProductItemAdapter(dialogItemProductName,dialogItemProductPrice,dialogItemProductQuantity);
+                            CostsListProductItemAdapter costsListProductItemAdapter=new CostsListProductItemAdapter();
+//                            costsListProductItemAdapter.costsListAdapterDataListOfPossision.setId(costsListItemDataListOfPossision.getId());
+                            costsListProductItemAdapter.costsListAdapterDataListOfPossision.setName(costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString());
+                            costsListProductItemAdapter.costsListAdapterDataListOfPossision.setCost(costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString());
+                            costsListProductItemAdapter.costsListAdapterDataListOfPossision.setQuantity(costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString());
+
+//                          new CostsListProductItemAdapter(dialogItemProductName,dialogItemProductPrice,dialogItemProductQuantity);
                         }else {
 //                            updateAndAddItemCal= getApiClient().restaurantNewCategory( updatedCaegoryName,updatedCategoryPhoto,updatedCategoryApiToken);
 //                            new HomeFragment().restaurantDataListOfPossision.setName(restaurantAddCategoryDialogTilCategoryName.getEditText().getText().toString());
 
-                            CostsListFragment costsListFragment=new CostsListFragment("myCostsList");
-                            Bundle bundle=new Bundle();
-                            bundle.putString("NAME",costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString());
-                            bundle.putString("COST",costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString());
-                            bundle.putString("QUANTITY",costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString());
+                            CostsListFragment costsListFragment=new CostsListFragment();
+//                            costsListFragment.setItemData(dialogItemProductName,dialogItemProductQuantity,dialogItemProductPrice);
+//                            Bundle bundle=new Bundle();
+//                            bundle.putString("NAME",costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString());
+//                            bundle.putString("COST",costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString());
+//                            bundle.putString("QUANTITY",costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString());
+//                            costsListFragment.setArguments(bundle);
+                            int i=10;
+                            costsListFragment.costsListDataListOfPossision.setId(i);
+                            costsListFragment.costsListDataListOfPossision.setName(costsListAddOrUpdateItemDialogProductNameTInLy.getEditText().getText().toString());
+                            costsListFragment.costsListDataListOfPossision.setCost(costsListAddOrUpdateItemDialogProductPriceTInLy.getEditText().getText().toString());
+                            costsListFragment.costsListDataListOfPossision.setQuantity(costsListAddOrUpdateItemDialogProductQuantityTInLy.getEditText().getText().toString());
 
-                            costsListFragment.setArguments(bundle);
-
-
+                             i++;
                         }
 //                        deleteAndUpdateItemCallBack(activity,updateAndAddItemCal);
                         dialog.dismiss();

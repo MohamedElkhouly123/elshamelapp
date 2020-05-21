@@ -26,6 +26,7 @@ import butterknife.OnClick;
 
 import static com.example.elshamelapp.utils.CostsListIAddAndUpdateItemDialog.showDialog;
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
+import static com.example.elshamelapp.utils.HelperMethod.showToast;
 
 
 public class CostsListFragment extends BaSeFragment {
@@ -37,20 +38,24 @@ public class CostsListFragment extends BaSeFragment {
     ImageButton costsListFragmentBackBtn;
     @BindView(R.id.costs_list_fragment_bottom_ly)
     LinearLayout costsListFragmentBottomLy;
-    private String productName,productQuantity,productPrice;
+    public CostsListModel costsListDataListOfPossision = new CostsListModel();
     public static boolean isDialogDataAddSuccess = true;
     private List<CostsListModel> costsListItemDataList;
     private CostsListProductItemAdapter costsListProductItemAdapter;
 
-    public CostsListFragment(String myCostsListOrOther) {
-        this.myCostsListOrOther = myCostsListOrOther;
-    }
+//    public CostsListFragment(String myCostsListOrOther) {
+//        this.myCostsListOrOther = myCostsListOrOther;
+//    }
 
     private String myCostsListOrOther = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if(this.getArguments()!=null)
+        {
+            myCostsListOrOther = this.getArguments().getString("ISMYCOSTSLIST");
 
+        }
         View root = inflater.inflate(R.layout.fragment_costs_list, container, false);
 
         ButterKnife.bind(this, root);
@@ -72,28 +77,36 @@ public class CostsListFragment extends BaSeFragment {
     private List<CostsListModel> getAllItemList() {
 
          costsListItemDataList = new ArrayList<CostsListModel>();
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
-        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5"));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",0));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",1));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",2));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",3));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",4));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",5));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",6));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",7));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",8));
+        costsListItemDataList.add(new CostsListModel("سكر", "55 ج","5",9));
 
 
 
         return costsListItemDataList;
     }
 
+//    public void setItemData(String productName, String productQuantity, String productPrice) {
+//        this.productName = productName;
+//        this.productQuantity = productQuantity;
+//        this.productPrice = productPrice;
+//    }
+
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
-//        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
-//        homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
-    }
+        Bundle bundle=new Bundle();
+        bundle.putString("ISMYPROFILE","myProfile");
+        ProfileFragment profileFragment=new ProfileFragment();
+        profileFragment.setArguments(bundle);
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, profileFragment);
+          }
 
     @OnClick({R.id.costs_list_fragment_back_btn, R.id.costs_list_fragment_save_btn, R.id.costs_list_fragment_add_new_item})
     public void onViewClicked(View view) {
@@ -103,16 +116,14 @@ public class CostsListFragment extends BaSeFragment {
             case R.id.costs_list_fragment_save_btn:
                 break;
             case R.id.costs_list_fragment_add_new_item:
-                Bundle bundle = this.getArguments();
-                productName = bundle.getString("NAME");
-                productPrice = bundle.getString("COST");
-                productQuantity = bundle.getString("QUANTITY");
+
                 isDialogDataAddSuccess = true;
                 showDialog(getActivity(), getContext(), "add",null);
 
-                if (productName != null && productPrice != null && productQuantity != null && isDialogDataAddSuccess) {
 
-                    costsListItemDataList.add(new CostsListModel(productName,productPrice,productQuantity));
+                if (costsListDataListOfPossision.getName() != null && costsListDataListOfPossision.getCost() != null && costsListDataListOfPossision.getQuantity() != null && isDialogDataAddSuccess) {
+                    showToast(getActivity(), costsListDataListOfPossision.getName());
+                    costsListItemDataList.add(costsListDataListOfPossision);
                     costsListProductItemAdapter.notifyItemInserted(costsListItemDataList.size());
                 }
                 break;

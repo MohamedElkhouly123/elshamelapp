@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -24,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.utils.LogOutDialog;
 import com.example.elshamelapp.view.fragment.HomeCycle2.category.CategoryFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.ProductsAndAddsDetailsFragment;
@@ -33,13 +33,10 @@ import com.example.elshamelapp.view.fragment.HomeCycle2.more.ContactUSFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ImportantAddsFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.UploadAddFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.notificationsMenues.NotificationsFragment;
-import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.nightonke.boommenu.BoomButtons.HamButton;
@@ -416,7 +413,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
             setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.brands) {
             toolbarSubView.setVisibility(View.GONE);
-            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProductsAndAddsDetailsFragment(""), "r");
+            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProductsAndAddsDetailsFragment(), "r");
             setNavigationAndToolBar(View.GONE, true);
 //            toolbarSubView.setVisibility(View.GONE);
 //            startActivity(new Intent(HomeCycleActivity.this, MyProduct.class));
@@ -429,38 +426,14 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
         } else if (id == R.id.addProduct) {
             toolbarSubView.setVisibility(View.GONE);
-            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new UploadAddFragment("home"), "r");
+            Bundle bundle=new Bundle();
+            bundle.putString("ISADDSFROMHOME","home");
+            UploadAddFragment uploadAddFragment=new UploadAddFragment();
+            uploadAddFragment.setArguments(bundle);
+            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, uploadAddFragment, "r");
             setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.nav_LogOut) {
-
-
-            // Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
-
-
-// Build a GoogleSignInClient with the options specified by gso.
-            googleSignInClient = GoogleSignIn.getClient(this, gso);
-
- /*
-          Sign-out is initiated by simply calling the googleSignInClient.signOut API. We add a
-          listener which will be invoked once the sign out is the successful
-           */
-            LoginManager.getInstance().logOut();
-
-            googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    //On Succesfull signout we navigate the user back to LoginActivity
-                    Intent intent = new Intent(HomeCycleActivity.this, UserCycleActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                }
-            });
-
-
+            new LogOutDialog().showDialog(this);
         }
 //        else if (id == R.id.nav_send) {
 //
@@ -481,8 +454,13 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
                 break;
             case R.id.app_bar_layout_crimg_profilePhoto:
                 toolbarSubView.setVisibility(View.GONE);
-                replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"), "t");
+                Bundle bundle=new Bundle();
+                bundle.putString("ISMYPROFILE","myProfile");
+                ProfileFragment profileFragment=new ProfileFragment();
+                profileFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, profileFragment, "t");
                 setNavigationAndToolBar(View.GONE, true);
+
                 break;
         }
     }

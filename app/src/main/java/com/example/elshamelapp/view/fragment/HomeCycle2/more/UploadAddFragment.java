@@ -19,15 +19,19 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class UploadAddFragment extends BaSeFragment {
 
-    public UploadAddFragment(String addFromHomeOrProfile) {
-        this.addFromHomeOrProfile = addFromHomeOrProfile;
-    }
+//    public UploadAddFragment(String addFromHomeOrProfile) {
+//        this.addFromHomeOrProfile = addFromHomeOrProfile;
+//    }
 
     private String addFromHomeOrProfile="";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if(this.getArguments()!=null)
+        {
+            addFromHomeOrProfile = this.getArguments().getString("ISADDSFROMHOME");
 
+        }
         View root = inflater.inflate(R.layout.fragment_uplood_product, container, false);
 
         ButterKnife.bind(this, root);
@@ -42,8 +46,14 @@ public class UploadAddFragment extends BaSeFragment {
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
             homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
         }else
-        {            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment("myProfile"));
-        }
+        {
+            Bundle bundle=new Bundle();
+            bundle.putString("ISMYPROFILE","myProfile");
+            ProfileFragment profileFragment=new ProfileFragment();
+            profileFragment.setArguments(bundle);
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, profileFragment);
+
+            }
 
     }
 }

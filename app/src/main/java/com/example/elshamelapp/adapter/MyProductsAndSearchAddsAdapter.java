@@ -30,7 +30,7 @@ import butterknife.OnClick;
 
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragmentWithAnimation;
 
-public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.ViewHolder> {
+public class MyProductsAndSearchAddsAdapter extends RecyclerView.Adapter<MyProductsAndSearchAddsAdapter.ViewHolder> {
 
 
     private Context context;
@@ -39,9 +39,9 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
 //    private ClientData clientData;
 //    private ApiService apiService;
 
-    public ProfileItemAdapter(Context context,
-                              Activity activity,
-                              List<ProductDataModel> itemList
+    public MyProductsAndSearchAddsAdapter(Context context,
+                                          Activity activity,
+                                          List<ProductDataModel> itemList
     ) {
         this.context = context;
         this.activity = activity;
@@ -53,7 +53,7 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.card_view_profile_item,
+        View view = LayoutInflater.from(context).inflate(R.layout.card_view_products_item_large,
                 parent, false);
 
         return new ViewHolder(view);
@@ -63,7 +63,7 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         setData(holder, position);
         setAction(holder, position);
-//        setAnimation(holder.itemView, position, holder);
+        setAnimation(holder.itemView, position, holder);
 
     }
 
@@ -71,9 +71,9 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
     private void setData(ViewHolder holder, int position) {
         try {
             holder.position = position;
-            holder.cardViewProfileItemTitleTv.setText(itemList.get(position).getName());
-            holder.cardViewProfileItemCostTv.setText(itemList.get(position).getCost());
-            holder.cardViewProfileItemPhoto.setImageResource(itemList.get(position).getPhoto());
+            holder.cardViewProductsItemLargeNameTv.setText(itemList.get(position).getName());
+            holder.cardViewProductsItemLargeCostTv.setText(itemList.get(position).getCost());
+            holder.cardViewProductsItemLargePhoto.setImageResource(itemList.get(position).getPhoto());
 
 //            holder.subCategory2th.setBackgroundColor(R.drawable.blue_style);
 //            holder.thumbnail.setBackgroundColor(R.color.photo_placeholder);
@@ -97,6 +97,16 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
             @Override
             public void onClick(View v) {
 
+                HomeCycleActivity homeCycleActivity = (HomeCycleActivity) activity;
+                Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
+//                if(position==0){
+               Bundle bundle=new Bundle();
+                bundle.putString("ISMYPRODUCTDETAILS","my");
+               ProductsAndAddsDetailsFragment productsAndAddsDetailsFragment=new ProductsAndAddsDetailsFragment();
+                productsAndAddsDetailsFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, productsAndAddsDetailsFragment, "r");
+//                homeCycleActivity.setNavigationAndToolBar(View.GONE,"t");
+//                }
             }
         });
 
@@ -110,17 +120,23 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
 
 
 
+
 //    @OnClick(R.id.item_client_restaurants_list_rb_rating)
 //    public void onViewClicked() {
 //    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.card_view_profile_item_photo)
-        ImageView cardViewProfileItemPhoto;
-        @BindView(R.id.card_view_profile_item_title_tv)
-        TextView cardViewProfileItemTitleTv;
-        @BindView(R.id.card_view_profile_item_cost_tv)
-        TextView cardViewProfileItemCostTv;
+        @BindView(R.id.card_view_products_item_large_photo)
+        ImageView cardViewProductsItemLargePhoto;
+        @BindView(R.id.card_view_products_item_large_photo_is_favourite)
+        ImageView cardViewProductsItemLargePhotoIsFavourite;
+        @BindView(R.id.card_view_products_item_large_name_tv)
+        TextView cardViewProductsItemLargeNameTv;
+        @BindView(R.id.card_view_products_item_large_cost_tv)
+        TextView cardViewProductsItemLargeCostTv;
+        @OnClick(R.id.card_view_products_item_large_photo_is_favourite)
+        public void onViewClicked() {
+        }
         private View view;
         private int position;
 
@@ -128,20 +144,6 @@ public class ProfileItemAdapter extends RecyclerView.Adapter<ProfileItemAdapter.
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
-        }
-
-        @OnClick(R.id.card_view_profile_item_card_view_click)
-        public void onViewClicked(View v) {
-
-            HomeCycleActivity homeCycleActivity = (HomeCycleActivity) activity;
-            Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
-//                if(position==0){
-            Bundle bundle = new Bundle();
-            bundle.putString("ISMYPRODUCTDETAILS", "my");
-            ProductsAndAddsDetailsFragment productsAndAddsDetailsFragment = new ProductsAndAddsDetailsFragment();
-            productsAndAddsDetailsFragment.setArguments(bundle);
-            replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, productsAndAddsDetailsFragment, "r");
-//
         }
     }
 }

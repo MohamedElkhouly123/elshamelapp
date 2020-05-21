@@ -254,7 +254,7 @@
                        />
 
                     <Button
-                        android:id="@+id/signUp"
+                        android:id="@+id/fragment_login_sign_up_tv"
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_47sdp"
                         android:layout_marginStart="@dimen/_20sdp"

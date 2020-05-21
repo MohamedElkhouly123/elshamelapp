@@ -199,5 +199,12 @@ public class AboutApp extends BaseActivity {
             View view = (View) object;
             container.removeView(view);
         }
-    }}
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        this.finish();
+    }
+}
 

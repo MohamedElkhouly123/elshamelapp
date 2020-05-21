@@ -130,6 +130,13 @@
     <string name="profile_edit">Profile Edit</string>
     <string name="the_categories">The Categories</string>
     <string name="the_sub_categories">Sub Categories</string>
+    <string name="set_new_password">Set New Password</string>
+    <string name="pin_code" >Pin Code</string>
+    <string name="helpText2">Please Enter Pin Code from your Email and Set new Password here before send</string>
+    <string name="send">Send</string>
+    <string name="please_enter_your_email">Please Enter Your Email Here</string>
+    <string name="change_password">Change Password</string>
+    <string name="submit">Submit</string>
 
     <string-array name="countries">
         <item>Afghanistan</item>

@@ -37,6 +37,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragmentWithAnimation;
+import static com.example.elshamelapp.utils.HelperMethod.showToast;
 import static com.example.elshamelapp.utils.ToastCreator.onCreateErrorToast;
 import static com.example.elshamelapp.utils.network.InternetState.isConnected;
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -84,10 +85,13 @@ public class ProfileFragment extends BaSeFragment {
     private ProfileItemAdapter profileProductItemAdapter;
     private LinearLayoutManager lLayout;
     private boolean openSheet = false;
+    private Bundle bundle;
+    private CostsListFragment costsListFragment;
+    private MyProdactsAndSearchAddsFragment myProdactsAndSearchAddsFragment;
 
-    public ProfileFragment(String myProfileOrOther) {
-        this.myProfileOrOther = myProfileOrOther;
-    }
+//    public ProfileFragment(String myProfileOrOther) {
+//        this.myProfileOrOther = myProfileOrOther;
+//    }
 
     private String myProfileOrOther = "";
     // TextView variable
@@ -101,10 +105,16 @@ public class ProfileFragment extends BaSeFragment {
 //    private Button go;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if(this.getArguments()!=null)
+        {
+            myProfileOrOther = this.getArguments().getString("ISMYPROFILE");
 
+        }
         View root = inflater.inflate(R.layout.bottom_sheets_abb_bar, container, false);
 
         ButterKnife.bind(this, root);
+        showToast(getActivity(), myProfileOrOther);
+
         setUpUI();
         bottomSheetBehavior = BottomSheetBehavior.from(root.findViewById(R.id.bottom1));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -214,9 +224,15 @@ public class ProfileFragment extends BaSeFragment {
                 }
                 break;
             case R.id.fragment_my_profile_in_other_more_flbtn_ly:
+                openSheet = true;
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             case R.id.fragment_my_profile_add_ads_flbtn_ly:
-                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new UploadAddFragment("profile"), "r");
+                bundle=new Bundle();
+                bundle.putString("ISADDSFROMHOME","profile");
+                UploadAddFragment uploadAddFragment=new UploadAddFragment();
+                uploadAddFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram,uploadAddFragment, "r");
 
                 break;
             case R.id.fragment_my_profile_notifies_flbtn_ly:
@@ -239,22 +255,44 @@ public class ProfileFragment extends BaSeFragment {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             case R.id.fragment_my_profile_my_products_viewmore1_tv:
+                bundle=new Bundle();
+                bundle.putString("ISMYPRODUCTSANDSEARCH","my");
+                myProdactsAndSearchAddsFragment=new MyProdactsAndSearchAddsFragment();
+                myProdactsAndSearchAddsFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, myProdactsAndSearchAddsFragment, "t");
                 break;
             case R.id.fragment_my_profile_my_fav_viewmore2_tv:
+                bundle=new Bundle();
+                bundle.putString("ISMYPRODUCTSANDSEARCH","my");
+                myProdactsAndSearchAddsFragment=new MyProdactsAndSearchAddsFragment();
+                myProdactsAndSearchAddsFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, myProdactsAndSearchAddsFragment, "t");
                 break;
             case R.id.fragment_my_profile_edit_flt_btn:
-                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new SignUpFragment("editProfile"), "b");
+                 bundle=new Bundle();
+                bundle.putString("ISSIGNUP","editProfile");
+                SignUpFragment signUpFragment=new SignUpFragment();
+                signUpFragment.setArguments(bundle);
+                replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.home_activity_fram,signUpFragment, "b");
 
                 break;
             case R.id.profile_bottom_sheet_delete_account_btn:
                 break;
             case R.id.profile_bottom_sheet_costs_list_btn:
-                replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new CostsListFragment("myCostsList"));
+                 bundle=new Bundle();
+                bundle.putString("ISMYCOSTSLIST","myCostsList");
+                costsListFragment=new CostsListFragment();
+                costsListFragment.setArguments(bundle);
+                replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, costsListFragment);
                 break;
             case R.id.profile_bottom_sheet_report_flbtn_btn:
                 break;
             case R.id.profile_bottom_sheet_other_profile_costs_list_btn:
-                replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new CostsListFragment("otherCostsList"));
+                 bundle=new Bundle();
+                bundle.putString("ISMYCOSTSLIST","otherCostsList");
+                 costsListFragment=new CostsListFragment();
+                costsListFragment.setArguments(bundle);
+                replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, costsListFragment);
                 break;
         }
     }

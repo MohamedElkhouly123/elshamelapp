@@ -62,7 +62,7 @@ public class RegisterFragment extends BaSeFragment {
     TextView later;
     @BindView(R.id.login)
     Button login;
-    @BindView(R.id.signUp)
+    @BindView(R.id.fragment_login_sign_up_tv)
     Button signUp;
     private GoogleSignInClient googleSignInClient;
     private static final String TAG = "AndroidClarified";
@@ -237,10 +237,13 @@ public class RegisterFragment extends BaSeFragment {
 
     }
 
-    @OnClick(R.id.signUp)
+    @OnClick(R.id.fragment_login_sign_up_tv)
     void signUpButton(){
-
-        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, new SignUpFragment("signUp"), "l");
+        Bundle bundle=new Bundle();
+        bundle.putString("ISSIGNUP","signUp");
+        SignUpFragment signUpFragment=new SignUpFragment();
+        signUpFragment.setArguments(bundle);
+        replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, signUpFragment, "l");
 
 
     }

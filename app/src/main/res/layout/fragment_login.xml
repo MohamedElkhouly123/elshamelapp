@@ -108,7 +108,7 @@
             >
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/usernameWrapper"
+                android:id="@+id/fragment_login_username_email_tin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="#99070707"
@@ -154,7 +154,7 @@
             android:padding="5dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordWrapper"
+                android:id="@+id/fragment_login_password_tin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -184,7 +184,7 @@
     android:gravity="right"
     >
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/fragment_login_forge_password_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_35sdp"
@@ -196,7 +196,7 @@
       />
 </LinearLayout>
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/fragment_login_btn_login"
         android:layout_width="@dimen/_220sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -210,7 +210,7 @@
 
 
         <TextView
-            android:id="@+id/signUp"
+            android:id="@+id/fragment_login_sign_up_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signUp3"

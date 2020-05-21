@@ -127,6 +127,13 @@
     <string name="profile_edit">تعديل الملف الشخصى</string>
     <string name="the_categories">الأقسام</string>
     <string name="the_sub_categories">الأقسام الجزئية</string>
+    <string name="set_new_password">أدراج كلمة الدخول الجديده</string>
+    <string name="pin_code" >الرقم السرى</string>
+    <string name="helpText2">من فضلك ادرج الرقم السرى المرسل اليك على الايميل وكلمه المرور الجديده قبل الارسال</string>
+    <string name="send">أرسال</string>
+    <string name="please_enter_your_email">من فضلك ادرج ايميلك</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="submit">تأكيد</string>
 
 
 
