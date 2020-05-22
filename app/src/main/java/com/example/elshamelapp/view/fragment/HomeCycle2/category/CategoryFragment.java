@@ -32,7 +32,7 @@ public class CategoryFragment extends BaSeFragment {
     private LinearLayoutManager lLayout;
     @BindView(R.id.category_fragment_recycler_view)
     RecyclerView rView;
-
+    int heightDelta=0;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -82,11 +82,17 @@ public class CategoryFragment extends BaSeFragment {
         rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                 heightDelta += dy;
+
                 super.onScrolled(recyclerView, dx, dy);
                 if (dy > 0 && homeCycleActivity.toolBarLay.getVisibility() == View.VISIBLE) {
+
+//                    homeCycleActivity.toolBarLay.animate().translationY(-heightDelta).setInterpolator(new AccelerateInterpolator()).start();
                     homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+
                 } else if (dy < 0 && homeCycleActivity.toolBarLay.getVisibility() != View.VISIBLE) {
                     homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+//                    homeCycleActivity.toolBarLay.animate().translationY(heightDelta).setInterpolator(new AccelerateInterpolator()).start();
 
                 }
 
@@ -97,8 +103,8 @@ public class CategoryFragment extends BaSeFragment {
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });
-
         homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+//        homeCycleActivity.toolBarLay.animate().translationY(heightDelta).setInterpolator(new AccelerateInterpolator()).start();
 
     }
 
