@@ -134,6 +134,7 @@
     <string name="please_enter_your_email">من فضلك ادرج ايميلك</string>
     <string name="change_password">تغيير كلمة المرور</string>
     <string name="submit">تأكيد</string>
+    <string name="default_notification_channel_id" >18</string>
 
 
 

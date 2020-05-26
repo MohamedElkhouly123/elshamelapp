@@ -290,7 +290,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //        Toast.makeText(this, googleSignInAccount.getPhoneNumber(), Toast.LENGTH_SHORT).show();
 
 
-        if (hh == "null") {
+        if (hh.equalsIgnoreCase("null") ) {
             appBarLayoutCrimgProfilePhoto.setImageResource(R.drawable.placeperson);
 
 

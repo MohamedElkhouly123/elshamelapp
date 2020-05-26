@@ -10,7 +10,7 @@
         android:layout_centerInParent="true"
         android:padding="@dimen/_20sdp"
 
-        app:cardCornerRadius="@dimen/_24sdp">
+        app:cardCornerRadius="@dimen/_10sdp">
         <!--        android:layout_marginStart="@dimen/_30sdp"-->
         <!--        android:layout_marginEnd="@dimen/_30sdp"-->
         <TextView
@@ -30,23 +30,24 @@
             android:layout_marginTop="@dimen/_45sdp"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:id="@+id/item_sign_out_dialog_btn_no"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_margin="@dimen/_30sdp"
                 android:elevation="3dp"
-                android:background="@drawable/shape_close_icon" />
+                android:background="@drawable/shadow_white_circle"
+                android:src="@drawable/ic_blue_close" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/item_sign_out_dialog_btn_yes"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_margin="@dimen/_30sdp"
                 android:elevation="3dp"
-
                 android:layout_toEndOf="@id/item_sign_out_dialog_btn_no"
-                android:background="@drawable/shape_right_icon" />
+                android:background="@drawable/shadow_white_circle"
+                android:src="@drawable/ic_pink_tick_mark" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -137,6 +137,7 @@
     <string name="please_enter_your_email">Please Enter Your Email Here</string>
     <string name="change_password">Change Password</string>
     <string name="submit">Submit</string>
+    <string name="default_notification_channel_id" >18</string>
 
     <string-array name="countries">
         <item>Afghanistan</item>

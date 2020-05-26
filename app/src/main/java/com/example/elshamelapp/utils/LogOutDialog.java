@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
@@ -37,7 +37,7 @@ private GoogleSignInClient googleSignInClient;
         dialog.setCanceledOnTouchOutside(true);
 //        TextView text = (TextView) dialog.findViewById(R.id.text);
 
-        TextView dialogImageOk = (TextView) dialog.findViewById(R.id.item_sign_out_dialog_btn_yes);
+        ImageButton dialogImageOk = (ImageButton) dialog.findViewById(R.id.item_sign_out_dialog_btn_yes);
         dialogImageOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +87,7 @@ private GoogleSignInClient googleSignInClient;
             }
         });
         dialog.setCanceledOnTouchOutside(true);
-        TextView dialogImageNo = (TextView) dialog.findViewById(R.id.item_sign_out_dialog_btn_no);
+        ImageButton dialogImageNo = (ImageButton) dialog.findViewById(R.id.item_sign_out_dialog_btn_no);
         dialogImageNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
