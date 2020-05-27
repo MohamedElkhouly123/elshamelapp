@@ -1,11 +1,13 @@
 package com.example.elshamelapp.view.fragment.HomeCycle2.category;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,23 +18,29 @@ import com.example.elshamelapp.data.model.ItemObjectModel;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class CategoryFragment extends BaSeFragment {
 
-//    @BindView(R.id.tool_text_hide)
+    @BindView(R.id.category_fragment_make_full_screen_floating_action_btn)
+    FloatingActionButton categoryFragmentMakeFullScreenFloatingActionBtn;
+    //    @BindView(R.id.tool_text_hide)
 //    TextView toolTextHide;
     private LinearLayoutManager lLayout;
     @BindView(R.id.category_fragment_recycler_view)
     RecyclerView rView;
-    int heightDelta=0;
+    int heightDelta = 0;
+    private boolean firstPress =true;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -82,16 +90,18 @@ public class CategoryFragment extends BaSeFragment {
         rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                 heightDelta += dy;
+                heightDelta += dy;
 
                 super.onScrolled(recyclerView, dx, dy);
-                if (dy > 0 && homeCycleActivity.toolBarLay.getVisibility() == View.VISIBLE) {
+                if (dy > 0 && categoryFragmentMakeFullScreenFloatingActionBtn.getVisibility() == View.VISIBLE) {
+                    categoryFragmentMakeFullScreenFloatingActionBtn.hide();
 
 //                    homeCycleActivity.toolBarLay.animate().translationY(-heightDelta).setInterpolator(new AccelerateInterpolator()).start();
-                    homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+//                    homeCycleActivity.toolBarLay.setVisibility(View.GONE);
 
-                } else if (dy < 0 && homeCycleActivity.toolBarLay.getVisibility() != View.VISIBLE) {
-                    homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+                } else if (dy < 0 && categoryFragmentMakeFullScreenFloatingActionBtn.getVisibility() != View.VISIBLE) {
+                    categoryFragmentMakeFullScreenFloatingActionBtn.show();
+//                    homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
 //                    homeCycleActivity.toolBarLay.animate().translationY(heightDelta).setInterpolator(new AccelerateInterpolator()).start();
 
                 }
@@ -103,8 +113,9 @@ public class CategoryFragment extends BaSeFragment {
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });
-        homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+//        homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
 //        homeCycleActivity.toolBarLay.animate().translationY(heightDelta).setInterpolator(new AccelerateInterpolator()).start();
+        categoryFragmentMakeFullScreenFloatingActionBtn.show();
 
     }
 
@@ -113,5 +124,25 @@ public class CategoryFragment extends BaSeFragment {
         replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
 
+    }
+
+    @SuppressLint("RestrictedApi")
+    @OnClick(R.id.category_fragment_make_full_screen_floating_action_btn)
+    public void onViewClicked() {
+        if(firstPress){
+            categoryFragmentMakeFullScreenFloatingActionBtn.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_black_24dp));
+            homeCycleActivity.toolBarLay.setVisibility(View.GONE);
+//            categoryFragmentMakeFullScreenFloatingActionBtn.setImageResource(R.drawable.ic_fullscreen_black_24dp);
+
+            firstPress=false;
+        }else {
+            categoryFragmentMakeFullScreenFloatingActionBtn.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_exit_black_24dp));
+            homeCycleActivity.toolBarLay.setVisibility(View.VISIBLE);
+//            categoryFragmentMakeFullScreenFloatingActionBtn.setImageResource(R.drawable.ic_fullscreen_exit_black_24dp);
+
+            firstPress=true;
+        }
+        categoryFragmentMakeFullScreenFloatingActionBtn.hide();
+        categoryFragmentMakeFullScreenFloatingActionBtn.show();
     }
 }
