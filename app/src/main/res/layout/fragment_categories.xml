@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
-        android:paddingBottom="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_8sdp"
      >
 
         <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"

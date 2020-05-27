@@ -73,13 +73,13 @@ public class CategoryFragment extends BaSeFragment {
     private List<ItemObjectModel> getAllItemList() {
 
         List<ItemObjectModel> allItems = new ArrayList<ItemObjectModel>();
-        allItems.add(new ItemObjectModel("مفقوداتى", R.drawable.cars));
+        allItems.add(new ItemObjectModel("مفقوداتى", R.drawable.category_my_losts2));
 //        allItems.add(new ItemObjectModel("مشاكل مصر", R.drawable.chale));
-        allItems.add(new ItemObjectModel("مشترواتى", R.drawable.dimond));
-        allItems.add(new ItemObjectModel("سوق الجمله", R.drawable.chale));// المصانع والشركات
-        allItems.add(new ItemObjectModel("الحجز والايجار", R.drawable.gold));
-        allItems.add(new ItemObjectModel("مزاداتى", R.drawable.flat));
-        allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.flat));
+        allItems.add(new ItemObjectModel("مشترواتى", R.drawable.category_my_shoping2));
+        allItems.add(new ItemObjectModel("سوق الجمله", R.drawable.category_souq_elgomlah1));// المصانع والشركات
+        allItems.add(new ItemObjectModel("الحجز والايجار", R.drawable.category_egar1));
+        allItems.add(new ItemObjectModel("مزاداتى", R.drawable.category_mazad4));
+        allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.category_wazaaf24));
 //        allItems.add(new ItemObjectModel("الصناعه والتجاره", R.drawable.flat));
 
 
