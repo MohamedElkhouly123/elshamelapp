@@ -95,11 +95,7 @@
         <activity android:name=".view.activity.HomeCycleActivity"
             android:label=""
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -125,7 +121,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.SplashCycleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
