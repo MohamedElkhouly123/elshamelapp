@@ -46,6 +46,9 @@ public class CostsListFragment extends BaSeFragment {
 //    public CostsListFragment(String myCostsListOrOther) {
 //        this.myCostsListOrOther = myCostsListOrOther;
 //    }
+        public CostsListFragment() {
+//            empty constractor
+    }
 
     private String myCostsListOrOther = "";
 

@@ -17,7 +17,7 @@ import com.example.elshamelapp.data.model.ChatModel;
 import com.example.elshamelapp.data.model.ClientData;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.ui.PlacePicker;
@@ -59,6 +59,11 @@ public class ChatFragment extends BaSeFragment {
     ChatAdpater chatAdpater;
 
     List<ChatModel> data = new ArrayList<>();
+
+
+    public ChatFragment() {
+        // Required empty public constructor
+    }
 
     //    Views.LoadingView loadingView;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -190,7 +195,7 @@ public class ChatFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

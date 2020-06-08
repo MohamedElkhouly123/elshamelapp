@@ -7,6 +7,7 @@
     <color name="blueLight">#3E7EFA</color>
     <color name="white">#fff</color>
     <color name="photo_placeholder">#B3CCCCCC</color>
+    <color name="gray2">#1ACCCCCC</color>
     <color name="success">#32BEA6</color>
     <color name="error">#E04F5F</color>
     <color name="txt_color2">#C91D4B</color>
@@ -22,6 +23,7 @@
 
     <!-- dots active colors -->
     <color name="dot_light_screen1">#1A0057FF</color>
+    <color name="gray">#6000</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

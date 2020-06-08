@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/fragment_sub_home_ultra_viewpager_card_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_110sdp"-->
+<!--        android:elevation="5dp"-->
+<!--        android:layout_marginTop="@dimen/_6sdp"-->
+<!--        android:layout_marginBottom="@dimen/_9sdp"-->
+<!--        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--        android:layout_marginStart="@dimen/_10sdp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:cardElevation="@dimen/_3sdp"-->
+<!--        app:cardCornerRadius="@dimen/_5sdp"-->
+<!--        >-->
+<!--        <com.tmall.ultraviewpager.UltraViewPager-->
+<!--            android:id="@+id/fragment_sub_home_ultra_viewpager"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@color/colorPrimary"-->
+
+<!--            />-->
+<!--    </androidx.cardview.widget.CardView>-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_3sdp"
+        >
+
+        <!--    <include-->
+        <!--        android:id="@+id/include2"-->
+        <!--        layout="@layout/toolbar" />-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fragment_sub_home_s_fl_shimmer_donations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:shimmer_duration="1000"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/notifications_item" />
+                    <include layout="@layout/notifications_item" />
+                    <include layout="@layout/notifications_item" />
+                    <include layout="@layout/notifications_item" />
+                    <include layout="@layout/notifications_item" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/fragment_sub_home_sr_refresh_donations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/fragment_sub_home_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/load_more"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:scrollbars="vertical" />
+
+                        <include
+                            layout="@layout/cardview_item_load_more"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true" />
+
+                        <include layout="@layout/error" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <!--        android:paddingTop="@dimen/_5sdp"-->
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

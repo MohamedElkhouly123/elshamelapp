@@ -19,12 +19,14 @@ public class CategoryRecyclerViewHolders extends RecyclerView.ViewHolder impleme
 
 public TextView countryName;
 public ImageView countryPhoto;
+//public TextView paddingTV;
 private Activity activity;
 public CategoryRecyclerViewHolders(View itemView, Activity activity) {
         super(itemView);
         itemView.setOnClickListener(this);
         this.activity=activity;
         countryName = (TextView)itemView.findViewById(R.id.country_name);
+//        paddingTV = (TextView)itemView.findViewById(R.id.cardview_category_item_padding_tv);
         countryPhoto = (ImageView)itemView.findViewById(R.id.country_photo);
         }
 

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 
 import butterknife.ButterKnife;
 
@@ -18,7 +18,9 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class ContactUSFragment extends BaSeFragment {
 
-
+    public ContactUSFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -31,7 +33,7 @@ public class ContactUSFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

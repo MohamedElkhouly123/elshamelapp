@@ -27,7 +27,7 @@
             android:background="@drawable/circle_style_blue"
             android:elevation="7dp"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_edit_black_24dp"
+            app:srcCompat="@drawable/ic_edit_black_24dp"
              />
         <ImageButton
             android:id="@+id/card_view_costs_list_item_item_delete_floating_btn"
@@ -38,7 +38,7 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:background="@drawable/circle_style_delete"
             android:elevation="7dp"
-            android:src="@drawable/ic_pink_basket" />
+            app:srcCompat="@drawable/ic_pink_basket" />
     </LinearLayout>
 
 
@@ -55,7 +55,7 @@
         android:layout_marginEnd="@dimen/_2sdp"
         android:background="@drawable/circle_style_drag"
         android:elevation="7dp"
-        android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

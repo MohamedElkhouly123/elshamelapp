@@ -1,4 +1,4 @@
-package com.example.elshamelapp.view.About_App;
+package com.example.elshamelapp.utils.About_App;
 
 import android.content.Context;
 import android.content.SharedPreferences;

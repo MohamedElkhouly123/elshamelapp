@@ -17,7 +17,9 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 
 public class SetNewPasswordFragment extends BaSeFragment {
 
-
+    public SetNewPasswordFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 

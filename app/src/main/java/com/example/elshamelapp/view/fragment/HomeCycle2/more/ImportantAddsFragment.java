@@ -6,12 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.elshamelapp.R;
+import com.example.elshamelapp.adapter.ImportantAdsAndFavouritesAdapter;
+import com.example.elshamelapp.data.model.ProductDataModel;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
@@ -20,12 +29,22 @@ import static com.example.elshamelapp.utils.HelperMethod.replaceFragment;
 public class ImportantAddsFragment extends BaSeFragment {
 
 
+
+    @BindView(R.id.fragment_important_ads_recycler_view)
+    RecyclerView fragmentImportantAdsRecyclerView;
+    private LinearLayoutManager lLayout;
+    private List<ProductDataModel> importantItemDataList;
+
+    public ImportantAddsFragment() {
+        // Required empty public constructor
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_important_ads, container, false);
         ButterKnife.bind(this, root);
-        homeCycleActivity= (HomeCycleActivity) getActivity();
+        homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.importantAds)
                 , new View.OnClickListener() {
                     @Override
@@ -34,13 +53,40 @@ public class ImportantAddsFragment extends BaSeFragment {
                     }
                 });
 
+        importantItemDataList = getAllItemList();
+        lLayout = new LinearLayoutManager(getActivity());
+
+        fragmentImportantAdsRecyclerView.setLayoutManager(lLayout);
+
+        ImportantAdsAndFavouritesAdapter rcAdapter = new ImportantAdsAndFavouritesAdapter(getContext(), getActivity(), importantItemDataList,true);
+        fragmentImportantAdsRecyclerView.setAdapter(rcAdapter);
+
+        // 5. set item animator to DefaultAnimator
+        fragmentImportantAdsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
 
         return root;
     }
 
+    private List<ProductDataModel> getAllItemList() {
+
+        importantItemDataList = new ArrayList<ProductDataModel>();
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.flat));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.chale));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.chale));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.flat));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.flat));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.flat));
+        importantItemDataList.add(new ProductDataModel("سكر", "55 ج", R.drawable.chale));
+
+
+        return importantItemDataList;
+    }
+
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }
 }

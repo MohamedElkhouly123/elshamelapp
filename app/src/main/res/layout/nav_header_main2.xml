@@ -18,21 +18,29 @@
         android:layout_gravity="center"
         android:gravity="center"
         >
+<!--        <ImageButton-->
+
+<!--            android:id="@+id/imageView_account"-->
+
+<!--            android:paddingTop="@dimen/nav_header_vertical_spacing"-->
+<!--            android:theme="@style/Widget.Design.FloatingActionButton"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:src="@drawable/placeperson"-->
+<!--            android:scaleType="centerCrop"-->
+
+
+<!--            />-->
         <de.hdodenhof.circleimageview.CircleImageView
-
             android:id="@+id/imageView_account"
-
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/placeperson"
-
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:scaleType="centerCrop"
-
-
+            android:elevation="7dp"
+            android:src="@drawable/placeperson"
             />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

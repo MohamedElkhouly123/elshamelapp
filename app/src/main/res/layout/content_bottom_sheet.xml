@@ -78,7 +78,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:layout_gravity="right|center"
-            android:src="@drawable/ic_delete_blue_24dp"
+            app:srcCompat="@drawable/ic_delete_blue_24dp"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -109,7 +109,7 @@
             android:layout_height="@dimen/_27sdp"
             android:layout_gravity="right|center"
 
-            android:src="@drawable/ic_playlist_add_black_24dp"
+            app:srcCompat="@drawable/ic_playlist_add_black_24dp"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -139,7 +139,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:layout_gravity="end|center"
-            android:src="@drawable/ic_mode_edit_black_24dp"
+            app:srcCompat="@drawable/ic_mode_edit_black_24dp"
             android:layout_weight="1"
 
             />
@@ -182,7 +182,7 @@
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
                 android:layout_gravity="right|center"
-                android:src="@drawable/ic_report_black_24dp"
+                app:srcCompat="@drawable/ic_report_black_24dp"
                 android:layout_weight="1"
                 />
         </LinearLayout>
@@ -213,7 +213,7 @@
                 android:layout_height="@dimen/_27sdp"
                 android:layout_gravity="right|center"
 
-                android:src="@drawable/ic_format_list_bulleted_black_24dp"
+                app:srcCompat="@drawable/ic_format_list_bulleted_black_24dp"
                 android:layout_weight="1"
                 />
         </LinearLayout>
@@ -243,7 +243,7 @@
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
                 android:layout_gravity="end|center"
-                android:src="@drawable/ic_mode_edit_black_24dp"
+                app:srcCompat="@drawable/ic_mode_edit_black_24dp"
                 android:layout_weight="1"
 
                 />

@@ -86,8 +86,12 @@
         <!--            android:name="com.google.android.maps"-->
         <!--            android:required="true" />-->
 
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
         <activity android:name=".utils.Chat.Chat" />
-        <activity android:name=".view.About_App.IntroSlider" />
         <activity android:name=".view.activity.AboutApp" />
         <activity android:name=".Product_details.MyProduct" />
         <activity android:name=".Product_details.SellersProduct" />
@@ -95,7 +99,11 @@
         <activity android:name=".view.activity.HomeCycleActivity"
             android:label=""
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
@@ -121,11 +129,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.SplashCycleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -29,6 +29,9 @@ public class SignUpFragment extends BaSeFragment {
 //        this.signUpOrEditProfile = signUpOrEditProfile;
 //    }
 
+    public SignUpFragment() {
+        // Required empty public constructor
+    }
     private String signUpOrEditProfile="";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

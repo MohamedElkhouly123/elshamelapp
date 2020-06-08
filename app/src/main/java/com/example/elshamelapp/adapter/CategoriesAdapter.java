@@ -37,6 +37,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryRecyclerView
     @Override
     public void onBindViewHolder(@NonNull CategoryRecyclerViewHolders holder, int position) {
         holder.countryName.setText(itemList.get(position).getName());
+
         holder.countryPhoto.setImageResource(itemList.get(position).getPhoto());
         setAnimation(holder.itemView, position);
 

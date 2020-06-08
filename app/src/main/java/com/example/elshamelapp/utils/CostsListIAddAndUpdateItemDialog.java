@@ -35,7 +35,9 @@ public class CostsListIAddAndUpdateItemDialog {
 //    public CostsListIAddAndUpdateItemDialog(CostsListModel costsListItemDataListOfPossision) {
 //        this.costsListItemDataListOfPossision = costsListItemDataListOfPossision;
 //    }
-
+public CostsListIAddAndUpdateItemDialog() {
+    // Required empty public constructor
+}
 
     public static void showDialog(@NonNull Activity activity,@NonNull Context context, @Nullable String addOrUpdate,@Nullable CostsListModel costsListItemDataListOfPossision) {
 //        final RestaurantCategoryFiltterData restaurantDataListOfPossision
@@ -88,7 +90,7 @@ public class CostsListIAddAndUpdateItemDialog {
 //                          new CostsListProductItemAdapter(dialogItemProductName,dialogItemProductPrice,dialogItemProductQuantity);
                         }else {
 //                            updateAndAddItemCal= getApiClient().restaurantNewCategory( updatedCaegoryName,updatedCategoryPhoto,updatedCategoryApiToken);
-//                            new HomeFragment().restaurantDataListOfPossision.setName(restaurantAddCategoryDialogTilCategoryName.getEditText().getText().toString());
+//                            new HomeContainerFragment().restaurantDataListOfPossision.setName(restaurantAddCategoryDialogTilCategoryName.getEditText().getText().toString());
 
                             CostsListFragment costsListFragment=new CostsListFragment();
 //                            costsListFragment.setItemData(dialogItemProductName,dialogItemProductQuantity,dialogItemProductPrice);

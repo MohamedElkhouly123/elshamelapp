@@ -11,6 +11,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:paddingBottom="@dimen/_35sdp"
+    tools:ignore="MergeRootFrame"
     >
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -213,7 +214,7 @@
             android:id="@+id/fragment_login_sign_up_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signUp3"
+            android:text="@string/signUp2"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_25sdp"
@@ -224,6 +225,16 @@
 
             />
 
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fragment_login_banner_adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

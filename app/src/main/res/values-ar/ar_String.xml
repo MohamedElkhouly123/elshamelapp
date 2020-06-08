@@ -135,7 +135,11 @@
     <string name="change_password">تغيير كلمة المرور</string>
     <string name="submit">تأكيد</string>
     <string name="default_notification_channel_id" >18</string>
-
-
+    <string name="tab_text_1">مفقوداتى</string>
+    <string name="tab_text_2">مشترواتى</string>
+    <string name="tab_text_3">سوق الجملة</string>
+    <string name="tab_text_4">الحجز والايجار</string>
+    <string name="tab_text_5">مزاداتى</string>
+    <string name="tab_text_6">الوظائف والخدمات</string>
 
 </resources>

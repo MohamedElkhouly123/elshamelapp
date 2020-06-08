@@ -15,7 +15,7 @@ import com.example.elshamelapp.adapter.MyProductsAndSearchAddsAdapter;
 import com.example.elshamelapp.data.model.ProductDataModel;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,9 @@ public class MyProdactsAndSearchAddsFragment extends BaSeFragment {
 //    public MyProdactsAndSearchAddsFragment(String myProductsAndSearchOrOther) {
 //        this.myProductsAndSearchOrOther = myProductsAndSearchOrOther;
 //    }
+public MyProdactsAndSearchAddsFragment() {
+    // Required empty public constructor
+}
 
     private String myProductsAndSearchOrOther = "";
     private List<ProductDataModel> profileItemDataList;
@@ -112,7 +115,7 @@ public class MyProdactsAndSearchAddsFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

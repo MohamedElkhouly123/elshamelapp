@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -30,7 +31,9 @@ public class SearchFragment extends BaSeFragment {
     AutoCompleteTextView searchEditText;
     @BindView(R.id.back_btn)
     ImageButton backBtn;
-
+    public SearchFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -59,11 +62,13 @@ public class SearchFragment extends BaSeFragment {
             public void onTextChanged(CharSequence s, int start, int before,
                                                                    int count) {
 //                                             Your code .........
+
                                          }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                Toast.makeText(getContext(), "text changed", Toast.LENGTH_SHORT)
+                        .show();
             }
         });
 
@@ -72,12 +77,14 @@ public class SearchFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }
 
     @OnClick(R.id.back_btn)
     public void onViewClicked() {
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
+        homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }
 }

@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:orientation="vertical"
+  >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sub_home_verv_item_ultra_viewpager_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:elevation="5dp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="@dimen/_3sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:visibility="gone"
+        >
+        <com.tmall.ultraviewpager.UltraViewPager
+            android:id="@+id/sub_home_verv_item_ultra_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+
+            />
+    </androidx.cardview.widget.CardView>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="@dimen/cardview_default_radius"
+    card_view:cardElevation="@dimen/cardview_default_elevation">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/sub_home_verv_item_category_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/products"
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/lemon2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollprodRec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sub_home_verv_item__viewmore1_tv"
+
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sub_home_verv_item__hz_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:layoutManager="GridLayoutManager"
+                tools:spanCount="5"
+               />
+        </ScrollView>
+
+
+        <TextView
+            android:id="@+id/sub_home_verv_item__viewmore1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/View_More"
+            android:textColor="#0057FF"
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/lemon2"
+            app:layout_constraintBottom_toBottomOf="@+id/textView16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/sub_home_verv_item_padding_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:visibility="gone"
+        />
+</LinearLayout>

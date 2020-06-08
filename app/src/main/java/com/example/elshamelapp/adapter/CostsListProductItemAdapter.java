@@ -226,7 +226,7 @@ public CostsListProductItemAdapter(){
         private void showDeleteDialog(){
             try {
 //                final View view = activity.getLayoutInflater().inflate(R.layout.dialog_restaurant_add_category, null);
-//            alertDialog = new AlertDialog.Builder(HomeFragment.this).create();
+//            alertDialog = new AlertDialog.Builder(HomeContainerFragment.this).create();
                 AlertDialog alertDialog;
                  alertDialog = new AlertDialog.Builder(activity).create();
                 alertDialog.setTitle("Delete");

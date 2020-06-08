@@ -14,6 +14,11 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.textfield.TextInputLayout;
 
 import butterknife.BindView;
@@ -34,13 +39,24 @@ public class LoginFragment extends BaSeFragment {
     TextInputLayout fragmentLoginUsernameEmailTin;
     @BindView(R.id.fragment_login_password_tin)
     TextInputLayout fragmentLoginPasswordTin;
-
+    private AdView mAdView;
+    public LoginFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_login, container, false);
 
         ButterKnife.bind(this, root);
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = root.findViewById(R.id.fragment_login_banner_adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         return root;
     }

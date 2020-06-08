@@ -50,7 +50,7 @@ public class UltraPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 6;
     }
 
     @Override
@@ -70,13 +70,13 @@ public class UltraPagerAdapter extends PagerAdapter {
         linearLayout.setId(R.id.item_id);
         switch (position) {
             case 0:
-                imv.setImageResource(R.drawable.cars);
+                imv.setImageResource(R.drawable.category_my_losts2);
                 break;
             case 1:
                 linearLayout.setBackgroundColor(Color.parseColor("#673AB7"));
                 break;
             case 2:
-                imv.setImageResource(R.drawable.gold);
+                imv.setImageResource(R.drawable.chale);
                 break;
             case 3:
                 linearLayout.setBackgroundColor(Color.parseColor("#607D8B"));

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
 
 import butterknife.ButterKnife;
@@ -25,6 +25,9 @@ public class UploadAddFragment extends BaSeFragment {
 
     private String addFromHomeOrProfile="";
 
+    public UploadAddFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         if(this.getArguments()!=null)
@@ -42,7 +45,7 @@ public class UploadAddFragment extends BaSeFragment {
     @Override
     public void onBack() {
         if (addFromHomeOrProfile.equalsIgnoreCase("home")) {
-            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
             homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
         }else

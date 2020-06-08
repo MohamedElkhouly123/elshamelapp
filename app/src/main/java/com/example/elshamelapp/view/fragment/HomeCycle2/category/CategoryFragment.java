@@ -17,7 +17,7 @@ import com.example.elshamelapp.adapter.CategoryAdapter;
 import com.example.elshamelapp.data.model.ItemObjectModel;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -41,11 +41,16 @@ public class CategoryFragment extends BaSeFragment {
     int heightDelta = 0;
     private boolean firstPress =true;
 
+    public CategoryFragment() {
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
         ButterKnife.bind(this, root);
+//        rView.setNestedScrollingEnabled(false);
+//        rView.setHasFixedSize(false);
         homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_categories)
                 , new View.OnClickListener() {
@@ -79,7 +84,7 @@ public class CategoryFragment extends BaSeFragment {
         allItems.add(new ItemObjectModel("سوق الجمله", R.drawable.category_souq_elgomlah1));// المصانع والشركات
         allItems.add(new ItemObjectModel("الحجز والايجار", R.drawable.category_egar1));
         allItems.add(new ItemObjectModel("مزاداتى", R.drawable.category_mazad4));
-        allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.category_wazaaf24));
+        allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.category_wazaaf4));
 //        allItems.add(new ItemObjectModel("الصناعه والتجاره", R.drawable.flat));
 
 
@@ -121,7 +126,7 @@ public class CategoryFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
 
     }

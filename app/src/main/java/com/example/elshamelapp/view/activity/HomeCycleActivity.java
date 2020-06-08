@@ -1,7 +1,6 @@
 package com.example.elshamelapp.view.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -25,7 +24,7 @@ import androidx.fragment.app.Fragment;
 import com.example.elshamelapp.R;
 import com.example.elshamelapp.utils.LogOutDialog;
 import com.example.elshamelapp.view.fragment.HomeCycle2.category.CategoryFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.ProductsAndAddsDetailsFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.SearchFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.home.profileFragments.ProfileFragment;
@@ -33,6 +32,7 @@ import com.example.elshamelapp.view.fragment.HomeCycle2.more.ContactUSFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.ImportantAddsFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.UploadAddFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.notificationsMenues.NotificationsFragment;
+import com.example.elshamelapp.view.fragment.splashCycle.AboutAppAndIntroFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -69,6 +69,8 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
     ConstraintLayout toolbarSubView;
     @BindView(R.id.app_bar_layout_crimg_profilePhoto)
     CircleImageView appBarLayoutCrimgProfilePhoto;
+    @BindView(R.id.card_view_nav_viewb)
+    CardView cardViewNavViewb;
     private BoomMenuButton bmb;
     private GoogleSignInClient googleSignInClient;
     GridLayout gridLayout;
@@ -85,7 +87,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        appBarLayoutCrimgProfilePhoto.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
 //        String data = getIntent().getExtras().getString("keyName");
 //        Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
@@ -107,7 +109,9 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //         nav_Menu = navigationViewSide.getMenu();
 //        nav_Menu.findItem(R.id.nav_view_side).setVisible(false);
         View headerLayout = navigationViewSide.getHeaderView(0);
-        replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        CircleImageView imageViewAccountNaveHeader= (de.hdodenhof.circleimageview.CircleImageView) headerLayout.findViewById(R.id.imageView_account);
+        imageViewAccountNaveHeader.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 
 
 //        DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -290,7 +294,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //        Toast.makeText(this, googleSignInAccount.getPhoneNumber(), Toast.LENGTH_SHORT).show();
 
 
-        if (hh.equalsIgnoreCase("null") ) {
+        if (hh.equalsIgnoreCase("null")) {
             appBarLayoutCrimgProfilePhoto.setImageResource(R.drawable.placeperson);
 
 
@@ -393,7 +397,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
             // Handle the camera action
             toolbarSubView.setVisibility(View.GONE);
             setNavigationAndToolBar(View.VISIBLE, false);
-            replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+            replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 
         } else if (id == R.id.navigation_notifications) {
             backBtn.setVisibility(View.GONE);
@@ -419,16 +423,21 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //            startActivity(new Intent(HomeCycleActivity.this, MyProduct.class));
         } else if (id == R.id.home) {
             toolbarSubView.setVisibility(View.GONE);
-            replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+            replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
         } else if (id == R.id.aboutApp) {
             toolbarSubView.setVisibility(View.GONE);
-            startActivity(new Intent(HomeCycleActivity.this, AboutApp.class));
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("INHOME", true);
+            AboutAppAndIntroFragment aboutAppAndIntroFragment = new AboutAppAndIntroFragment();
+            aboutAppAndIntroFragment.setArguments(bundle);
+            replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram,aboutAppAndIntroFragment,"r");
+            setNavigationAndToolBar(View.GONE, true);
 
         } else if (id == R.id.addProduct) {
             toolbarSubView.setVisibility(View.GONE);
-            Bundle bundle=new Bundle();
-            bundle.putString("ISADDSFROMHOME","home");
-            UploadAddFragment uploadAddFragment=new UploadAddFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("ISADDSFROMHOME", "home");
+            UploadAddFragment uploadAddFragment = new UploadAddFragment();
             uploadAddFragment.setArguments(bundle);
             replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, uploadAddFragment, "r");
             setNavigationAndToolBar(View.GONE, true);
@@ -454,9 +463,9 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
                 break;
             case R.id.app_bar_layout_crimg_profilePhoto:
                 toolbarSubView.setVisibility(View.GONE);
-                Bundle bundle=new Bundle();
-                bundle.putString("ISMYPROFILE","myProfile");
-                ProfileFragment profileFragment=new ProfileFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("ISMYPROFILE", "myProfile");
+                ProfileFragment profileFragment = new ProfileFragment();
                 profileFragment.setArguments(bundle);
                 replaceFragmentWithAnimation(getSupportFragmentManager(), R.id.home_activity_fram, profileFragment, "t");
                 setNavigationAndToolBar(View.GONE, true);

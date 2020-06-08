@@ -26,6 +26,15 @@
     </style>
 
 
+    <style name="TabLayoutStyle" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+
+        <!-- Color of text and icon when SELECTED -->
+<!--        <item name="colorPrimary">#7F39FD</item> -->
+    </style>
+
     <style name="ThemeOverlay.AppCompat.navTheme2">
         <item name="android:fontFamily">@font/tajawalmedium</item>
         <item name="android:textSize">@dimen/_11ssp</item>

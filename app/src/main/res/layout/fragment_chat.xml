@@ -88,7 +88,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_28sdp"
             android:layout_margin="@dimen/_5sdp"
-            android:src="@drawable/ic_send_button"
+            app:srcCompat="@drawable/ic_send_button"
             app:layout_constraintEnd_toEndOf="parent" />
         <!--        <Button-->
         <!--            android:id="@+id/sendButton"-->

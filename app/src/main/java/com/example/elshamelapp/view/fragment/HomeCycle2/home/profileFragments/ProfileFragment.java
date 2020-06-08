@@ -21,7 +21,7 @@ import com.example.elshamelapp.adapter.ProfileItemAdapter;
 import com.example.elshamelapp.data.model.ProductDataModel;
 import com.example.elshamelapp.view.activity.MapsActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 import com.example.elshamelapp.view.fragment.HomeCycle2.more.UploadAddFragment;
 import com.example.elshamelapp.view.fragment.userCycle.SignUpFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -89,6 +89,9 @@ public class ProfileFragment extends BaSeFragment {
     private CostsListFragment costsListFragment;
     private MyProdactsAndSearchAddsFragment myProdactsAndSearchAddsFragment;
 
+    public ProfileFragment() {
+        // Required empty public constructor
+    }
 //    public ProfileFragment(String myProfileOrOther) {
 //        this.myProfileOrOther = myProfileOrOther;
 //    }
@@ -193,7 +196,7 @@ public class ProfileFragment extends BaSeFragment {
 //            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new ProfileFragment());
             openSheet = false;
         } else {
-            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+            replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
             homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
 
         }

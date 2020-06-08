@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.gms.ads.formats.UnifiedNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -663,7 +663,7 @@
                             <ImageView
                                 android:layout_width="@dimen/_27sdp"
                                 android:layout_height="@dimen/_27sdp"
-                                android:src="@drawable/ic_email_blue_24dp"
+                                app:srcCompat="@drawable/ic_email_blue_24dp"
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:layout_marginEnd="@dimen/_2sdp" />
 
@@ -701,7 +701,7 @@
                             <ImageView
                                 android:layout_width="@dimen/_27sdp"
                                 android:layout_height="@dimen/_27sdp"
-                                android:src="@drawable/ic_place_blue_24dp"
+                                app:srcCompat="@drawable/ic_place_blue_24dp"
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:layout_marginEnd="@dimen/_2sdp"/>
 
@@ -742,7 +742,7 @@
                                 android:layout_height="46dp"
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:layout_marginEnd="@dimen/_2sdp"
-                                android:src="@drawable/ic_phone_black_24dp" />
+                                app:srcCompat="@drawable/ic_phone_black_24dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -757,7 +757,12 @@
                     </androidx.cardview.widget.CardView>
 
 
-
+                    <com.google.android.gms.ads.formats.MediaView
+                        android:id="@+id/my_ad_media"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"
+                        android:layout_margin="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -954,7 +959,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_15sdp"
-        android:visibility="gone"
+        android:visibility="visible"
         android:backgroundTint="#F201B1FD"
         android:elevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -965,4 +970,4 @@
     </LinearLayout>
 
 
-</FrameLayout>
+</com.google.android.gms.ads.formats.UnifiedNativeAdView>

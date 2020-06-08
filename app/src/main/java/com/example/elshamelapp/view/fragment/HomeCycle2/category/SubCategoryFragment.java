@@ -16,7 +16,7 @@ import com.example.elshamelapp.adapter.CategoriesAdapter;
 import com.example.elshamelapp.data.model.ItemObjectModel;
 import com.example.elshamelapp.view.activity.HomeCycleActivity;
 import com.example.elshamelapp.view.fragment.BaSeFragment;
-import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeFragment;
+import com.example.elshamelapp.view.fragment.HomeCycle2.home.HomeContainerFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,10 @@ public class SubCategoryFragment extends BaSeFragment {
     private LinearLayoutManager lLayout;
     @BindView(R.id.sub_category_fragment_recycler_view)
     RecyclerView rView;
+
+    public SubCategoryFragment() {
+        // Required empty public constructor
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -129,7 +133,7 @@ public class SubCategoryFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

@@ -37,7 +37,7 @@
                 android:layout_margin="@dimen/_30sdp"
                 android:elevation="3dp"
                 android:background="@drawable/shadow_white_circle"
-                android:src="@drawable/ic_blue_close" />
+                app:srcCompat="@drawable/ic_blue_close" />
 
             <ImageButton
                 android:id="@+id/item_sign_out_dialog_btn_yes"
@@ -47,7 +47,7 @@
                 android:elevation="3dp"
                 android:layout_toEndOf="@id/item_sign_out_dialog_btn_no"
                 android:background="@drawable/shadow_white_circle"
-                android:src="@drawable/ic_pink_tick_mark" />
+                app:srcCompat="@drawable/ic_pink_tick_mark" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

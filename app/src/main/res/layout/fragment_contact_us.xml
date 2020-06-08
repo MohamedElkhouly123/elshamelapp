@@ -225,7 +225,7 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_30sdp"
 
-            android:src="@drawable/ic_contact_mail_black_24dp"
+            app:srcCompat="@drawable/ic_contact_mail_black_24dp"
             />
 
         <TextView

@@ -10,7 +10,8 @@
     card_view:cardCornerRadius="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:paddingTop="@dimen/_3sdp"
+    android:paddingTop="@dimen/_1sdp"
+    android:paddingBottom="@dimen/_5sdp"
     android:foreground="?selectableItemBackground"
     >
     <androidx.cardview.widget.CardView
@@ -43,7 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_64sdp"
+            android:layout_marginTop="@dimen/_60sdp"
             android:gravity="right"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/country_photo"
@@ -67,4 +68,10 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/cardview_category_item_padding_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
+        />
 </LinearLayout>

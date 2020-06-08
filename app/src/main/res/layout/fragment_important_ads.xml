@@ -1,19 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/text_notifications"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:background="@color/gray2"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_2sdp"
+            tools:context=".view.activity.HomeCycleActivity"
+            xmlns:tools="http://schemas.android.com/tools">
+
+            <!--    <include-->
+            <!--        android:id="@+id/include2"-->
+            <!--        layout="@layout/toolbar" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+                <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/fragment_important_ads_s_fl_shimmer_donations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:shimmer_duration="1000"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/notifications_item" />
+                        <include layout="@layout/notifications_item" />
+                        <include layout="@layout/notifications_item" />
+                        <include layout="@layout/notifications_item" />
+                        <include layout="@layout/notifications_item" />
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/fragment_important_ads_sr_refresh_donations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/fragment_important_ads_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_above="@+id/load_more"
+                                android:paddingTop="@dimen/_1sdp"
+                                android:scrollbars="vertical" />
+
+                            <include
+                                layout="@layout/cardview_item_load_more"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true" />
+
+                            <include layout="@layout/error" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <!--        android:paddingTop="@dimen/_5sdp"-->
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_45sdp"/>-->
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

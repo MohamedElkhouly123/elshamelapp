@@ -70,7 +70,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             holder.position = position;
             holder.countryName.setText(itemList.get(position).getName());
             holder.countryPhoto.setImageResource(itemList.get(position).getPhoto());
+            if( position == getItemCount() - 1 ){
+                holder.cardviewCategoryItemPaddingTv.setVisibility(View.VISIBLE);
+            }else {
+                holder.cardviewCategoryItemPaddingTv.setVisibility(View.GONE);
 
+            }
         } catch (Exception e) {
 
         }
@@ -92,9 +97,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
                 HomeCycleActivity homeCycleActivity = (HomeCycleActivity) activity;
                 Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
-                if(position==0){
-                replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
-                homeCycleActivity.setNavigationAndToolBar(View.GONE,true);
+                if (position == 0) {
+                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
+                    homeCycleActivity.setNavigationAndToolBar(View.GONE, true);
                 }
             }
         });
@@ -116,6 +121,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         ImageView countryPhoto;
         @BindView(R.id.country_name)
         TextView countryName;
+        @BindView(R.id.cardview_category_item_padding_tv)
+        TextView cardviewCategoryItemPaddingTv;
         private View view;
         private int position;
 

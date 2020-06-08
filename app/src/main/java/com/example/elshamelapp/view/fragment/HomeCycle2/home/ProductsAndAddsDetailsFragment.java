@@ -33,6 +33,9 @@ public class ProductsAndAddsDetailsFragment extends BaSeFragment {
 
     private String myProductDetailsOrOther = "";
 
+    public ProductsAndAddsDetailsFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         if(this.getArguments()!=null)
@@ -76,7 +79,7 @@ public class ProductsAndAddsDetailsFragment extends BaSeFragment {
 
     @Override
     public void onBack() {
-        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeFragment());
+        replaceFragment(getActivity().getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
 //        homeCycleActivity.setNavigationAndToolBar(View.VISIBLE,false);
         homeCycleActivity.buttonNavigation.getMenu().getItem(0).setChecked(true);
     }

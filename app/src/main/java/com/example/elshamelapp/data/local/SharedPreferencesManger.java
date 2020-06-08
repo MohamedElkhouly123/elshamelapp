@@ -14,6 +14,8 @@ public class SharedPreferencesManger {
     public static String REMEMBER_ME = "REMEMBER_ME";
     public static String USER_PASSWORD = "USER_PASSWORD";
     public static String CLIENT = "CLIENT";
+    public static String TABPOSION = "TABPOSION";
+
 
     public static void setSharedPreferences(Activity activity) {
         if (sharedPreferences == null) {

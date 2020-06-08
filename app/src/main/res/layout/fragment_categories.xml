@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/_40sdp"
     android:paddingTop="@dimen/_3sdp"
+    android:paddingBottom="@dimen/_1sdp"
+    android:fillViewport="true"
     xmlns:tools="http://schemas.android.com/tools">
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +17,8 @@
         >
 
 <!--<include layout="@layout/toolbar"/>-->
-<!--    <TextView-->
+<!--        android:paddingBottom="@dimen/_40sdp"-->
+        <!--    <TextView-->
 <!--        android:id="@+id/tool_text_hide"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="?attr/actionBarSize"/>-->
@@ -22,7 +27,7 @@
         android:layout_height="match_parent"
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
-        android:paddingBottom="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_3sdp"
      >
 
         <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -64,6 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_above="@+id/load_more"
+                        android:animateLayoutChanges="false"
                         android:scrollbars="vertical" />
 
                     <include
@@ -87,7 +93,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -96,16 +102,18 @@
             style="@style/Widget.Design.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom|start"
             android:visibility="visible"
             android:layout_marginStart="@dimen/_13sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:layout_marginEnd="@dimen/_13sdp"
-            android:layout_marginBottom="@dimen/_13sdp"
+            android:layout_marginBottom="@dimen/_53sdp"
             android:backgroundTint="@color/white"
             app:srcCompat="@drawable/ic_fullscreen_exit_black_24dp"
             tools:ignore="VectorDrawableCompat" />
         <!--        android:src="@drawable/ic_pink_plus"-->
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -4,22 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#E0E8F0"
-
     >
 <!--    android:background="@android:color/white"  ECECEC   E4E8EB-->
-
+<LinearLayout
+    android:id="@+id/notification_item_lin_ly_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E0E8F0"
+    >
     <LinearLayout
-    android:id="@+id/chat_item_lin_ly_reciever"
+    android:id="@+id/notification_item_lin_ly_reciever"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="@dimen/_8sdp"
     >
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/name_reciever_message"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:id="@+id/notification_item_name_reciever_message"
+        android:layout_width="@dimen/_42sdp"
+        android:layout_height="@dimen/_42sdp"
         android:visibility="visible"
         android:src="@drawable/placeperson"
         android:textAlignment="textEnd"
@@ -32,29 +35,39 @@
         android:layout_marginEnd="@dimen/_13sdp"
         >
     <TextView
-        android:id="@+id/tv_receiver"
+        android:id="@+id/notification_item_tv_receiver_notfications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/_3sdp"
         android:text="نشر محمد الذى تتابعه منتجات جديده"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/_15ssp"
+        android:fontFamily="@font/lemon2"
+        android:textSize="@dimen/_13ssp"
         android:visibility="visible"
          />
 <!--
     يستخدم النتوفيكاشن اذا كنت تتابع احد اعجبت باحد منتجاته او ارسل اليك رساله او شىء انضاف مطابق لما كنت تبحث عنه
 -->
         <TextView
+            android:id="@+id/notification_item_tv_date_and_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="الثلاثاء: الساعه 10:5"
             android:textAlignment="center"
             android:layout_marginBottom="5dp"
+            android:layout_marginStart="@dimen/_1sdp"
             android:fontFamily="@font/lemon2"
+            android:textSize="@dimen/_9ssp"
             android:textColor="#0057FF"
             />
     </LinearLayout>
 </LinearLayout>
-
+</LinearLayout>
+    <TextView
+        android:id="@+id/notification_item_padding_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:visibility="visible"
+        />
 
 </LinearLayout>

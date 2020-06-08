@@ -138,6 +138,16 @@
     <string name="change_password">Change Password</string>
     <string name="submit">Submit</string>
     <string name="default_notification_channel_id" >18</string>
+    <string name="banner_ads_key" translatable="false">ca-app-pub-9907841302456691/7915184972</string>
+    <string name="native_inside_ads_key" translatable="false">ca-app-pub-9907841302456691/5097449945</string>
+    <string name="admob_id" translatable="false">ca-app-pub-9907841302456691~1134154205</string>
+    <string name="samble_native_add" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="tab_text_1">مفقوداتى</string>
+    <string name="tab_text_2">مشترواتى</string>
+    <string name="tab_text_3">سوق الجملة</string>
+    <string name="tab_text_4">الحجز والايجار</string>
+    <string name="tab_text_5">مزاداتى</string>
+    <string name="tab_text_6">الوظائف والخدمات</string>
 
     <string-array name="countries">
         <item>Afghanistan</item>

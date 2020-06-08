@@ -8,9 +8,10 @@ public class ItemObjectModel {
         this.name = name;
         this.photo = photo;
     }
-
     public ItemObjectModel(String name) {
         this.name = name;
+    }
+    public ItemObjectModel() {
     }
 
     public String getName() {

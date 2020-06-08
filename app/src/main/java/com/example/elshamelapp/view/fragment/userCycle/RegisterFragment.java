@@ -72,6 +72,9 @@ public class RegisterFragment extends BaSeFragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     String googleCheck ="";
+    public RegisterFragment() {
+        // Required empty public constructor
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
