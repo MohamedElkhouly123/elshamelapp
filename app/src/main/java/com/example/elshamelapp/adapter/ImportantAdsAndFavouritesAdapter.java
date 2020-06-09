@@ -28,6 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ImportantAdsAndFavouritesAdapter extends RecyclerView.Adapter<ImportantAdsAndFavouritesAdapter.ViewHolder> {
@@ -233,9 +234,9 @@ public class ImportantAdsAndFavouritesAdapter extends RecyclerView.Adapter<Impor
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.card_view_importent_ads_item_imgView_proPic)
-        ImageView cardViewImportentAdsItemImgViewProPic;
-        @BindView(R.id.card_view_importent_ads_item_imgView_proPic_cv)
-        CardView cardViewImportentAdsItemImgViewProPicCv;
+        CircleImageView cardViewImportentAdsItemImgViewProPic;
+//        @BindView(R.id.card_view_importent_ads_item_imgView_proPic_cv)
+//        CardView cardViewImportentAdsItemImgViewProPicCv;
         @BindView(R.id.card_view_importent_ads_item_tv_name)
         TextView cardViewImportentAdsItemTvName;
         @BindView(R.id.card_view_importent_ads_item_tv_time)
@@ -270,6 +271,8 @@ public class ImportantAdsAndFavouritesAdapter extends RecyclerView.Adapter<Impor
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
+            cardViewImportentAdsItemImgViewProPic.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
         }
     }
 }

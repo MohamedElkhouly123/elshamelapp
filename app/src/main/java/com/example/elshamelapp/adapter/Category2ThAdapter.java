@@ -37,9 +37,9 @@ public class Category2ThAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private Activity activity;
 //    private List<ItemObjectModel> itemList = new ArrayList<>();
     // A menu item view type.
-    private static final int ITEM_VIEW_TYPE = 0;
-
-    private static final int UNIFIED_NATIVE_AD_VIEW_TYPE = 1;
+//    private static final int ITEM_VIEW_TYPE = 0;
+//
+//    private static final int UNIFIED_NATIVE_AD_VIEW_TYPE = 1;
 
     // The list of Native ads and menu items.
     private final List<Object> mRecyclerViewItems ;
@@ -67,37 +67,42 @@ public class Category2ThAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 //
 //        return new ViewHolder(view);
 
-        switch (viewType) {
-            case UNIFIED_NATIVE_AD_VIEW_TYPE:
-                View unifiedNativeLayoutView = LayoutInflater.from(
+//        switch (viewType) {
+//            case UNIFIED_NATIVE_AD_VIEW_TYPE:
+        if(viewType==0){
+
+            View unifiedNativeLayoutView = LayoutInflater.from(
                         context).inflate(R.layout.card_view_ad_unified_item,
                         parent, false);
-                return new GoogleAdsViewHolder2("",unifiedNativeLayoutView);
-            case ITEM_VIEW_TYPE:
+                return new GoogleAdsViewHolder2("",unifiedNativeLayoutView);}
+        else if(viewType ==1){
+
+//            case ITEM_VIEW_TYPE:
                 // Fall through.
 //                View menuItemLayoutView2 = LayoutInflater.from(context).inflate(
 //                        R.layout.cardview_category_2th_item, parent, false);
 //                return new ViewHolder( menuItemLayoutView2);
-            default:
+//            default:
                 View menuItemLayoutView = LayoutInflater.from(context).inflate(
                         R.layout.cardview_category_2th_item, parent, false);
-                return new Category2ThAdapter.ViewHolder1( menuItemLayoutView);
-    }}
+
+                return new Category2ThAdapter.ViewHolder1( menuItemLayoutView);}
+        return null;
+//    }
+}
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         setAnimation(holder.itemView, position);
         int viewType = getItemViewType(position);
-        switch (viewType) {
-            case UNIFIED_NATIVE_AD_VIEW_TYPE:
-                UnifiedNativeAd nativeAd = (UnifiedNativeAd) mRecyclerViewItems.get(position);
-                populateNativeAdView(nativeAd, ((ViewHolder1) holder).getAdView());
-                break;
-            case ITEM_VIEW_TYPE:
+        if(viewType==0) {
+
+            UnifiedNativeAd nativeAd = (UnifiedNativeAd) mRecyclerViewItems.get(position);
+            populateNativeAdView(nativeAd, ((ViewHolder1) holder).getAdView());
+        } else if(viewType ==1){
 //                setData(holder, position);
 //                setAction(holder, position);
                 // fall through
-            default:
 //                ViewHolder menuItemHolder = (ViewHolder) holder;
 //                ItemObjectModel menuItem = (ItemObjectModel) mRecyclerViewItems.get(position);
                 setData((ViewHolder1) holder, position);
@@ -165,12 +170,15 @@ public class Category2ThAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemViewType(int position) {
-
-        Object recyclerViewItem = mRecyclerViewItems.get(position);
-        if (recyclerViewItem instanceof UnifiedNativeAd) {
-            return UNIFIED_NATIVE_AD_VIEW_TYPE;
+        if(position % 4 == 0){
+            return 0;
         }
-        return ITEM_VIEW_TYPE;
+        return 1;
+//        Object recyclerViewItem = mRecyclerViewItems.get(position);
+//        if (recyclerViewItem instanceof UnifiedNativeAd) {
+//            return UNIFIED_NATIVE_AD_VIEW_TYPE;
+//        }
+//        return ITEM_VIEW_TYPE;
     }
 
 //    @OnClick(R.id.item_client_restaurants_list_rb_rating)

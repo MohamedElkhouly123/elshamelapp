@@ -61,13 +61,15 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
-        if(viewType==0){
-         view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
-                parent, false);}
-        else if(viewType ==1){
-            view = LayoutInflater.from(context).inflate(R.layout.card_view_important_ads_item,
-                    parent, false);
-        }
+//        if(viewType==0){
+//         view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
+//                parent, false);}
+//        else if(viewType ==1){
+//            view = LayoutInflater.from(context).inflate(R.layout.card_view_important_ads_item,
+//                    parent, false);
+//        }
+        view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
+                parent, false);
         return new ViewHolder(view);
     }
 
@@ -82,10 +84,10 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
 
     private void setData(ViewHolder holder, int position) {
         try {
-            final int itemType = getItemViewType(position);
-            if (itemType == 0) {
+//            final int itemType = getItemViewType(position);
+//            if (itemType == 0) {
 //            ((MyNormalViewHolder)holder).bindData((MyModel)myData[position]);
-            } else if (itemType == 1) {
+//            } else if (itemType == 1) {
 //            ((MyHeaderViewHolder)holder).setHeaderText((String)myData[position]);
                 holder.position = position;
                 holder.subHomeCategoryHzRvItemCategoryNameTv.setText(itemList.get(position).getName());
@@ -100,7 +102,7 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
                 // 5. set item animator to DefaultAnimator
                 holder.subHomeCategoryHzRvRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-            }
+//            }
 
 
             if( position == getItemCount() - 1 ){

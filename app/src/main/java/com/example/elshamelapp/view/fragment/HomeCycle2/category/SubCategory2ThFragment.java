@@ -38,10 +38,9 @@ public class SubCategory2ThFragment extends BaSeFragment {
     RecyclerView rView;
     // The number of native ads to load.
     public static final int NUMBER_OF_ADS = 3;
-
+    private List<ItemObjectModel> rowListItem;
     // The AdLoader used to load ads.
     private AdLoader adLoader;
-
     // List of MenuItems and native ads that populate the RecyclerView.
     private List<Object> mRecyclerViewItems = new ArrayList<>();
 
@@ -76,11 +75,10 @@ public class SubCategory2ThFragment extends BaSeFragment {
                 });
         // Initialize the Mobile Ads SDK.
         MobileAds.initialize(getActivity(), getString(R.string.admob_id));
-
-        List<ItemObjectModel> rowListItem = getAllItemList();
-        mRecyclerViewItems.add(rowListItem);
-        // Update the RecyclerView item's list with native ads.
+        rowListItem = getAllItemList();
         loadNativeAds();
+        insertAdsInSubCategoryItems();
+        // Update the RecyclerView item's list with native ads.
 //        lLayout = new LinearLayoutManager(getActivity());
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView.
@@ -125,14 +123,35 @@ public class SubCategory2ThFragment extends BaSeFragment {
             return;
         }
 
-        int offset = (mRecyclerViewItems.size() / mNativeAds.size()) + 1;
-        int index = 0;
-        for (UnifiedNativeAd ad : mNativeAds) {
-            mRecyclerViewItems.add(index, ad);
-            index = index + offset;
+        int mRecyclerViewItemsSize = (mRecyclerViewItems.size() + mNativeAds.size()) +2;
+        int gIndex = 0;        int adIndex = 0;
+        int itemIndex = 0;
+
+        for (gIndex=0;gIndex<mRecyclerViewItemsSize;gIndex++) {
+            if(gIndex%4==0){
+            mRecyclerViewItems.add(gIndex,mNativeAds.get(adIndex));
+                adIndex++;
+                gIndex++;
+            }else {
+                mRecyclerViewItems.add(gIndex,rowListItem.get(itemIndex));
+                itemIndex++;
+            }
         }
 //        loadMenu();
     }
+//    private void insertAdsInSubCategoryItems() {
+//        if (mNativeAds.size() <= 0) {
+//            return;
+//        }
+//
+//        int offset = (mRecyclerViewItems.size() / mNativeAds.size()) + 1;
+//        int index = 0;
+//        for (UnifiedNativeAd ad : mNativeAds) {
+//            mRecyclerViewItems.add(index, ad);
+//            index = index + offset;
+//        }
+////        loadMenu();
+//    }
 
 //    public List<Object> getRecyclerViewItems() {
 //        return mRecyclerViewItems;
@@ -149,7 +168,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
                         // and if so, insert the ads into the list.
                         mNativeAds.add(unifiedNativeAd);
                         if (!adLoader.isLoading()) {
-                            insertAdsInSubCategoryItems();
+//                            insertAdsInSubCategoryItems();
                         }
                     }
                 }).withAdListener(
@@ -161,7 +180,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
                         Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
                                 + " load another.");
                         if (!adLoader.isLoading()) {
-                            insertAdsInSubCategoryItems();
+//                            insertAdsInSubCategoryItems();
                         }
                     }
                 }).build();
