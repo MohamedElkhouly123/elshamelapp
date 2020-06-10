@@ -84,7 +84,7 @@
             android:layout_gravity="center"
             android:ellipsize="end"
             android:text="@string/send"
-            android:maxLines="4"
+            android:maxLines="1"
             android:paddingLeft="@dimen/_7sdp"
             android:paddingTop="@dimen/_3sdp"
             android:paddingRight="@dimen/_7sdp"

@@ -23,7 +23,7 @@
 
         <!--suppress AndroidLintContentDescription -->
         <FrameLayout
-            android:layout_width="@dimen/_90sdp"
+            android:layout_width="@dimen/_91sdp"
             android:layout_height="@dimen/_95sdp">
         <ImageView
             android:id="@+id/thumbnail"
@@ -32,7 +32,7 @@
             android:background="#B3EBE9E9"
             android:scaleType="centerCrop" />
         <ImageView
-            android:id="@+id/iv"
+            android:id="@+id/card_view_products_home_item_photo_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:elevation="@dimen/_10sdp"
@@ -41,44 +41,51 @@
             android:src="@drawable/apple"
              />
             <ImageView
-                android:id="@+id/my_favorite"
-                android:layout_width="@dimen/_14sdp"
-                android:layout_height="@dimen/_14sdp"
+                android:id="@+id/card_view_products_home_item_my_favorite"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_gravity="right|top"
-                android:elevation="@dimen/_25sdp"
+                android:layout_gravity="left|top"
+                android:elevation="@dimen/_35sdp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_favorite_black_24dp"
                 android:layout_marginRight="10dp" />
         </FrameLayout>
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/card_view_products_home_item_name_tv"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ellipsize="end"
-            android:maxLines="4"
+            android:text="hgjhghdhhhhhhhhhgdfsdsfjjkjgjgjkjgkjkj"
+            android:maxLines="1"
+            android:textSize="@dimen/_10ssp"
             android:paddingLeft="@dimen/_4sdp"
             android:paddingTop="@dimen/_2sdp"
             android:paddingRight="@dimen/_3sdp"
             android:paddingBottom="@dimen/_1sdp"
-            android:textColor="#ffe0e0e0" />
+            android:textColor="#6000"
+             />
 
         <TextView
-            android:id="@+id/article_subtitle"
+            android:id="@+id/card_view_products_home_item_cost_tv"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ellipsize="end"
             android:text="40$"
+            android:textSize="@dimen/_9ssp"
             android:maxLines="2"
+            android:textStyle="bold"
             android:paddingLeft="@dimen/_3sdp"
             android:paddingRight="@dimen/_3sdp"
             android:paddingBottom="@dimen/_2sdp"
-            android:textColor="#6000" />
+            android:textColor="#CCCBCB"
+            />
+<!--        ffe0e0e0-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

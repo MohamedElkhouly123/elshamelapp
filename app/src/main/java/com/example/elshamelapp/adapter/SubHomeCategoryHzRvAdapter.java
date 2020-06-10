@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,6 +43,7 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
     private List<ItemObjectModel> itemList = new ArrayList<>();
     private LinearLayoutManager lLayout;
     private ProfileItemAdapter homeSubHzItemAdapter;
+    private SubHomeCategoryHzRvItem2Adapter subHomeCategoryHzRvItem2Adapter;
     List<ProductDataModel> rowListItem;
 //    private ClientData clientData;
 //    private ApiService apiService;
@@ -61,15 +63,13 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
-//        if(viewType==0){
-//         view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
-//                parent, false);}
-//        else if(viewType ==1){
-//            view = LayoutInflater.from(context).inflate(R.layout.card_view_important_ads_item,
-//                    parent, false);
-//        }
-        view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
-                parent, false);
+        if(viewType==0){
+         view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item,
+                parent, false);}
+        else if(viewType ==1){
+            view = LayoutInflater.from(context).inflate(R.layout.home_sub_ver_rv_item2,
+                    parent, false);
+        }
         return new ViewHolder(view);
     }
 
@@ -84,16 +84,32 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
 
     private void setData(ViewHolder holder, int position) {
         try {
-//            final int itemType = getItemViewType(position);
-//            if (itemType == 0) {
+            final int itemType = getItemViewType(position);
+            holder.position = position;
+            rowListItem = getAllItemList();
+            if (itemType == 1) {
 //            ((MyNormalViewHolder)holder).bindData((MyModel)myData[position]);
-//            } else if (itemType == 1) {
-//            ((MyHeaderViewHolder)holder).setHeaderText((String)myData[position]);
-                holder.position = position;
-                holder.subHomeCategoryHzRvItemCategoryNameTv.setText(itemList.get(position).getName());
-                rowListItem = getAllItemList();
-                lLayout = new LinearLayoutManager(activity);
 
+                holder.subHomeCategoryHzRvItem2CategoryNameTv.setText(itemList.get(position).getName());
+                lLayout = new LinearLayoutManager(activity);
+                holder.subHomeCategory2HzRvRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+
+                subHomeCategoryHzRvItem2Adapter = new SubHomeCategoryHzRvItem2Adapter(context, activity, rowListItem);
+                holder.subHomeCategory2HzRvRecyclerView.setAdapter(subHomeCategoryHzRvItem2Adapter);
+
+                // 5. set item animator to DefaultAnimator
+                holder.subHomeCategory2HzRvRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+                if( position == getItemCount() - 1 ){
+                    holder.subHomeCategoryHzRvItem2PaddingTv.setVisibility(View.VISIBLE);
+                }else {
+                    holder.subHomeCategoryHzRvItem2PaddingTv.setVisibility(View.GONE);
+
+                }
+            } else if (itemType == 0) {
+//            ((MyHeaderViewHolder)holder).setHeaderText((String)myData[position]);
+                holder.subHomeCategoryHzRvItemCategoryNameTv.setText(itemList.get(position).getName());
+                lLayout = new LinearLayoutManager(activity);
                 holder.subHomeCategoryHzRvRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
 
                 homeSubHzItemAdapter = new ProfileItemAdapter(context, activity, rowListItem);
@@ -102,45 +118,47 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
                 // 5. set item animator to DefaultAnimator
                 holder.subHomeCategoryHzRvRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-//            }
+                if( position == getItemCount() - 1 ){
+                    holder.subHomeCategoryHzRvItemPaddingTv.setVisibility(View.VISIBLE);
+                }else {
+                    holder.subHomeCategoryHzRvItemPaddingTv.setVisibility(View.GONE);
 
-
-            if( position == getItemCount() - 1 ){
-                holder.subHomeCategoryHzRvItemPaddingTv.setVisibility(View.VISIBLE);
-            }else {
-                holder.subHomeCategoryHzRvItemPaddingTv.setVisibility(View.GONE);
+                }
 
             }
+
+
+
             if (position==0) {
-                holder.subHomeCategoryHzRvUltraViewpagerCardView.setVisibility(View.VISIBLE);
+                holder.subHomeCategory2HzRvUltraViewpagerCardView.setVisibility(View.VISIBLE);
                 // init all widgets in this activity
 //        UltraViewPager fragmentImportantAdsUltraViewpager = (UltraViewPager)findViewById(R.id.ultra_viewpager);
-                holder.subHomeCategoryHzRvUltraViewpager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
+                holder.subHomeCategory2HzRvUltraViewpager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
 //initialize UltraPagerAdapter，and add child view to UltraViewPager
                 PagerAdapter adapter = new UltraPagerAdapter(false);
-                holder.subHomeCategoryHzRvUltraViewpager.setAdapter(adapter);
+                holder.subHomeCategory2HzRvUltraViewpager.setAdapter(adapter);
 
 //initialize built-in indicator
-                holder.subHomeCategoryHzRvUltraViewpager.initIndicator();
+                holder.subHomeCategory2HzRvUltraViewpager.initIndicator();
 //set style of indicators
-                holder.subHomeCategoryHzRvUltraViewpager.getIndicator()
+                holder.subHomeCategory2HzRvUltraViewpager.getIndicator()
                         .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
                         .setFocusColor(Color.parseColor("#FC3D04"))
                         .setNormalColor(Color.WHITE)
                         .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, activity.getResources().getDisplayMetrics()));
 //set the alignment
-                holder.subHomeCategoryHzRvUltraViewpager.getIndicator().setGravity(Gravity.CENTER | Gravity.BOTTOM);
-                holder.subHomeCategoryHzRvUltraViewpager.getIndicator().setMargin(0, 0, 0, 40);
+                holder.subHomeCategory2HzRvUltraViewpager.getIndicator().setGravity(Gravity.CENTER | Gravity.BOTTOM);
+                holder.subHomeCategory2HzRvUltraViewpager.getIndicator().setMargin(0, 0, 0, 40);
 
 //construct built-in indicator, and add it to  UltraViewPager
-                holder.subHomeCategoryHzRvUltraViewpager.getIndicator().build();
+                holder.subHomeCategory2HzRvUltraViewpager.getIndicator().build();
 
 //set an infinite loop
-                holder.subHomeCategoryHzRvUltraViewpager.setInfiniteLoop(true);
+                holder.subHomeCategory2HzRvUltraViewpager.setInfiniteLoop(true);
 //enable auto-scroll mode
-                holder.subHomeCategoryHzRvUltraViewpager.setAutoScroll(4000);
+                holder.subHomeCategory2HzRvUltraViewpager.setAutoScroll(4000);
             }else {
-                holder.subHomeCategoryHzRvUltraViewpagerCardView.setVisibility(View.GONE);
+                holder.subHomeCategory2HzRvUltraViewpagerCardView.setVisibility(View.GONE);
 
             }
         } catch (Exception e) {
@@ -190,7 +208,7 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
 
     @Override
     public int getItemViewType(int position) {
-        if(position % 3 == 0){
+        if(position % 2 == 0&&position!=0){
             return 0;
         }
         return 1;
@@ -206,18 +224,36 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        @Nullable
         @BindView(R.id.sub_home_verv_item_category_name_tv)
         TextView subHomeCategoryHzRvItemCategoryNameTv;
+        @Nullable
         @BindView(R.id.sub_home_verv_item__viewmore1_tv)
         TextView SubHomeCategoryHzRvItemSeeMoreTv;
+        @Nullable
         @BindView(R.id.sub_home_verv_item_padding_tv)
         TextView subHomeCategoryHzRvItemPaddingTv;
-        @BindView(R.id.sub_home_verv_item_ultra_viewpager)
-        UltraViewPager subHomeCategoryHzRvUltraViewpager;
-        @BindView(R.id.sub_home_verv_item_ultra_viewpager_card_view)
-        CardView subHomeCategoryHzRvUltraViewpagerCardView;
+        @Nullable
         @BindView(R.id.sub_home_verv_item__hz_rv)
         RecyclerView subHomeCategoryHzRvRecyclerView;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2_category_name_tv)
+        TextView subHomeCategoryHzRvItem2CategoryNameTv;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2__viewmore1_tv)
+        TextView SubHomeCategoryHzRvItem2SeeMoreTv;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2_padding_tv)
+        TextView subHomeCategoryHzRvItem2PaddingTv;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2_ultra_viewpager)
+        UltraViewPager subHomeCategory2HzRvUltraViewpager;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2_ultra_viewpager_card_view)
+        CardView subHomeCategory2HzRvUltraViewpagerCardView;
+        @Nullable
+        @BindView(R.id.sub_home_verv_item2__hz_rv)
+        RecyclerView subHomeCategory2HzRvRecyclerView;
         private View view;
         private int position;
 
@@ -225,6 +261,7 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
+
         }
     }
 }
