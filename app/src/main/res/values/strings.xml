@@ -98,8 +98,8 @@
     <string name="Myshopuknownunseen">My shop uknown unseen ?</string>
     <string name="Myshopuknownunseen2">Donn`t worry her can tell for all I`m her I have best products and best over or costs</string>
 
-    <string name="facebook_app_id">483262328977596</string>
-    <string name="fb_login_protocol_scheme">fb483262328977596</string>
+    <string name="facebook_app_id" translatable="false">264159988168626</string>
+    <string name="fb_login_protocol_scheme">fb264159988168626</string>
 
     <string name="invalid_email">Email must be like this \"example@example.com\"</string>
     <string name="invalid_phone1">Phone number must be \ </string>

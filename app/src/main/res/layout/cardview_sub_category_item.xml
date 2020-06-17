@@ -43,7 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_64sdp"
+            android:layout_marginTop="@dimen/_60sdp"
             android:gravity="center"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/country_photo"
@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:text="country_name"
                 android:textColor="#fff"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

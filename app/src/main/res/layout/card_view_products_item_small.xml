@@ -77,6 +77,7 @@
             android:layout_gravity="center"
             android:ellipsize="end"
             android:text="40$"
+            android:layout_marginBottom="@dimen/_1sdp"
             android:textSize="@dimen/_9ssp"
             android:maxLines="2"
             android:textStyle="bold"

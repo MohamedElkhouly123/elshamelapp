@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.elshamelapp">
+    package="com.example.OneForAll">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -29,7 +29,7 @@
         android:theme="@style/AppTheme.NoActionBar">
 
         <service
-            android:name=".utils.notifictionsServices.MyFirebaseMessagingService"
+            android:name="com.example.OneForAll.utils.notifictionsServices.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -52,14 +52,14 @@
 
 <!--        broad cast reciever ,service ,-->
 
-        <receiver android:name=".utils.broadCastReciever.PollReceiver">
+        <receiver android:name="com.example.OneForAll.utils.broadCastReciever.PollReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".utils.broadCastReciever.ScheduledService"
+            android:name="com.example.OneForAll.utils.broadCastReciever.ScheduledService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <!--        android:largeHeap="true"-->
 
@@ -76,7 +76,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.activity.MapsActivity"
+            android:name="com.example.OneForAll.view.activity.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <meta-data
             android:name="com.google.android.gms.version"
@@ -91,20 +91,15 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
 
-        <activity android:name=".utils.Chat.Chat" />
-        <activity android:name=".view.activity.AboutApp" />
-        <activity android:name=".Product_details.MyProduct" />
-        <activity android:name=".Product_details.SellersProduct" />
-        <activity android:name=".view.activity.UserCycleActivity" />
-        <activity android:name=".view.activity.HomeCycleActivity"
+        <activity android:name="com.example.OneForAll.utils.Chat.Chat" />
+        <activity android:name="com.example.OneForAll.view.activity.AboutApp" />
+        <activity android:name="com.example.OneForAll.view.activity.UserCycleActivity" />
+        <activity android:name="com.example.OneForAll.view.activity.HomeCycleActivity"
             android:label=""
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -128,8 +123,12 @@
                     tools:ignore="ManifestResource" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.SplashCycleActivity">
+        <activity android:name="com.example.OneForAll.view.activity.SplashCycleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
