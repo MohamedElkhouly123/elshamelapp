@@ -34,7 +34,7 @@
     <string name="Password"> كلمه المرور</string>
     <string name="confirm_Password"> تاكيد كلمه المرور</string>
     <string name="Phone"> رقم الموبيل</string>
-    <string name="Enter_address"> العنوان</string>
+    <string name="Enter_address">المكان (الموقع)</string>
     <string name="shop_"> صاحب محل ؟</string>
     <string name="request"> مطلوب</string>
     <string name="login3">تسجيل الدخول ؟</string>
@@ -53,7 +53,7 @@
     <string name="Product_case"> حاله الاعلان</string>
     <string name="Cost"> السعر ( ج.م )</string>
     <string name="product2Name">اسم المنتج</string>
-    <string name="Product_descripe"> وصف الاعلان</string>
+    <string name="Product_descripe"> وصف أضافى للاعلان</string>
     <string name="Owner_Name"> اسم صاحب الاعلان</string>
     <string name="quantity"> الكميه</string>
     <string name="I_agree_to"> اوافق على</string>
@@ -140,5 +140,20 @@
     <string name="tab_text_4">الحجز والايجار</string>
     <string name="tab_text_5">مزاداتى</string>
     <string name="tab_text_6">الوظائف والخدمات</string>
+    <string name="add_sale">أضافه عرض</string>
+    <string name="brand">مركتها</string>
+    <string name="model">موديلها</string>
+    <string name="transfer_type">نوع النقل</string>
+    <string name="space">مساحته (م2)</string>
+    <string name="floors_num">عدد الأدوار (الطوابق)</string>
+    <string name="the_floor">رقم الدور (الطابق)</string>
+    <string name="rooms_num">عدد الأوض (الغرف)</string>
+    <string name="furnished_place">المكان مفروش</string>
+    <string name="ground_type">نوع الأرض</string>
+    <string name="Cost_from">من :</string>
+    <string name="Cost_to">الى :</string>
+    <string name="within_a_distance">على بعد مسافة</string>
+    <string name="lost_thing">فقدت شىء</string>
+    <string name="back">السابق</string>
 
 </resources>

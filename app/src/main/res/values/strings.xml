@@ -35,7 +35,7 @@
     <string name="Password">Password</string>
     <string name="confirm_Password">Confirm Password</string>
     <string name="Phone">Phone</string>
-    <string name="Enter_address">Enter Address</string>
+    <string name="Enter_address">Location</string>
     <string name="shop_">Shop ?</string>
     <string name="request">request</string>
     <string name="signUp2">Sign Up</string>
@@ -56,7 +56,7 @@
     <string name="Product_case">Ads Case</string>
     <string name="Cost">Cost (L.E)</string>
     <string name="product2Name">Product Name</string>
-    <string name="Product_descripe">Ads descripe</string>
+    <string name="Product_descripe">Ads More descripe</string>
     <string name="Owner_Name">Owner Name</string>
     <string name="quantity">Quantity</string>
     <string name="I_agree_to">I agree to</string>
@@ -115,7 +115,7 @@
     <string name="GPSAlertDialogTitle">GPSAlertDialogTitle</string>
     <string name="action_settings">action_settings</string>
     <string name="GPSAlertDialogMessage">GPSAlertDialogMessage</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="more_setting">More Setting</string>
     <string name="Delete_Account">Delete Account</string>
     <string name="Add_costs_list">costs list</string>
@@ -148,6 +148,21 @@
     <string name="tab_text_4">الحجز والايجار</string>
     <string name="tab_text_5">مزاداتى</string>
     <string name="tab_text_6">الوظائف والخدمات</string>
+    <string name="add_sale">Add Sale</string>
+    <string name="brand">The Brand</string>
+    <string name="model">The Model</string>
+    <string name="transfer_type">Transfer Type</string>
+    <string name="space">The Space (m2)</string>
+    <string name="floors_num">Floors Number</string>
+    <string name="the_floor">The Floor</string>
+    <string name="rooms_num">Rooms Num</string>
+    <string name="furnished_place">Furnished Place</string>
+    <string name="ground_type">Ground Type</string>
+    <string name="Cost_from">From :</string>
+    <string name="Cost_to">To :</string>
+    <string name="within_a_distance">Within A Distance</string>
+    <string name="lost_thing">Lost Thing</string>
+    <string name="back">Back</string>
 
     <string-array name="countries">
         <item>Afghanistan</item>

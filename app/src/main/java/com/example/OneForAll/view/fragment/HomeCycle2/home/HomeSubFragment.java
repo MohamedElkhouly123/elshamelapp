@@ -65,6 +65,7 @@ public class HomeSubFragment extends BaSeFragment {
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
+
         pageViewModel.setIndex(index);
 
     }
@@ -83,7 +84,6 @@ public class HomeSubFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_home_sub, container, false);
         ButterKnife.bind(this, root);
-
         homeCycleActivity = (HomeCycleActivity) getActivity();
 //        tabNumModel=new TabNumModel();
 //        tabeNum=tabNumModel.getTabeNum();
@@ -102,7 +102,19 @@ public class HomeSubFragment extends BaSeFragment {
             public void onChanged(@Nullable String s) {
                 sectionLabel.setText(s);
                 tabeNum = sectionLabel.getText().toString().trim();
-//
+//              if(s.equalsIgnoreCase("1")){
+//                  homeCycleActivity.setFloatBottonOnly(View.VISIBLE);
+//              } else if(s.equalsIgnoreCase("2")){
+//                    homeCycleActivity.setFloatBottonOnly(View.VISIBLE);
+//              } else if(s.equalsIgnoreCase("3")){
+//                  homeCycleActivity.setFloatBottonOnly(View.GONE);
+//              } else if(s.equalsIgnoreCase("4")){
+//                  homeCycleActivity.setFloatBottonOnly(View.VISIBLE);
+//              } else if(s.equalsIgnoreCase("5")){
+//                  homeCycleActivity.setFloatBottonOnly(View.VISIBLE);
+//              } else if(s.equalsIgnoreCase("6")){
+//                  homeCycleActivity.setFloatBottonOnly(View.VISIBLE);
+//              }
 //                showToast(getActivity(), tabeNum);
             }
         });

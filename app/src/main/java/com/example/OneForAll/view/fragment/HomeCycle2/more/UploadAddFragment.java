@@ -39,6 +39,7 @@ public class UploadAddFragment extends BaSeFragment {
 
         ButterKnife.bind(this, root);
 
+//        if(){}
         return root;
     }
 

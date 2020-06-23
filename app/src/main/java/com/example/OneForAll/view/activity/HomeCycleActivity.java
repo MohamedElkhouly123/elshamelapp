@@ -267,6 +267,10 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
     }
 
+    public void setFloatBottonOnly(int visibility) {
+        bmb.setVisibility(visibility);
+    }
+
     @SuppressLint("WrongConstant")
     private void toggleNav(boolean side) {
         if (side) {

@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center"
+
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_full_name_card_vw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:cardBackgroundColor="#ECECEC"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_full_name_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_full_name_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_check_circle_black_24dp"
+                        android:hint="@string/productName"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_category_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/fragment_uplood_product_category_lin"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_category_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_category_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/category"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="none"
+                        />
+<!--                    android:editable="false"-->
+<!--                    android:clickable="false"-->
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_location_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:visibility="visible"
+            app:cardBackgroundColor="#ECECEC"
+            app:cardCornerRadius="10dp"
+            >
+<!--                                if use in search       -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_location_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    app:helperText="choose">
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_location_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/Enter_address"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+                    <Spinner
+                        android:id="@+id/casespinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_within_a_distance_card_vw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:cardBackgroundColor="#ECECEC"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <!--                                if use in search       -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_within_a_distance_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_within_a_distance_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/within_a_distance"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/fragment_uplood_product_show_other_part_ly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:orientation="vertical"
+            >
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fragment_uplood_product_lost_thing_or_find_thing_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cardBackgroundColor="#ECECEC"
+                app:cardCornerRadius="10dp"
+                >
+
+<!--                             فاقد شىء ولا ,واجد شىء        -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:background="@drawable/gradient_btn_shape"
+                    android:padding="5dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_uplood_product_lost_thing_or_find_thing_tin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#99070707"
+                        >
+
+                        <EditText
+                            android:id="@+id/fragment_uplood_product_lost_thing_or_find_thing_et"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                            android:hint="@string/lost_thing"
+                            android:textSize="@dimen/_13ssp"
+                            android:fontFamily="@font/janna"
+                            android:inputType="textAutoComplete" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:background="@drawable/gradient_btn_shape"
+                android:padding="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_case_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_case_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/Product_case"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:background="@drawable/gradient_btn_shape"
+                android:padding="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_cost_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_cost_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/Cost"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="number" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <include
+                layout="@layout/from_to_with_txt_lyout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:visibility="visible"
+                />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_quantity_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_quantity_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/quantity"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="number" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_brand_and_model_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+            android:visibility="visible"
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_brand_and_model_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+                    <!-- سيارات والكترونيات زى الموبيل وغيره                   -->
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_brand_and_model_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/brand"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_transfer_type_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+            android:visibility="visible"
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_transfer_type_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+                    <!--           السنه والموديل والكيلومترات والالوان >>       سيارات-->
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_transfer_type_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/transfer_type"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_the_space_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_the_space_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+                    <!--                   اراضى ومبانى -->
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_the_space_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/space"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_uplood_product_ground_type_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:cardBackgroundColor="#ECECEC"
+
+            app:cardCornerRadius="10dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_ground_type_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+                    <!--                   ارض زراعى ولا مبانى ايجار او شراء>> اراضى ومبانى -->
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_ground_type_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/ground_type"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textAutoComplete" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/fragment_uplood_product_3carat_ly"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--                  مبانى ايجار او شراء -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView88"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cardBackgroundColor="#ECECEC"
+
+                app:cardCornerRadius="10dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:padding="5dp"
+                    android:background="@drawable/gradient_btn_shape"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_uplood_product_floors_num_tin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#99070707"
+                        >
+                        <EditText
+                            android:id="@+id/fragment_uplood_product_floors_num_et"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                            android:hint="@string/floors_num"
+                            android:textSize="@dimen/_13ssp"
+                            android:fontFamily="@font/janna"
+                            android:inputType="textAutoComplete" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView883"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cardBackgroundColor="#ECECEC"
+
+                app:cardCornerRadius="10dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:padding="5dp"
+                    android:background="@drawable/gradient_btn_shape"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_uplood_product_the_floor_num_tin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#99070707"
+                        >
+                        <!--                    ومبانى -->
+                        <EditText
+                            android:id="@+id/fragment_uplood_product_the_floor_num_et"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                            android:hint="@string/the_floor"
+                            android:textSize="@dimen/_13ssp"
+                            android:fontFamily="@font/janna"
+                            android:inputType="textAutoComplete" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView873"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cardBackgroundColor="#ECECEC"
+
+                app:cardCornerRadius="10dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:padding="5dp"
+                    android:background="@drawable/gradient_btn_shape"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_uplood_product_furnished_place_tin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#99070707"
+                        >
+                        <!--                    ومبانى -->
+                        <EditText
+                            android:id="@+id/fragment_uplood_product_furnished_place_et"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                            android:hint="@string/furnished_place"
+                            android:textSize="@dimen/_13ssp"
+                            android:fontFamily="@font/janna"
+                            android:inputType="textAutoComplete" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView83"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cardBackgroundColor="#ECECEC"
+
+                app:cardCornerRadius="10dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:padding="5dp"
+                    android:background="@drawable/gradient_btn_shape"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_uplood_product_rooms_num_tin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#99070707"
+                        >
+                        <!--                    ومبانى -->
+                        <EditText
+                            android:id="@+id/fragment_uplood_product_rooms_num_et"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                            android:hint="@string/rooms_num"
+                            android:textSize="@dimen/_13ssp"
+                            android:fontFamily="@font/janna"
+                            android:inputType="textAutoComplete" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#ECECEC"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            >
+
+<!--            التربه صحراويه ولا سمراء السيارات الوانها ايه مودلها وسنتها ومركتها ان وجد وكيلومترات (قدره استعابها) والمبانى وصف ضقيق للحمامات والمطبخ وبلكونات والاوض نوم واطفال والكماليات وغيره وكل ما تحتويه -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/gradient_btn_shape"
+
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_uplood_product_descripe_tin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#99070707"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_uplood_product_descripe_et"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_radio_button_unchecked_black_24dp"
+                        android:hint="@string/Product_descripe"
+                        android:minLines="2"
+                        android:textSize="@dimen/_13ssp"
+                        android:fontFamily="@font/janna"
+                        android:inputType="textMultiLine" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

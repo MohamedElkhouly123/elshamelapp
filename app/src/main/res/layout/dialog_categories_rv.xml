@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/dialog_categories_rv_sr_refresh_donations"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/dialog_categories_rv_category_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:visibility="visible"
+                android:textStyle="bold"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@android:color/holo_purple"
+                android:text="القسم العام"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_350sdp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dialog_categories_rv_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/load_more"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_20sdp"
+                    android:scrollbars="vertical" />
+
+                <include
+                    layout="@layout/cardview_item_load_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" />
+
+                <include layout="@layout/error" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="left"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_11sdp"
+        android:paddingStart="@dimen/_22sdp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/dialog_categories_rv_cancel_btn_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textColor="@color/blue"
+            android:text="@string/cancel"
+            />
+    <TextView
+        android:id="@+id/dialog_categories_rv_back_btn_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textColor="@color/blue"
+        android:visibility="visible"
+        android:text="@string/back"
+        />
+    </LinearLayout>
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+</FrameLayout>

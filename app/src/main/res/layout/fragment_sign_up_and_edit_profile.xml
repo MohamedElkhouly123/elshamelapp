@@ -310,7 +310,19 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
+<!--                <Switch-->
+<!--                    android:id="@+id/switch2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/_35sdp"-->
+<!--                    android:layout_marginTop="@dimen/_25sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_35sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_25sdp"-->
+<!--                    android:text="@string/shop_"-->
+<!--                    android:textColor="#99070707"-->
+<!--                    android:fontFamily="@font/ber"-->
+<!--                    android:textSize="@dimen/_15ssp"-->
+<!--                    />-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView4"
                 android:layout_width="match_parent"
@@ -356,7 +368,50 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fragment_sign_up_and_edit_profile_cardView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    app:cardBackgroundColor="#e5e5e5"
 
+                    app:cardCornerRadius="10dp"
+                    >
+<!--                           shop owner or is Brand or normal user or restaurant owner or صاحب شركه او مصنع او تاجر جمله -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="1dp"
+                        android:padding="5dp"
+                        android:background="@drawable/gradient_btn_shape"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/fragment_sign_up_and_edit_profile_shop_tin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="#99070707"
+                            >
+
+                            <EditText
+                                android:id="@+id/fragment_sign_up_and_edit_profile_shop_et"
+                                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_shop_black2_24dp"
+                                android:hint="@string/shop_"
+                                android:textSize="@dimen/_13ssp"
+                                android:fontFamily="@font/janna"
+                                android:inputType="textAutoComplete" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView5"
                 android:layout_width="match_parent"
@@ -404,19 +459,19 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_35sdp"
-                android:layout_marginTop="@dimen/_34sdp"
-                android:layout_marginEnd="@dimen/_35sdp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/shop_"
-                android:textColor="#99070707"
-                android:fontFamily="@font/ber"
-                android:textSize="@dimen/_15ssp"
-                />
+<!--            <Switch-->
+<!--                android:id="@+id/switch1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_35sdp"-->
+<!--                android:layout_marginTop="@dimen/_34sdp"-->
+<!--                android:layout_marginEnd="@dimen/_35sdp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/brand"-->
+<!--                android:textColor="#99070707"-->
+<!--                android:fontFamily="@font/ber"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                />-->
 
                 <Button
                     android:id="@+id/button2"
