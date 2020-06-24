@@ -92,8 +92,8 @@ public class ImportantAdsAndFavouritesAdapter extends RecyclerView.Adapter<Impor
                 // init all widgets in this activity
 //        UltraViewPager fragmentImportantAdsUltraViewpager = (UltraViewPager)findViewById(R.id.ultra_viewpager);
                 holder.fragmentImportantAdsUltraViewpager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
-//initialize UltraPagerAdapter，and add child view to UltraViewPager
-                PagerAdapter adapter = new UltraPagerAdapter(false);
+//initialize ProductDetailsUltraPagerAdapter，and add child view to UltraViewPager
+                PagerAdapter adapter = new ImportantAdsAndHomeAdsUltraPagerAdapter(false);
                 holder.fragmentImportantAdsUltraViewpager.setAdapter(adapter);
 
 //initialize built-in indicator
@@ -106,7 +106,7 @@ public class ImportantAdsAndFavouritesAdapter extends RecyclerView.Adapter<Impor
                         .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, activity.getResources().getDisplayMetrics()));
 //set the alignment
                 holder.fragmentImportantAdsUltraViewpager.getIndicator().setGravity(Gravity.CENTER | Gravity.BOTTOM);
-                holder.fragmentImportantAdsUltraViewpager.getIndicator().setMargin(0, 0, 0, 40);
+                holder.fragmentImportantAdsUltraViewpager.getIndicator().setMargin(0, 0, 0, 35);
 
 //construct built-in indicator, and add it to  UltraViewPager
                 holder.fragmentImportantAdsUltraViewpager.getIndicator().build();

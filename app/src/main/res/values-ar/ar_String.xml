@@ -111,7 +111,7 @@
     <string name="GPSAlertDialogTitle">GPSAlertDialogTitle</string>
     <string name="action_settings">اعدادات التنفيذ</string>
     <string name="GPSAlertDialogMessage">GPSAlertDialogMessage</string>
-    <string name="cancel">ألغاء</string>
+    <string name="cancel">الغاء</string>
     <string name="more_setting">المزيد</string>
     <string name="Delete_Account">أحذف الحساب</string>
     <string name="Add_costs_list">قائمة الأسعار</string>

@@ -41,16 +41,16 @@ import com.example.OneForAll.R;
 /**
  * Created by mikeafc on 15/11/26.
  */
-public class UltraPagerAdapter extends PagerAdapter {
+public class ImportantAdsAndHomeAdsUltraPagerAdapter extends PagerAdapter {
     private boolean isMultiScr;
 
-    public UltraPagerAdapter(boolean isMultiScr) {
+    public ImportantAdsAndHomeAdsUltraPagerAdapter(boolean isMultiScr) {
         this.isMultiScr = isMultiScr;
     }
 
     @Override
     public int getCount() {
-        return 6;
+        return 10;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class UltraPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.layout_child, null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.layout_child_home, null);
         //new LinearLayout(container.getContext());
         ImageView imv = (ImageView) linearLayout.findViewById(R.id.im);
 //        TextView textView = (TextView) linearLayout.findViewById(R.id.pager_textview);

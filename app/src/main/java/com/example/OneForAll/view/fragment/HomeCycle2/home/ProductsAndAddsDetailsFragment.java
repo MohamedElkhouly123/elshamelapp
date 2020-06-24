@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.OneForAll.R;
-import com.example.OneForAll.adapter.UltraPagerAdapter;
+import com.example.OneForAll.adapter.ProductDetailsUltraPagerAdapter;
 import com.example.OneForAll.view.fragment.BaSeFragment;
 import com.tmall.ultraviewpager.UltraViewPager;
 
@@ -54,8 +54,8 @@ public class ProductsAndAddsDetailsFragment extends BaSeFragment {
         // init all widgets in this activity
 //        UltraViewPager ultraViewPager = (UltraViewPager)findViewById(R.id.ultra_viewpager);
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
-//initialize UltraPagerAdapter，and add child view to UltraViewPager
-        PagerAdapter adapter = new UltraPagerAdapter(false);
+//initialize ProductDetailsUltraPagerAdapter，and add child view to UltraViewPager
+        PagerAdapter adapter = new ProductDetailsUltraPagerAdapter(false);
         ultraViewPager.setAdapter(adapter);
 
 //initialize built-in indicator

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.OneForAll.R;
 import com.example.OneForAll.data.model.ItemObjectModel;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
+import com.example.OneForAll.view.fragment.HomeCycle2.category.SubCategoryFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAdapter.ViewHolder> {
+import static com.example.OneForAll.utils.HelperMethod.replaceFragmentWithAnimation;
+
+public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapter.ViewHolder> {
 
 
 
@@ -33,9 +37,9 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
 //    private ClientData clientData;
 //    private ApiService apiService;
 
-    public DialogCategoryAdapter(Context context,
-                                 Activity activity,
-                                 List<ItemObjectModel> itemList
+    public CategorySub2Adapter(Context context,
+                               Activity activity,
+                               List<ItemObjectModel> itemList
     ) {
         this.context = context;
         this.activity = activity;
@@ -47,7 +51,7 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.custam_text_view_for_category_dialog,
+        View view = LayoutInflater.from(context).inflate(R.layout.cardview_category_2th_item,
                 parent, false);
 
         return new ViewHolder(view);
@@ -57,14 +61,15 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         setData(holder, position);
         setAction(holder, position);
-//        setAnimation(holder.itemView, position, holder);
+        setAnimation(holder.itemView, position, holder);
 
     }
 
     private void setData(ViewHolder holder, int position) {
         try {
             holder.position = position;
-            holder.custamTextViewForCategoryDialogNameTv.setText(itemList.get(position).getName());
+            holder.subCategory2thName.setText(itemList.get(position).getName());
+            holder.thumbnailPhoto.setImageResource(itemList.get(position).getPhoto());
 
         } catch (Exception e) {
 
@@ -88,36 +93,14 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
                 HomeCycleActivity homeCycleActivity = (HomeCycleActivity) activity;
                 Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
                 if (position == 0) {
-                    itemList=getAllItemList();
-                    notifyDataSetChanged();
-//                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
-//                    homeCycleActivity.setNavigationAndToolBar(View.GONE, true);
+                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
+                    homeCycleActivity.setNavigationAndToolBar(View.GONE, true);
                 }
             }
         });
 
     }
 
-    private List<ItemObjectModel> getAllItemList() {
-
-        List<ItemObjectModel> allItems = new ArrayList<ItemObjectModel>();
-        allItems.add(new ItemObjectModel("محلات ومطاعم"));
-        allItems.add(new ItemObjectModel("عقارات"));
-        allItems.add(new ItemObjectModel("مجوهرات"));
-        allItems.add(new ItemObjectModel("الكترونيات"));
-        allItems.add(new ItemObjectModel("مركبات"));
-        allItems.add(new ItemObjectModel("مستلزمات منزليه"));
-        allItems.add(new ItemObjectModel("ملابس واكسسورات"));
-        allItems.add(new ItemObjectModel("حيوانات"));
-        allItems.add(new ItemObjectModel("مستلزمات رياضيه"));
-        allItems.add(new ItemObjectModel("مستلزمات فنيه وثقافيه"));
-        allItems.add(new ItemObjectModel("معدات طبيه"));
-        allItems.add(new ItemObjectModel("معدات صناعه"));
-        allItems.add(new ItemObjectModel("مستلزمات مطاعم"));
-        allItems.add(new ItemObjectModel("اخرى"));
-
-        return allItems;
-    }
 
     @Override
     public int getItemCount() {
@@ -129,9 +112,10 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
 //    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView(R.id.custam_text_view_for_category_dialog_name_tv)
-        TextView custamTextViewForCategoryDialogNameTv;
+        @BindView(R.id.sub_category_2th_name)
+        TextView subCategory2thName;
+        @BindView(R.id.thumbnail_photo)
+        ImageView thumbnailPhoto;
         private View view;
         private int position;
 

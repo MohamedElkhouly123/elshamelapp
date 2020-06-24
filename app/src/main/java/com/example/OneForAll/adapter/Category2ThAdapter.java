@@ -186,7 +186,7 @@ public class Category2ThAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 //    }
 
     public class ViewHolder1 extends RecyclerView.ViewHolder {
-        @BindView(R.id.sub_category_2th)
+        @BindView(R.id.sub_category_2th_name)
         TextView subCategory2th;
         @BindView(R.id.thumbnail)
         ImageView thumbnail;

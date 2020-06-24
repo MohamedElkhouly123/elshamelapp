@@ -134,8 +134,8 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
                 // init all widgets in this activity
 //        UltraViewPager fragmentImportantAdsUltraViewpager = (UltraViewPager)findViewById(R.id.ultra_viewpager);
                 holder.subHomeCategory2HzRvUltraViewpager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
-//initialize UltraPagerAdapter，and add child view to UltraViewPager
-                PagerAdapter adapter = new UltraPagerAdapter(false);
+//initialize ProductDetailsUltraPagerAdapter，and add child view to UltraViewPager
+                PagerAdapter adapter = new ImportantAdsAndHomeAdsUltraPagerAdapter(false);
                 holder.subHomeCategory2HzRvUltraViewpager.setAdapter(adapter);
 
 //initialize built-in indicator
@@ -148,7 +148,7 @@ public class SubHomeCategoryHzRvAdapter extends RecyclerView.Adapter<SubHomeCate
                         .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, activity.getResources().getDisplayMetrics()));
 //set the alignment
                 holder.subHomeCategory2HzRvUltraViewpager.getIndicator().setGravity(Gravity.CENTER | Gravity.BOTTOM);
-                holder.subHomeCategory2HzRvUltraViewpager.getIndicator().setMargin(0, 0, 0, 40);
+                holder.subHomeCategory2HzRvUltraViewpager.getIndicator().setMargin(0, 0, 0, 35);
 
 //construct built-in indicator, and add it to  UltraViewPager
                 holder.subHomeCategory2HzRvUltraViewpager.getIndicator().build();

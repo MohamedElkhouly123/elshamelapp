@@ -160,9 +160,8 @@
             android:background="#99070707"
             android:textSize="22dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_uplood_product_submit_btn_tv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lin" />
 

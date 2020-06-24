@@ -94,3 +94,76 @@ public class ShowChooseCategories2Dialog extends DialogFragment {
         return allItems;
     }
 }
+
+
+//    private void showChooseCategoriesDialog() {
+//        try {
+//            Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT)
+//                    .show();
+//            List<ItemObjectModel> dialogCategoryListItem = getAllItemList();
+//
+////            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//            final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_categories_rv, null);
+////            alertDialog = new AlertDialog.Builder(HomeContainerFragment.this).create();
+//            AlertDialog.Builder builder = new AlertDialog
+//                    .Builder(new ContextThemeWrapper(getActivity(), R.style.Theme_AppCompat_Dialog));
+//            AlertDialog alertDialog;
+//            builder.setView(view);
+//            builder.setTitle("أختيار القسم العام");
+//            builder.setCancelable(false);
+////            alertDialog.setMessage("أختار القسم العام");
+//
+//
+//            RecyclerView dialogCategoriesRvRecyclerView = (RecyclerView) root.findViewById(R.id.dialog_categories_rv_recycler_view);
+//
+//            lLayout = new LinearLayoutManager(getActivity());
+//
+//            dialogCategoriesRvRecyclerView.setLayoutManager(lLayout);
+//
+//            DialogCategoryAdapter rcAdapter = new DialogCategoryAdapter(getContext(), getActivity(), dialogCategoryListItem);
+//            dialogCategoriesRvRecyclerView.setAdapter(rcAdapter);
+//            rcAdapter.notifyDataSetChanged();
+//            alertDialog = builder.create();
+//
+//
+////            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "تراجع", new DialogInterface.OnClickListener() {
+////                @Override
+////                public void onClick(DialogInterface dialog, int which) {
+//////                        Call<RestaurantCategoryResponse> deletItemCal = getApiClient().restaurantDeleteCategory(clientData.getApiToken(), restaurantDataList.get(position).getId());
+//////                        deleteAndUpdateItemCallBack(activity, deletItemCal);
+//////                    costsListDataList.remove(position);
+//////                    notifyItemRemoved(position);
+//////                    notifyItemRangeChanged(position, costsListDataList.size());
+////
+////                }
+////            });
+//
+//
+//            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "الغاء", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    alertDialog.dismiss();
+//                }
+//            });
+//
+//            alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+//                @SuppressLint("ResourceAsColor")
+//                @Override
+//                public void onShow(DialogInterface arg0) {
+//
+////                    alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(R.color.blue);
+//                    alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(R.color.blue);
+//
+//                }
+//            });
+////            builder.show();
+//
+//            alertDialog.show();
+//
+//
+////            dialogCategoriesRvRecyclerView.setHasFixedSize(true);
+//
+//        } catch (Exception e) {
+//
+//        }
+//    }

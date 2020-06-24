@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.OneForAll.R;
-import com.example.OneForAll.adapter.Category2ThAdapter;
+import com.example.OneForAll.adapter.CategorySub2Adapter;
 import com.example.OneForAll.data.model.ItemObjectModel;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
 import com.example.OneForAll.view.fragment.BaSeFragment;
@@ -95,7 +95,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
 
 //        rView.setLayoutManager(lLayout);
 
-        Category2ThAdapter rcAdapter = new Category2ThAdapter(getContext(), getActivity(), mRecyclerViewItems);
+        CategorySub2Adapter rcAdapter = new CategorySub2Adapter(getContext(), getActivity(), rowListItem);
         rView.setAdapter(rcAdapter);
 
         // 5. set item animator to DefaultAnimator

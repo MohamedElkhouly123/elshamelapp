@@ -9,12 +9,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageButton
+        <ImageView
             android:id="@+id/im"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             android:src="@drawable/flat"
             />
+<!--        <ImageButton-->
+<!--            android:id="@+id/im"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/flat"-->
+<!--            />-->
+<!--        android:scaleType="centerCrop"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
