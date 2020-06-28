@@ -45,7 +45,7 @@ public class ShowChooseCategoriesDialog extends DialogFragment {
 
         dialogCategoriesRvRecyclerView.setLayoutManager(lLayout);
 
-        DialogCategoryAdapter rcAdapter = new DialogCategoryAdapter(getContext(), getActivity(), dialogCategoryListItem);
+        DialogCategoryAdapter rcAdapter = new DialogCategoryAdapter(getContext(), getActivity(), dialogCategoryListItem, (RVAdapterCallback) this);
         dialogCategoriesRvRecyclerView.setAdapter(rcAdapter);
         rcAdapter.notifyDataSetChanged();
 

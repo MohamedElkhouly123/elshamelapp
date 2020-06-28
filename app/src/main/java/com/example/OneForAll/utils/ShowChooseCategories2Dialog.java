@@ -17,10 +17,15 @@ import com.example.OneForAll.data.model.ItemObjectModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowChooseCategories2Dialog extends DialogFragment {
+public class ShowChooseCategories2Dialog extends DialogFragment implements RVAdapterCallback{
 
     private LinearLayoutManager lLayout;
-    private TextView cancelBtn ,backBtn;
+    private TextView cancelBtn ,backBtn,titleName;
+
+//    public static DialogFragment newInstance(View.OnClickListener listener) {
+//        DialogFragment fragment = new DialogFragment();
+//        return fragment;
+//    }
 
 //    String[] players={"Lionel Messi","Christiano Ronaldo","Neymar","Gareth Bale"};
 
@@ -38,6 +43,7 @@ public class ShowChooseCategories2Dialog extends DialogFragment {
 
         cancelBtn=(TextView) rootView.findViewById(R.id.dialog_categories_rv_cancel_btn_tv);
         backBtn=(TextView) rootView.findViewById(R.id.dialog_categories_rv_back_btn_tv);
+        titleName=(TextView) rootView.findViewById(R.id.dialog_categories_rv_category_name_tv);
 
         RecyclerView dialogCategoriesRvRecyclerView = (RecyclerView) rootView.findViewById(R.id.dialog_categories_rv_recycler_view);
 
@@ -45,7 +51,7 @@ public class ShowChooseCategories2Dialog extends DialogFragment {
 
         dialogCategoriesRvRecyclerView.setLayoutManager(lLayout);
 
-        DialogCategoryAdapter rcAdapter = new DialogCategoryAdapter(getContext(), getActivity(), dialogCategoryListItem);
+        DialogCategoryAdapter rcAdapter = new DialogCategoryAdapter(getContext(), getActivity(), dialogCategoryListItem,  this::onMethodCallback);
         dialogCategoriesRvRecyclerView.setAdapter(rcAdapter);
         rcAdapter.notifyDataSetChanged();
 
@@ -93,6 +99,14 @@ public class ShowChooseCategories2Dialog extends DialogFragment {
 
         return allItems;
     }
+
+    @Override
+    public void onMethodCallback(String title) {
+        backBtn.setVisibility(View.VISIBLE);
+        titleName.setText(title);
+    }
+
+
 }
 
 

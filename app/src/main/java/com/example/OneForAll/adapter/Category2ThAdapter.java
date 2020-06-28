@@ -72,7 +72,7 @@ public class Category2ThAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if(viewType==0){
 
             View unifiedNativeLayoutView = LayoutInflater.from(
-                        context).inflate(R.layout.card_view_ad_unified_item,
+                        context).inflate(R.layout.card_view_google_ad_unified_item,
                         parent, false);
                 return new GoogleAdsViewHolder2("",unifiedNativeLayoutView);}
         else if(viewType ==1){

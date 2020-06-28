@@ -96,7 +96,9 @@ public class SearchFragment extends BaSeFragment {
         switch (view.getId()) {
             case R.id.fragment_uplood_product_category_et:
                 final ShowChooseCategories2Dialog dialog =new ShowChooseCategories2Dialog();
-                dialog.show(getActivity().getSupportFragmentManager(), "example");
+                dialog.show( getActivity().getSupportFragmentManager(), "example");
+//                getActivity().getSupportFragmentManager()
+//                SearchFragment.this.getChildFragmentManager()
                 fragmentUploodProductCategoryEt.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_check_circle_black_24dp, 0);
 //                showChooseCategoriesDialog();
                 break;

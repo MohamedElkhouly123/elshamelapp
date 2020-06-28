@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.OneForAll.R;
 import com.example.OneForAll.adapter.CategorySub2Adapter;
@@ -33,12 +32,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.example.OneForAll.utils.HelperMethod.replaceFragment;
+import static com.example.OneForAll.utils.HelperMethod.showToast;
 
 public class SubCategory2ThFragment extends BaSeFragment {
 
     @BindView(R.id.sub_category2_fragment_make_full_screen_floating_action_btn)
     FloatingActionButton subCategory2FragmentMakeFullScreenFloatingActionBtn;
-    private LinearLayoutManager lLayout;
+    private GridLayoutManager gLayout;
     @BindView(R.id.sub_category2_fragment_recycler_view)
     RecyclerView rView;
     // The number of native ads to load.
@@ -72,6 +72,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
 
         View root = inflater.inflate(R.layout.fragment_sub2_categories, container, false);
         ButterKnife.bind(this, root);
+        loadNativeAds();
         homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_sub_categories)
                 , new View.OnClickListener() {
@@ -83,19 +84,28 @@ public class SubCategory2ThFragment extends BaSeFragment {
         // Initialize the Mobile Ads SDK.
         MobileAds.initialize(getActivity(), getString(R.string.admob_id));
         rowListItem = getAllItemList();
-        loadNativeAds();
-        insertAdsInSubCategoryItems();
+        rowListItem.add(0,new ItemObjectModel(""));
+        rowListItem.add(new ItemObjectModel(""));
         // Update the RecyclerView item's list with native ads.
 //        lLayout = new LinearLayoutManager(getActivity());
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView.
 //        rView.setHasFixedSize(true);
 
-        rView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+//        rView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        gLayout = new GridLayoutManager(getContext(), 2);
+        gLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                                                     @Override
+                                                     public int getSpanSize(int position) {
+                                                         if (position == 0 || position ==rowListItem.size()-1) {
+                                                             return 2;
+                                                         }
+                                                         return 1;
+                                                     }
+                                                 });
+          rView.setLayoutManager(gLayout);
 
-//        rView.setLayoutManager(lLayout);
-
-        CategorySub2Adapter rcAdapter = new CategorySub2Adapter(getContext(), getActivity(), rowListItem);
+        CategorySub2Adapter rcAdapter = new CategorySub2Adapter(getContext(), getActivity(), rowListItem,mNativeAds);
         rView.setAdapter(rcAdapter);
 
         // 5. set item animator to DefaultAnimator
@@ -148,6 +158,46 @@ public class SubCategory2ThFragment extends BaSeFragment {
         }
 //        loadMenu();
     }
+
+    private void loadNativeAds() {
+
+        AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.samble_native_add));
+        adLoader = builder.forUnifiedNativeAd(
+                new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        // A native ad loaded successfully, check if the ad loader has finished loading
+                        // and if so, insert the ads into the list.
+                        mNativeAds.add(unifiedNativeAd);
+//                        populateNativeAdView(unifiedNativeAd);
+                        if (!adLoader.isLoading()) {
+                            mNativeAds.add(unifiedNativeAd);
+//                            populateNativeAdView(unifiedNativeAd);
+//                            insertAdsInSubCategoryItems();
+                        }
+                    }
+                }).withAdListener(
+                new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // A native ad failed to load, check if the ad loader has finished loading
+                        // and if so, insert the ads into the list.
+                        Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
+                                + " load another.");
+                        if (!adLoader.isLoading()) {
+                            showToast(getActivity(), "succes" );
+                            loadNativeAds();
+//                            insertAdsInSubCategoryItems();
+//                            populateNativeAdView(unifiedNativeAd);
+
+                        }
+                    }
+                }).build();
+
+        // Load the Native ads.
+        adLoader.loadAds(new AdRequest.Builder().build(), NUMBER_OF_ADS);
+    }
+
 //    private void insertAdsInSubCategoryItems() {
 //        if (mNativeAds.size() <= 0) {
 //            return;
@@ -166,37 +216,38 @@ public class SubCategory2ThFragment extends BaSeFragment {
 //        return mRecyclerViewItems;
 //    }
 
-    private void loadNativeAds() {
-
-        AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.samble_native_add));
-        adLoader = builder.forUnifiedNativeAd(
-                new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // A native ad loaded successfully, check if the ad loader has finished loading
-                        // and if so, insert the ads into the list.
-                        mNativeAds.add(unifiedNativeAd);
-                        if (!adLoader.isLoading()) {
-//                            insertAdsInSubCategoryItems();
-                        }
-                    }
-                }).withAdListener(
-                new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // A native ad failed to load, check if the ad loader has finished loading
-                        // and if so, insert the ads into the list.
-                        Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
-                                + " load another.");
-                        if (!adLoader.isLoading()) {
-//                            insertAdsInSubCategoryItems();
-                        }
-                    }
-                }).build();
-
-        // Load the Native ads.
-        adLoader.loadAds(new AdRequest.Builder().build(), NUMBER_OF_ADS);
-    }
+//    private void loadNativeAds() {
+//
+//        AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.samble_native_add));
+//        adLoader = builder.forUnifiedNativeAd(
+//                new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+//                    @Override
+//                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+//                        // A native ad loaded successfully, check if the ad loader has finished loading
+//                        // and if so, insert the ads into the list.
+//                        mNativeAds.add(unifiedNativeAd);
+//                        if (!adLoader.isLoading()) {
+////                            insertAdsInSubCategoryItems();
+//                        }
+//                    }
+//                }).withAdListener(
+//                new AdListener() {
+//                    @Override
+//                    public void onAdFailedToLoad(int errorCode) {
+//                        // A native ad failed to load, check if the ad loader has finished loading
+//                        // and if so, insert the ads into the list.
+//                        Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
+//                                + " load another.");
+//                        if (!adLoader.isLoading()) {
+//                            loadNativeAds();
+////                            insertAdsInSubCategoryItems();
+//                        }
+//                    }
+//                }).build();
+//
+//        // Load the Native ads.
+//        adLoader.loadAds(new AdRequest.Builder().build(), NUMBER_OF_ADS);
+//    }
 
     private void toolHidden() {
         rView.addOnScrollListener(new RecyclerView.OnScrollListener() {

@@ -855,7 +855,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <include
-                    layout="@layout/card_view_ad_unified_item"
+                    layout="@layout/card_view_google_ad_unified_item"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"

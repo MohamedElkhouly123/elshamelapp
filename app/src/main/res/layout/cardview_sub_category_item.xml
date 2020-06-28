@@ -5,12 +5,14 @@
     android:orientation="vertical"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     card_view:cardUseCompatPadding="true"
     card_view:cardCornerRadius="8dp"
+    android:layout_marginStart="@dimen/_3sdp"
+    android:layout_marginEnd="@dimen/_3sdp"
     android:clickable="true"
     android:focusable="true"
-    android:paddingTop="@dimen/_3sdp"
+    android:padding="@dimen/_2sdp"
     android:foreground="?selectableItemBackground"
     >
     <androidx.cardview.widget.CardView
@@ -18,7 +20,8 @@
         android:orientation="vertical"
         card_view:cardUseCompatPadding="true"
         card_view:cardCornerRadius="8dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_2sdp"
         android:layout_height="@dimen/_165sdp"
         android:foreground="?selectableItemBackground"
 
@@ -62,7 +65,7 @@
                 android:gravity="center"
                 android:text="country_name"
                 android:textColor="#fff"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

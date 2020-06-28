@@ -21,8 +21,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:paddingStart="@dimen/_6sdp"
             android:layout_gravity="center"
-            android:background="@drawable/blue_style"
+            android:background="@color/blue"
             >
 
 
@@ -34,6 +37,8 @@
                 android:layout_gravity="center"
                 android:elevation="3dp"
                 android:text="مجوهرات"
+                android:drawableStart="@drawable/ic_keyboard_arrow_right_black_24dp"
+                android:drawablePadding="@dimen/_7sdp"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="@dimen/_15ssp"

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.OneForAll.R;
 import com.example.OneForAll.data.model.ItemObjectModel;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
+import com.example.OneForAll.view.fragment.HomeCycle2.category.SubCategory2ThFragment;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAd;
@@ -32,22 +33,24 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapter.ViewHolder> {
+import static com.example.OneForAll.utils.HelperMethod.replaceFragmentWithAnimation;
+
+public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.ViewHolder> {
 
 
+    private final List<UnifiedNativeAd> mNativeAds;
 
     private Context context;
     private Activity activity;
     private List<ItemObjectModel> itemList = new ArrayList<>();
-    private final List<UnifiedNativeAd> mNativeAds;
 
 //    private ClientData clientData;
 //    private ApiService apiService;
 
-    public CategorySub2Adapter(Context context,
-                               Activity activity,
-                               List<ItemObjectModel> itemList,
-                               List<UnifiedNativeAd> mNativeAds) {
+    public SubCategoryAdapter(Context context,
+                              Activity activity,
+                              List<ItemObjectModel> itemList,
+                              List<UnifiedNativeAd> mNativeAds) {
         this.context = context;
         this.activity = activity;
 //        this.clientRestaurantsDataList.clear();
@@ -59,14 +62,14 @@ public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+        View view = null;
         if (viewType == 0) {
 //            googAds
             View googAdsView = LayoutInflater.from(context).inflate(R.layout.card_view_medium_google_ad_unified_item,
                     parent, false);
             return new ViewHolder(googAdsView, "");
         } else if (viewType == 1) {
-          View  view = LayoutInflater.from(context).inflate(R.layout.cardview_category_2th_blue_item,
+            view = LayoutInflater.from(context).inflate(R.layout.cardview_sub_category_item,
                     parent, false);
             return new ViewHolder(view);
         }
@@ -84,26 +87,30 @@ public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapte
     private void setData(ViewHolder holder, int position) {
         try {
             holder.position = position;
+
             int i = 0;
             int viewType = getItemViewType(position);
             if (viewType == 0) {
-
                 UnifiedNativeAd nativeAd = (UnifiedNativeAd) mNativeAds.get(i);
                 populateNativeAdView(nativeAd, holder);
                 i++;
 
             } else if (viewType == 1){
-                holder.subCategory2thName.setText(itemList.get(position).getName());
-                holder.thumbnailPhoto.setImageResource(itemList.get(position).getPhoto());
+                holder.countryName.setText(itemList.get(position).getName());
+
+                holder.countryPhoto.setImageResource(itemList.get(position).getPhoto());
+//                holder.cardViewMediumGoogleAdUnifiedItemFirstLy.setVisibility(View.GONE);
 
 
             }
+
 
         } catch (Exception e) {
 
         }
 
     }
+
 
     private void setAnimation(View viewToAnimate, int position, ViewHolder holder) {
         Animation animation = null;
@@ -120,9 +127,8 @@ public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapte
 
                 HomeCycleActivity homeCycleActivity = (HomeCycleActivity) activity;
                 Toast.makeText(v.getContext(), "Clicked Country Position = " + position, Toast.LENGTH_SHORT).show();
-                if (position == 0) {
-//                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
-//                    homeCycleActivity.setNavigationAndToolBar(View.GONE, true);
+                if (position == 1) {
+                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategory2ThFragment(), "t");
                 }
             }
         });
@@ -153,19 +159,21 @@ public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @Nullable
-        @BindView(R.id.sub_category_2th_name)
-        TextView subCategory2thName;
+        @BindView(R.id.country_photo)
+        ImageView countryPhoto;
         @Nullable
-        @BindView(R.id.thumbnail_photo)
-        ImageView thumbnailPhoto;
+        @BindView(R.id.country_name)
+        TextView countryName;
+
+        private UnifiedNativeAdView adView;
         private View view;
         private int position;
-        private UnifiedNativeAdView adView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             view = itemView;
             ButterKnife.bind(this, view);
+
         }
 
         public ViewHolder(View itemView, String s) {
@@ -190,6 +198,7 @@ public class CategorySub2Adapter extends RecyclerView.Adapter<CategorySub2Adapte
             adView.setAdvertiserView(view.findViewById(R.id.card_view_item_ad_advertiser));
         }
     }
+
     private void populateNativeAdView(UnifiedNativeAd nativeAd, ViewHolder holder) {
         // Some assets are guaranteed to be in every UnifiedNativeAd.
         ((TextView) holder.adView.getHeadlineView()).setText(nativeAd.getHeadline());

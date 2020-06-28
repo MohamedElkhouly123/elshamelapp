@@ -2,6 +2,7 @@ package com.example.OneForAll.view.fragment.HomeCycle2.category;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,10 @@ import com.example.OneForAll.data.model.ItemObjectModel;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
 import com.example.OneForAll.view.fragment.BaSeFragment;
 import com.example.OneForAll.view.fragment.HomeCycle2.home.HomeContainerFragment;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -28,11 +33,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.example.OneForAll.utils.HelperMethod.replaceFragment;
+import static com.example.OneForAll.utils.HelperMethod.showToast;
 
 public class CategoryFragment extends BaSeFragment {
 
+    private static final int NUMBER_OF_ADS =3 ;
     @BindView(R.id.category_fragment_make_full_screen_floating_action_btn)
     FloatingActionButton categoryFragmentMakeFullScreenFloatingActionBtn;
+    private AdLoader adLoader;
     //    @BindView(R.id.tool_text_hide)
 //    TextView toolTextHide;
     private LinearLayoutManager lLayout;
@@ -40,7 +48,8 @@ public class CategoryFragment extends BaSeFragment {
     RecyclerView rView;
     int heightDelta = 0;
     private boolean firstPress =true;
-
+    // List of native ads that have been successfully loaded.
+    private List<UnifiedNativeAd> mNativeAds = new ArrayList<>();
     public CategoryFragment() {
     }
 
@@ -51,6 +60,7 @@ public class CategoryFragment extends BaSeFragment {
         ButterKnife.bind(this, root);
 //        rView.setNestedScrollingEnabled(false);
 //        rView.setHasFixedSize(false);
+        loadNativeAds();
         homeCycleActivity = (HomeCycleActivity) getActivity();
         homeCycleActivity.setToolBar(View.VISIBLE, getString(R.string.the_categories)
                 , new View.OnClickListener() {
@@ -60,11 +70,16 @@ public class CategoryFragment extends BaSeFragment {
                     }
                 });
         List<ItemObjectModel> rowListItem = getAllItemList();
-        lLayout = new LinearLayoutManager(getActivity());
 
+//        add null items for adds
+        rowListItem.add(0,new ItemObjectModel(""));
+//        rowListItem.add(3,new ItemObjectModel(""));
+        rowListItem.add(new ItemObjectModel(""));
+        lLayout = new LinearLayoutManager(getActivity());
+//////////////////////////////////////////////////////////////////
         rView.setLayoutManager(lLayout);
 
-        CategoryAdapter rcAdapter = new CategoryAdapter(getContext(), getActivity(), rowListItem);
+        CategoryAdapter rcAdapter = new CategoryAdapter(getContext(), getActivity(), rowListItem,mNativeAds);
         rView.setAdapter(rcAdapter);
 
         // 5. set item animator to DefaultAnimator
@@ -87,8 +102,8 @@ public class CategoryFragment extends BaSeFragment {
         allItems.add(new ItemObjectModel("مزاداتى", R.drawable.category_mazad4));
         allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.category_wazaaf4)); // ابحث عن عمل ولا ابحث عن موظفين
 //        allItems.add(new ItemObjectModel("الصناعه والتجاره", R.drawable.flat));
-//        allItems.add(new ItemObjectModel("سوق الجرافيك والسوفتوير", R.drawable.flat));
-//        وانيماشن وجرافيكس وفوتوشوب وموشن جرافيك وتطبيقات ديسكتوب وموبيل app (اندرويد وايفون) ومواقع والعاب وافلام ومسرحيات ومسلسلات
+//        allItems.add(new ItemObjectModel("سوق الجرافيك والسوفتوير", R.drawable.software_category));
+//        وانيماشن وجرافيكس وفوتوشوب وموشن جرافيك وتطبيقات ديسكتوب وموبيل app (اندرويد وايفون) ومواقع والعاب وافلام ومسرحيات ومسلسلات ,انمى و مانجا
 
         return allItems;
     }
@@ -125,6 +140,47 @@ public class CategoryFragment extends BaSeFragment {
         categoryFragmentMakeFullScreenFloatingActionBtn.show();
 
     }
+
+    private void loadNativeAds() {
+
+        AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.samble_native_add));
+        adLoader = builder.forUnifiedNativeAd(
+                new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        // A native ad loaded successfully, check if the ad loader has finished loading
+                        // and if so, insert the ads into the list.
+                        mNativeAds.add(unifiedNativeAd);
+//                        populateNativeAdView(unifiedNativeAd);
+                        if (!adLoader.isLoading()) {
+                            mNativeAds.add(unifiedNativeAd);
+//                            populateNativeAdView(unifiedNativeAd);
+//                            insertAdsInSubCategoryItems();
+                        }
+                    }
+                }).withAdListener(
+                new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // A native ad failed to load, check if the ad loader has finished loading
+                        // and if so, insert the ads into the list.
+                        Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
+                                + " load another.");
+                        if (!adLoader.isLoading()) {
+                            showToast(getActivity(), "succes" );
+                             loadNativeAds();
+//                            insertAdsInSubCategoryItems();
+//                            populateNativeAdView(unifiedNativeAd);
+
+                        }
+                    }
+                }).build();
+
+        // Load the Native ads.
+        adLoader.loadAds(new AdRequest.Builder().build(), NUMBER_OF_ADS);
+    }
+
+
 
     @Override
     public void onBack() {

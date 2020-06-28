@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.OneForAll.R;
 import com.example.OneForAll.data.model.ItemObjectModel;
+import com.example.OneForAll.utils.RVAdapterCallback;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
 
 import java.util.ArrayList;
@@ -30,15 +31,20 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
     private Context context;
     private Activity activity;
     private List<ItemObjectModel> itemList = new ArrayList<>();
+    private RVAdapterCallback rvAdapterCallback;
+
 //    private ClientData clientData;
 //    private ApiService apiService;
 
     public DialogCategoryAdapter(Context context,
                                  Activity activity,
-                                 List<ItemObjectModel> itemList
+                                 List<ItemObjectModel> itemList,RVAdapterCallback callback
     ) {
         this.context = context;
         this.activity = activity;
+
+        this.rvAdapterCallback=callback;
+
 //        this.clientRestaurantsDataList.clear();
         this.itemList = itemList;
 //        clientData = LoadUserData(activity);
@@ -90,6 +96,7 @@ public class DialogCategoryAdapter extends RecyclerView.Adapter<DialogCategoryAd
                 if (position == 0) {
                     itemList=getAllItemList();
                     notifyDataSetChanged();
+                    rvAdapterCallback.onMethodCallback(itemList.get(position).getName());
 //                    replaceFragmentWithAnimation(homeCycleActivity.getSupportFragmentManager(), R.id.home_activity_fram, new SubCategoryFragment(), "t");
 //                    homeCycleActivity.setNavigationAndToolBar(View.GONE, true);
                 }
