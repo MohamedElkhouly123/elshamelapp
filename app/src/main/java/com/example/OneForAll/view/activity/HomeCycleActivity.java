@@ -2,7 +2,7 @@ package com.example.OneForAll.view.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -45,13 +45,14 @@ import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Util;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.example.OneForAll.data.local.SharedPreferencesManger.GOOGLECHECK;
+import static com.example.OneForAll.data.local.SharedPreferencesManger.LoadData;
 import static com.example.OneForAll.utils.HelperMethod.replaceFragment;
 import static com.example.OneForAll.utils.HelperMethod.replaceFragmentWithAnimation;
 
@@ -94,8 +95,9 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 //        String data = getIntent().getExtras().getString("keyName");
 //        Toast.makeText(this,data, Toast.LENGTH_SHORT).show();
         drawer = findViewById(R.id.drawer_layout);
-        SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
-        check = sharedPreferences.getString("value", "");
+//        SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+//        check = sharedPreferences.getString("value", "");
+        String check = LoadData(this, GOOGLECHECK);
         Toast.makeText(this, check, Toast.LENGTH_SHORT).show();
 
         Toolbar toolbar = findViewById(R.id.app_bar_main2_toolbar);
@@ -114,7 +116,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
         CircleImageView imageViewAccountNaveHeader= (de.hdodenhof.circleimageview.CircleImageView) headerLayout.findViewById(R.id.imageView_account);
         imageViewAccountNaveHeader.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new HomeContainerFragment());
-
+        buttonNavigation.getMenu().getItem(0).setChecked(true);
 
 //        DrawerLayout drawer = findViewById(R.id.drawer_layout);
 //        NavigationView navigationView = findViewById(R.id.nav_view_side);
@@ -183,7 +185,8 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
                 public void onBoomButtonClick(int index) {
                     // When the boom-button corresponding this builder is clicked.
                     Toast.makeText(HomeCycleActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
-//                            if(index==0){// do this}
+                            if(index==0){// do this
+                                 }
 //                            if(index==1){ }
 //                            if(index==2){ }
 //                            if(index==3){}
@@ -291,74 +294,46 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 
     private void setDataOnView() {
 
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
-        GoogleSignInAccount googleSignInAccount = getIntent().getParcelableExtra("GOOGLE_ACCOUNT");
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personGivenName = acct.getGivenName();
+            String personFamilyName = acct.getFamilyName();
+            String personEmail = acct.getEmail();
+            String personId = acct.getId();
+            Uri personPhoto = acct.getPhotoUrl();
+//            String phone = acct.getAccount().getPhoneNumber();
+
+
+//            String personPhotoUrl = String.valueOf(acct.getPhotoUrl());
+
+            Toast.makeText(this, "url " + personEmail, Toast.LENGTH_SHORT).show();
+
+        }
+//        GoogleSignInAccount googleSignInAccount = getIntent().getParcelableExtra("GOOGLE_ACCOUNT");
 //        Picasso.get().load(googleSignInAccount.getPhotoUrl()).centerInside().fit().into(profileImage);
-        String hh = String.valueOf(googleSignInAccount.getPhotoUrl());
-        Toast.makeText(this, "url" + googleSignInAccount.getPhotoUrl(), Toast.LENGTH_SHORT).show();
+//        String hh = String.valueOf(googleSignInAccount.getPhotoUrl());
 //        Toast.makeText(this, googleSignInAccount.getEmail(), Toast.LENGTH_SHORT).show();
 //        Toast.makeText(this, googleSignInAccount.getPhoneNumber(), Toast.LENGTH_SHORT).show();
 
-
-        if (hh.equalsIgnoreCase("null")) {
-            appBarLayoutCrimgProfilePhoto.setImageResource(R.drawable.placeperson);
-
-
-        } else {
-            Picasso.get()
-                    .load(hh)
-                    .resize(80, 80)
-                    .centerCrop()
-                    .into(appBarLayoutCrimgProfilePhoto);
-        }
+//
+//        if (hh.equalsIgnoreCase("null")) {
+//            appBarLayoutCrimgProfilePhoto.setImageResource(R.drawable.placeperson);
+//
+//
+//        } else {
+//            Picasso.get()
+//                    .load(hh)
+//                    .resize(80, 80)
+//                    .centerCrop()
+//                    .into(appBarLayoutCrimgProfilePhoto);
+//        }
 //        profileName.setText(googleSignInAccount.getDisplayName());
 //        profileEmail.setText(googleSignInAccount.getEmail());
     }
 
-//    private void useLoginInformation(AccessToken accessToken) {
-//        /**
-//         Creating the GraphRequest to fetch user details
-//         1st Param - AccessToken
-//         2nd Param - Callback (which will be invoked once the request is successful)
-//         **/
-//        GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
-//            //OnCompleted is invoked once the GraphRequest is successful
-//            @Override
-//            public void onCompleted(JSONObject object, GraphResponse response) {
-//                try {
-//                    String name = object.getString("name");
-//                    String email = object.getString("email");
-//                    String image = object.getJSONObject("picture").getJSONObject("data").getString("url");
-////                    displayName.setText(name);
-////                    emailID.setText(email);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        // We set parameters to the GraphRequest using a Bundle.
-//        Bundle parameters = new Bundle();
-//        parameters.putString("fields", "id,name,email,picture.width(200)");
-//        request.setParameters(parameters);
-//        // Initiate the GraphRequest
-//        request.executeAsync();
-//    }
-    // we are setting onClickListener for each element
-//    private void setSingleEvent(GridLayout gridLayout) {
-//        for(int i = 0; i<gridLayout.getChildCount();i++){
-//            CardView cardView=(CardView)gridLayout.getChildAt(i);
-//            final int finalI= i;
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(Main2Activity.this,"Clicked at index "+ finalI,
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
-//
-//
-//    }
+
 
 
 //    @Override
@@ -375,6 +350,7 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
     @Override
     public void onStart() {
         super.onStart();
+
 //        mAuth = FirebaseAuth.getInstance();
 
             // Check if user is signed in (non-null) and update UI accordingly.
@@ -383,6 +359,8 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
 ////                updateUI();
 //            }
             }
+
+
 
     private void updateUI() {
         Intent intent = new Intent(this, UserCycleActivity.class);

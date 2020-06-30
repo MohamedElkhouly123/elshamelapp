@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -20,6 +21,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,6 +57,11 @@ public class LoginFragment extends BaSeFragment {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+        String lang= Locale.getDefault().getLanguage(); // ar ,en
+        Toast.makeText(getActivity(), "lang  " + lang, Toast.LENGTH_SHORT).show();
+        if(lang.equalsIgnoreCase("ar")){
+
+        }else {}
         mAdView = root.findViewById(R.id.fragment_login_banner_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -61,6 +69,15 @@ public class LoginFragment extends BaSeFragment {
         return root;
     }
 
+//    Locale.getDefault().getLanguage()       ---> en
+//Locale.getDefault().getISO3Language()   ---> eng
+//Locale.getDefault().getCountry()        ---> US
+//Locale.getDefault().getISO3Country()    ---> USA
+//Locale.getDefault().getDisplayCountry() ---> United States
+//Locale.getDefault().getDisplayName()    ---> English (United States)
+//Locale.getDefault().toString()          ---> en_US
+//Locale.getDefault().getDisplayLanguage()---> English
+//Locale.getDefault().toLanguageTag()     ---> en-US
 
     @Override
     public void onBack() {

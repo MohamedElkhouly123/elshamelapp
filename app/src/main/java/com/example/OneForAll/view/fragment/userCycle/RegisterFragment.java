@@ -1,10 +1,12 @@
 package com.example.OneForAll.view.fragment.userCycle;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.internal.ImageRequest;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -44,7 +48,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.content.Context.MODE_PRIVATE;
+import static com.example.OneForAll.data.local.SharedPreferencesManger.GOOGLECHECK;
+import static com.example.OneForAll.data.local.SharedPreferencesManger.SaveData;
 import static com.example.OneForAll.utils.HelperMethod.replaceFragmentWithAnimation;
 
 
@@ -69,8 +74,8 @@ public class RegisterFragment extends BaSeFragment {
     private ProgressDialog progressDialog;
     CallbackManager callbackManager;
     static String name;
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+//    SharedPreferences sharedPref;
+//    SharedPreferences.Editor editor;
     String googleCheck ="";
 //    private FirebaseAuth mAuth;
 
@@ -90,10 +95,12 @@ public class RegisterFragment extends BaSeFragment {
 // Initialize Firebase Auth
 //        mAuth = FirebaseAuth.getInstance();
         googleCheck="true";
-        sharedPref = getActivity().getSharedPreferences("myKey", MODE_PRIVATE);
-        editor = sharedPref.edit();
-        editor.putString("value", googleCheck);
-        editor.commit();
+        SaveData(getActivity(), GOOGLECHECK, googleCheck);
+
+//        sharedPref = getActivity().getSharedPreferences("myKey", MODE_PRIVATE);
+//        editor = sharedPref.edit();
+//        editor.putString("value", googleCheck);
+//        editor.commit();
         progressDialog=new ProgressDialog(getActivity());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -124,9 +131,10 @@ public class RegisterFragment extends BaSeFragment {
     @OnClick(R.id.sign_in_button)
     void googleSignInButton(){
         googleCheck="false";
-        editor = sharedPref.edit();
-        editor.putString("value", googleCheck);
-        editor.commit();
+        SaveData(getActivity(), GOOGLECHECK, googleCheck);
+//        editor = sharedPref.edit();
+//        editor.putString("value", googleCheck);
+//        editor.commit();
         progressDialog.setMessage("Signing in....");
         progressDialog.show();
         Intent signInIntent = googleSignInClient.getSignInIntent();
@@ -147,7 +155,7 @@ public class RegisterFragment extends BaSeFragment {
                         // a listener.
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                         GoogleSignInAccount account = task.getResult(ApiException.class);
-                        onLoggedIn(account);
+                        onLoggedInByGoogle(account);
                     } catch (ApiException e) {
                         // The ApiException status code indicates the detailed failure reason.
                         Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
@@ -158,9 +166,21 @@ public class RegisterFragment extends BaSeFragment {
 
     }
 
-    private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-//        Intent intent = googleSignInClient.getSignInIntent();
-////        startActivityForResult(intent, RC_SIGN_IN);
+    private void onLoggedInByGoogle(GoogleSignInAccount googleSignInAccount) {
+//        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity());
+//        if (acct != null) {
+//            String personName = acct.getDisplayName();
+//            String personGivenName = acct.getGivenName();
+//            String personFamilyName = acct.getFamilyName();
+//            String personEmail = acct.getEmail();
+//            String personId = acct.getId();
+//            Uri personPhoto = acct.getPhotoUrl();
+//            Toast.makeText(getContext(), "url" + personPhoto, Toast.LENGTH_SHORT).show();
+//
+//        }
+        getPhone();
+        Intent intent2 = googleSignInClient.getSignInIntent();
+        startActivityForResult(intent2, Activity.RESULT_OK);
 
         progressDialog.dismiss();
         Intent intent = new Intent(getActivity(), HomeCycleActivity.class);
@@ -183,7 +203,7 @@ public class RegisterFragment extends BaSeFragment {
         GoogleSignInAccount alreadyloggedAccount = GoogleSignIn.getLastSignedInAccount(getActivity());
         if (alreadyloggedAccount != null) {
             Toast.makeText(getActivity(), "Already Logged In", Toast.LENGTH_SHORT).show();
-            onLoggedIn(alreadyloggedAccount);
+            onLoggedInByGoogle(alreadyloggedAccount);
         } else {
             Log.d(TAG, "Not logged in");
         }
@@ -271,8 +291,31 @@ public class RegisterFragment extends BaSeFragment {
         signUpFragment.setArguments(bundle);
         replaceFragmentWithAnimation(getActivity().getSupportFragmentManager(), R.id.user_activity_fram, signUpFragment, "l");
 
-
     }
+
+    private void getPhone() {
+//        AccountManager am = AccountManager.get(getActivity());
+//        Account[] accounts = am.getAccounts();
+//
+//        for (Account ac : accounts) {
+//            String acname = ac.name;
+//            String actype = ac.type;
+//            String phoneNumber="";
+//            if(actype.equals("com.whatsapp")){
+//                phoneNumber = ac.name;
+//            }
+//        2
+        TelephonyManager tMgr = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
+         @SuppressLint("MissingPermission") String phoneNumber = tMgr.getLine1Number();
+        // Take your time to look at all available accounts
+            Toast.makeText(getActivity(), "Accounts : " + phoneNumber, Toast.LENGTH_SHORT).show();
+
+//            System.out.println("Accounts : " + acname + ", " + actype+", " + phoneNumber);
+        }
+
+
+
+
 
     // [START auth_with_facebook]
     private void handleFacebookAccessToken(AccessToken token) {
@@ -348,33 +391,64 @@ public class RegisterFragment extends BaSeFragment {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         Log.d("TAG", object.toString());
-                        try {
-                            updateUI();
-                            faceBookSignInButton.setEnabled(true);
+                        final Profile profile = Profile.getCurrentProfile();
+
+                        if ((object != null) && (profile != null)) {
+
+                            AccessToken accessToken = AccessToken.getCurrentAccessToken();
+
+                            if (accessToken.getDeclinedPermissions().isEmpty()) {
+
+
+                                try {
+                                    faceBookSignInButton.setEnabled(true);
 //                            faceBookButton.setEnabled(true);
-                            String first_name = object.getString("first_name");
-                            String last_name = object.getString("last_name");
-                            name = first_name +" "+last_name;
-                            String email = object.getString("email");
-                            String id = object.getString("id");
-                            String image_url = "https://graph.facebook.com/" + id + "/picture?type=normal";
-                            textView6.setText(email);
+                                    String first_name = object.getString("first_name");
+                                    String last_name = object.getString("last_name");
+                                    name = first_name + " " + last_name;
+//                                    String email = object.get("email").toString();
+
+//                            String email = object.getString("email");
+//                            String phone = object.optString("phone");
+                                    String id = object.getString("id");
+                                    String image_url = "https://graph.facebook.com/" + id + "/picture?type=normal";
+//                            String email = response.getJSONObject().getString("email");
+                                    if (Profile.getCurrentProfile() != null) {
+                                        image_url = ImageRequest.getProfilePictureUri(Profile.getCurrentProfile().getId(), 400, 400).toString();
+                                    }
+                                    String email = null;
+                                    String phone = null;
+                                    if (object.has("email")) {
+                                        email = object.getString("email");
+                                    }
+                                    if (object.has("display_phone_number")) {
+                                        phone = object.getString("display_phone_number");
+                                    }
+                                    String fullName = Profile.getCurrentProfile().getName();
+                                    textView6.setText(phone);
+
+//                            Toast.makeText(getActivity(), "Email" +first_name+" "+ last_name, Toast.LENGTH_SHORT).show();
+
+                                    updateUI();
 
 //                            txtUsername.setText("First Name: " + first_name + "\nLast Name: " + last_name);
 //                            txtEmail.setText(email);
 //                            Picasso.with(HomeCycleActivity.this).load(image_url).into(imageView);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            }
                         }
-
-                    }
-                });
+                    });
 
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "first_name,last_name,email,id");
+//        parameters.putString("fields", "first_name,last_name,email,id");
+        parameters.putString("fields", "id, first_name, last_name, email,gender, birthday, location"); // Parámetros que pedimos a facebook
         request.setParameters(parameters);
         request.executeAsync();
+//        updateUI();
 
     }
 

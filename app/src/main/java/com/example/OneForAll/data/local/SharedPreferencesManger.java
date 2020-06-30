@@ -15,6 +15,7 @@ public class SharedPreferencesManger {
     public static String USER_PASSWORD = "USER_PASSWORD";
     public static String CLIENT = "CLIENT";
     public static String TABPOSION = "TABPOSION";
+    public static String GOOGLECHECK = "GOOGLECHECK";
 
 
     public static void setSharedPreferences(Activity activity) {
