@@ -17,7 +17,7 @@ public class PollReceiver extends BroadcastReceiver {
 //        for repeat
         if (i.getAction() == null) {
             ScheduledService.enqueueWork(ctxt);
-            Toast.makeText(ctxt, "every 5 second", Toast.LENGTH_LONG)
+            Toast.makeText(ctxt, "Broad cast after first 5 second", Toast.LENGTH_LONG)
                     .show();
         }
         else {

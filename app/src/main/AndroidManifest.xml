@@ -84,7 +84,9 @@
 
         <activity
             android:name="com.example.OneForAll.view.activity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps">
+
+        </activity>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -101,11 +103,7 @@
         <activity android:name="com.example.OneForAll.utils.Chat.Chat" />
         <activity android:name="com.example.OneForAll.view.activity.AboutApp" />
         <activity android:name="com.example.OneForAll.view.activity.UserCycleActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.OneForAll.view.activity.HomeCycleActivity"
             android:label=""
@@ -138,7 +136,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.OneForAll.view.activity.SplashCycleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

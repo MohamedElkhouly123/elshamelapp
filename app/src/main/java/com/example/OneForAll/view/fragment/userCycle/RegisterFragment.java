@@ -1,10 +1,11 @@
 package com.example.OneForAll.view.fragment.userCycle;
 
-import android.annotation.SuppressLint;
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.OneForAll.R;
 import com.example.OneForAll.view.activity.HomeCycleActivity;
@@ -111,7 +114,7 @@ public class RegisterFragment extends BaSeFragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), HomeCycleActivity.class));
-
+                getActivity().finish();
             }
         });
         faceBookButton.setOnClickListener(new View.OnClickListener() {
@@ -305,8 +308,31 @@ public class RegisterFragment extends BaSeFragment {
 //                phoneNumber = ac.name;
 //            }
 //        2
-        TelephonyManager tMgr = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
-         @SuppressLint("MissingPermission") String phoneNumber = tMgr.getLine1Number();
+
+        String phoneNumber="";
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+// Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.READ_CONTACTS)) {
+                TelephonyManager tMgr = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
+                 phoneNumber = tMgr.getLine1Number();
+                // Show an expanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+
+
+//                ActivityCompat.requestPermissions(getActivity(),
+//                        new String[]{Manifest.permission.READ_CONTACTS},
+//                        READ_CALL_LOG );
+
+            }
+        }
         // Take your time to look at all available accounts
             Toast.makeText(getActivity(), "Accounts : " + phoneNumber, Toast.LENGTH_SHORT).show();
 
@@ -425,7 +451,7 @@ public class RegisterFragment extends BaSeFragment {
                                         phone = object.getString("display_phone_number");
                                     }
                                     String fullName = Profile.getCurrentProfile().getName();
-                                    textView6.setText(phone);
+//                                    textView6.setText(phone);
 
 //                            Toast.makeText(getActivity(), "Email" +first_name+" "+ last_name, Toast.LENGTH_SHORT).show();
 

@@ -447,6 +447,10 @@ public class HomeCycleActivity extends BaseActivity implements NavigationView.On
             setNavigationAndToolBar(View.GONE, true);
         } else if (id == R.id.nav_LogOut) {
             new LogOutDialog().showDialog(this);
+        } else if(id == R.id.AdsSearch){
+            toolbarSubView.setVisibility(View.GONE);
+            replaceFragment(getSupportFragmentManager(), R.id.home_activity_fram, new SearchFragment());
+            setNavigationAndToolBar(View.GONE, true);
         }
 //        else if (id == R.id.nav_send) {
 //

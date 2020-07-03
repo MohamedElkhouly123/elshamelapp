@@ -5,9 +5,14 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -17,13 +22,22 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.ButtonEnum;
+import com.nightonke.boommenu.Util;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -33,10 +47,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 15f;
-
+    @BindView(R.id.back_btn)
+    ImageButton backBtn;
+    @BindView(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @BindView(R.id.toolbar_sub_view)
+    ConstraintLayout toolbarSubView;
+    private BoomMenuButton bmb;
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap mMap;
+    private MapView mapView;
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
 
@@ -49,38 +70,143 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         ButterKnife.bind(this);
+        toolbarSubView.setVisibility(View.VISIBLE);
+        toolbarTitle.setText(getString(R.string.title_activity_maps));
+//        backBtn.setOnClickListener(onBackPressed());
         getLocationPermission();
+        boomShow();
     }
 
-    private void initMap(){
+    private void boomShow() {
+        bmb = (BoomMenuButton) findViewById(R.id.bmb);
+
+
+        bmb.setButtonEnum(ButtonEnum.Ham);
+
+//        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_blue_24dp));
+
+        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
+//            new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_blue_24dp);
+            HamButton.Builder builder = new HamButton.Builder()
+
+//                    .normalImageRes(getImageResource())
+//                    .normalText("moh")
+//                    .subNormalTextRes(R.string.text_outside_circle_button_text_normal)
+                    .normalTextColorRes(R.color.white)
+                    .normalColorRes(R.color.blue)
+                    .highlightedColorRes(R.color.blueLight)
+
+//                    .textGravity(Gravity.CENTER_HORIZONTAL)
+                    .textGravity(Gravity.CENTER_VERTICAL)
+                    .textSize(20)
+                    .rotateImage(true)
+                    .buttonCornerRadius(Util.dp2px(5))
+//                    .textPadding(new Rect(10, 0, 10, 0))
+//                    .unableImageRes(R.drawable.markafhjbaharea)
+//                    .imageRect(new Rect(0, 0, Util.dp2px(60), Util.dp2px(60)))
+//                    .imagePadding(new Rect(5, 0, 5, 0))
+//                    .textRect(new Rect(Util.dp2px(70), Util.dp2px(10), Util.dp2px(280), Util.dp2px(40)))
+                    ;
+
+//                    .pieceColor(Color.WHITE)
+//                    .shadowEffect(true)
+//                    .shadowRadius(Util.dp2px(100))
+            if (i == 0) {
+                builder.normalText("خريطة عادية")
+//                builder.normalTextRes(R.string.text_ham_button_text_normal);
+
+                ;
+            }
+            if (i == 1) {
+                builder.normalText("خريطة ساتاليت متقدمة");
+            }
+
+
+
+            builder.listener(new OnBMClickListener() {
+                @Override
+                public void onBoomButtonClick(int index) {
+                    // When the boom-button corresponding this builder is clicked.
+                    Toast.makeText(MapsActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                    if(index==0){// do this
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        LatLng sydney = new LatLng(-33.852, 151.211);
+                        mMap.addMarker(new MarkerOptions()
+                                .position(sydney)
+                                .title("Marker in Sydney"));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                    }
+                            if(index==1){
+                                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
+                            }
+//                            if(index==2){
+//
+//                            }
+//                            if(index==3){}
+
+                }
+//                       @Override
+//                       public void onBackgroundClick() {
+//                           textViewForAnimation.setText("Click background!!!");
+//                       }
+//                       @Override
+//                       public void onBoomWillHide() {
+//                           Log.d("BMB", "onBoomWillHide: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Will RE-BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomDidHide() {
+//                           Log.d("BMB", "onBoomDidHide: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Did RE-BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomWillShow() {
+//                           Log.d("BMB", "onBoomWillShow: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Will BOOM!!!");
+//                       }
+//                       @Override
+//                       public void onBoomDidShow() {
+//                           Log.d("BMB", "onBoomDidShow: " + bmb.isBoomed() + " " + bmb.isReBoomed());
+//                           textViewForAnimation.setText("Did BOOM!!!");
+//                       }
+            });
+            bmb.addBuilder(builder);
+
+        }
+    }
+
+    private void initMap() {
         Log.d(TAG, "initMap: initializing map");
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-    private void getLocationPermission(){
+
+    private void getLocationPermission() {
         Log.d(TAG, "getLocationPermission: getting location permissions");
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION};
 
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 mLocationPermissionsGranted = true;
                 initMap();
-            }else{
+            } else {
                 ActivityCompat.requestPermissions(this,
                         permissions,
                         LOCATION_PERMISSION_REQUEST_CODE);
             }
-        }else{
+        } else {
             ActivityCompat.requestPermissions(this,
                     permissions,
                     LOCATION_PERMISSION_REQUEST_CODE);
         }
     }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -99,17 +225,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.d(TAG, "onRequestPermissionsResult: called.");
         mLocationPermissionsGranted = false;
 
-        switch(requestCode){
-            case LOCATION_PERMISSION_REQUEST_CODE:{
-                if(grantResults.length > 0){
-                    for(int i = 0; i < grantResults.length; i++){
-                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
+        switch (requestCode) {
+            case LOCATION_PERMISSION_REQUEST_CODE: {
+                if (grantResults.length > 0) {
+                    for (int i = 0; i < grantResults.length; i++) {
+                        if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                             mLocationPermissionsGranted = false;
                             Log.d(TAG, "onRequestPermissionsResult: permission failed");
                             return;
@@ -138,6 +263,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         if (mLocationPermissionsGranted) {
+
             getDeviceLocation();
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -148,42 +274,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setMyLocationEnabled(true);
 //            mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
+
         }
     }
-    private void getDeviceLocation(){
+
+    private void getDeviceLocation() {
         Log.d(TAG, "getDeviceLocation: getting the devices current location");
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-        try{
-            if(mLocationPermissionsGranted){
+        try {
+            if (mLocationPermissionsGranted) {
 
                 final Task location = mFusedLocationProviderClient.getLastLocation();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Log.d(TAG, "onComplete: found location!");
                             Location currentLocation = (Location) task.getResult();
-                           if(currentLocation!=null){
-                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
-                                    DEFAULT_ZOOM);}
+                            if (currentLocation != null) {
+                                moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+                                        DEFAULT_ZOOM);
+                            }
 
-                        }else{
+                        } else {
                             Log.d(TAG, "onComplete: current location is null");
                             Toast.makeText(MapsActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
-        }catch (SecurityException e){
-            Log.e(TAG, "getDeviceLocation: SecurityException: " + e.getMessage() );
+        } catch (SecurityException e) {
+            Log.e(TAG, "getDeviceLocation: SecurityException: " + e.getMessage());
         }
     }
 
-    private void moveCamera(LatLng latLng, float zoom){
-        Log.d(TAG, "moveCamera: moving the camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude );
+    private void moveCamera(LatLng latLng, float zoom) {
+        Log.d(TAG, "moveCamera: moving the camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onViewClicked() {
+        onBackPressed();
     }
 }
 

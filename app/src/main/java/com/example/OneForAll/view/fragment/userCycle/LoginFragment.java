@@ -58,6 +58,8 @@ public class LoginFragment extends BaSeFragment {
             }
         });
         String lang= Locale.getDefault().getLanguage(); // ar ,en
+//         Locale.setDefault(Locale.ENGLISH); // ar ,en
+//        Locale.setDefault(Locale.US); // ar ,en
         Toast.makeText(getActivity(), "lang  " + lang, Toast.LENGTH_SHORT).show();
         if(lang.equalsIgnoreCase("ar")){
 

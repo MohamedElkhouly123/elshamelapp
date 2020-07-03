@@ -185,7 +185,7 @@ public class SubCategory2ThFragment extends BaSeFragment {
                         Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
                                 + " load another.");
                         if (!adLoader.isLoading()) {
-                            showToast(getActivity(), "succes" );
+                            showToast(getActivity(), "load ads faild" );
                             loadNativeAds();
 //                            insertAdsInSubCategoryItems();
 //                            populateNativeAdView(unifiedNativeAd);
