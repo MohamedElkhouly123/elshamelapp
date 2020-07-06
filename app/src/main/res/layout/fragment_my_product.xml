@@ -353,7 +353,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-
+                        android:visibility="gone"
                         android:textColor="#F201B1FD"
                         android:elevation="@dimen/_8sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -378,7 +378,7 @@
 
                             android:backgroundTint="#EDEAFD"
 
-                            app:srcCompat="@drawable/like3"
+                            app:srcCompat="@drawable/ic_rate_review_black_24dp"
                             tools:ignore="VectorDrawableCompat" />
 
                         <TextView
@@ -386,7 +386,7 @@
                             android:layout_height="@dimen/_25sdp"
                             android:fontFamily="@font/lemon2"
                             android:gravity="bottom"
-                            android:text="@string/Like"
+                            android:text="@string/Rate"
                             android:textColor="#0057FF"
                             android:textSize="@dimen/_13ssp" />
 

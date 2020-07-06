@@ -99,7 +99,7 @@ public class CategoryFragment extends BaSeFragment {
         allItems.add(new ItemObjectModel("مشترواتى", R.drawable.category_my_shoping2));
         allItems.add(new ItemObjectModel("سوق الجمله", R.drawable.category_souq_elgomlah1));//   المصانع والشركات والتجار
         allItems.add(new ItemObjectModel("الحجز والايجار", R.drawable.category_egar1));
-//        allItems.add(new ItemObjectModel("مزاداتى", R.drawable.category_mazad4));
+        allItems.add(new ItemObjectModel("مزاداتى", R.drawable.category_mazad4));
         allItems.add(new ItemObjectModel("الوظائف والخدمات", R.drawable.category_wazaaf4)); // ابحث عن عمل ولا ابحث عن موظفين
 //        allItems.add(new ItemObjectModel("الصناعه والتجاره", R.drawable.flat));
         allItems.add(new ItemObjectModel("سوق الجرافيك والسوفتوير", R.drawable.software_category));
